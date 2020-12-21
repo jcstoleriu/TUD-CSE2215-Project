@@ -334,7 +334,8 @@ bool intersectNode(Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) {
     }
 
     return hit;
-  } else {
+  }
+  else {
     // Trace both halves
     bool leftIntersect = intersectNode(ray, hitInfo, current.indices[0], mesh);
     float leftT = ray.t;

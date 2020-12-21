@@ -94,6 +94,12 @@ bool intersectRayWithTriangle(const glm::vec3& v0, const glm::vec3& v1, const gl
   if (pointInTriangle(v0, v1, v2, plane.normal, ray.origin + ray.direction * ray.t) && ray.t <= oldT) {
     // We manually update the hit info normal
     hitInfo.normal = plane.normal;
+
+    // Turn the normal if it faces away from the ray origin
+    if (glm::dot(glm::normalize(ray.direction), plane.normal) > 0) {
+      hitInfo.normal *= -1;
+    }
+
     return true;
   }
 
@@ -133,6 +139,12 @@ bool intersectRayWithShape(const Sphere& sphere, Ray& ray, HitInfo& hitInfo) {
   }
 
   ray.t = newT;
+
+  // Update hit info
+  glm::vec3 point = ray.origin + ray.direction * ray.t;
+  hitInfo.normal = glm::normalize(point - sphere.center);
+  hitInfo.material = sphere.material;
+
   return true;
 }
 
@@ -164,5 +176,7 @@ bool intersectRayWithShape(const AxisAlignedBox& box, Ray& ray) {
   }
 
   ray.t = newT;
+
+  // I don't think hit info normal and material need to be updated here as a bounding box usually encapsulates something rather than it being the actual hit surface
   return true;
 }

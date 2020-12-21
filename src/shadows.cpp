@@ -45,7 +45,7 @@ bool hardShadows(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray ray
     //color / ((float)colors.size());
 }
 
-std::tuple<float, float> sampleSphere(const BoundingVolumeHierarchy& bvh, const SphericalLight& sphere, glm::vec3& point, Ray& ray, glm::vec3& normal) {
+std::tuple<float, float> sampleSphere(const BoundingVolumeHierarchy& bvh, const SphericalLight& sphere, glm::vec3& point, glm::vec3& normal) {
   glm::vec3 n = point - sphere.position;
   glm::vec3 nn = glm::normalize(n);
 
@@ -72,20 +72,14 @@ std::tuple<float, float> sampleSphere(const BoundingVolumeHierarchy& bvh, const 
     // Calculate the point on the circle
     glm::vec3 r = intersect + rRadius * glm::normalize(rDir);  // Random point
 
-    // TODO: Check if ray comes from behind the surface the point lies on
-
     Ray shadowRay = Ray{point + glm::normalize(r - point) * 0.01f, r - point, 1.0f};  // Small offset
-
-    // Turn the normal if it faces away from the ligt source
-    if (glm::dot(glm::normalize(ray.direction), normal) > 0) {
-      normal *= -1;
-    }
 
     HitInfo hitInfo;
     bvh.intersect(shadowRay, hitInfo);  // We ignore the return value
+
     // If we intersect t will be modified, if we hit the light t = 1
+    // We also ensure the shadow ray direction does not face away from the normal (light hits behind the surface)
     // We also draw a visual ray
-    // Floating point error correction
     if (std::abs(shadowRay.t - 1.0f) <= 1e-6 && glm::dot(glm::normalize(shadowRay.direction), normal) > 0) {
       hit++;
       drawRay(shadowRay, glm::vec3{1.0f, 1.0f, 1.0f});
@@ -96,18 +90,19 @@ std::tuple<float, float> sampleSphere(const BoundingVolumeHierarchy& bvh, const 
   }
 
   // We return the fraction hit and the distance
-  // Note that this is the distance from the light center to the point
+  // Note that this is the distance from the light center to the point and not the hit point
   return std::tuple{((float) hit) / SOFT_SHADOW_SAMPLE_COUNT, glm::length(n)};
 }
 
 glm::vec3 softShadows(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray& ray, glm::vec3 normal) {
   glm::vec3 point = ray.origin + ray.t * ray.direction;
+
   // Tuple: color, fraction, distance
   std::vector<std::tuple<glm::vec3, float, float>> results;
 
   // Get color, fraction visible and distance for each light source
   for (const SphericalLight& sphericalLight : scene.sphericalLight) {
-    std::tuple<float, float> sampleResult = sampleSphere(bvh, sphericalLight, point, ray, normal);
+    std::tuple<float, float> sampleResult = sampleSphere(bvh, sphericalLight, point, normal);
     results.push_back(std::tuple{sphericalLight.color, std::get<0>(sampleResult), std::get<1>(sampleResult)});
   }
 

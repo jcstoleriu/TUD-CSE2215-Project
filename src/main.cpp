@@ -40,17 +40,17 @@ enum class ViewMode {
 
 // NOTE(Mathijs): separate function to make recursion easier (could also be done with lambda + std::function).
 static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray ray, int depth) {
-    HitInfo hitInfo;
+  HitInfo hitInfo;
 
-    // We hit something so the ray and hitinfo should be updated
-    // We limit the amount of recursive calls to 2^7 to prevent infinite loops
-    // After that many calls we just pretend the reflection misses
-    if (bvh.intersect(ray, hitInfo) && depth < REFLECTION_MAX_TRACES) {
-        glm::vec3 color = phongShading(scene, hitInfo, ray);
-        color = glm::clamp(color, 0.0f, 1.0f);
+  // We hit something so the ray and hitinfo should be updated
+  // We limit the amount of recursive calls to 2^7 to prevent infinite loops, after that many calls we just pretend the reflected ray misses
+  if (depth < REFLECTION_MAX_TRACES && bvh.intersect(ray, hitInfo)) {
+    glm::vec3 color = glm::vec3{0.0f, 0.0f, 0.0f};
+    color = phongShading(scene, hitInfo, ray);
+    color = glm::clamp(color, 0.0f, 1.0f);
 
-        // Draw a white debug ray.
-        drawRay(ray, glm::vec3{1.0f, 1.0f, 1.0f});
+    // Draw a white debug ray.
+    drawRay(ray, glm::vec3{1.0f, 1.0f, 1.0f});
 
         // Shadows on the color intensity
         bool hard = hardShadows(scene, bvh, ray);
@@ -66,11 +66,12 @@ static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy
             glm::vec3 hitPoint = ray.origin + ray.direction * ray.t;
 
             // Reflection of ray direction over the given normal
-            glm::vec3 reflectionDir = ray.direction - 2 * glm::dot(ray.direction, normal) * normal;
+            // I don't know if the result is normalized so we do it manually anyways
+            glm::vec3 reflectionDir = glm::normalize(ray.direction - 2 * glm::dot(ray.direction, normal) * normal);
 
             // We give the reflection ray an offset of 0.01 * direction, otherwise we start inside of the triangle we hit
             // This may not be optimal
-            Ray reflRay = Ray{ hitPoint + reflectionDir * 0.01f, reflectionDir };
+            Ray reflRay = Ray{hitPoint + reflectionDir * 0.01f, reflectionDir};
 
             glm::vec3 reflecColor = getFinalColor(scene, bvh, reflRay, depth + 1);
 
@@ -78,18 +79,19 @@ static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy
         }
         return glm::clamp(color, 0.0f, 1.0f);
     }
-    else {
-        // Draw a red debug ray if the ray missed.
-        drawRay(ray, glm::vec3(1.0f, 0.0f, 0.0f));
-        // Set the color of the pixel to black if the ray misses.
-        return glm::vec3(0.0f);
-    }
+  else {
+    // Draw a red debug ray if the ray missed.
+    drawRay(ray, glm::vec3{1.0f, 0.0f, 0.0f});
+
+    // Set the color of the pixel to black if the ray misses.
+    return glm::vec3{0.0f, 0.0f, 0.0f};
+  }
 }
 
 // NOTE(Mathijs): separate function to make recursion easier (could also be done with lambda + std::function).
 static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray ray) {
-    // We track the number of recursive calls so it can be limited
-    return getFinalColor(scene, bvh, ray, 0);
+  // We track the number of recursive calls so it can be limited
+  return getFinalColor(scene, bvh, ray, 0);
 }
 
 static void setOpenGLMatrices(const Trackball& camera);
