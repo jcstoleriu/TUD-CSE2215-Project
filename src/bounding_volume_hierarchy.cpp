@@ -14,7 +14,6 @@ struct TriangleBox {
 
 std::vector<Node> tree;
 
-
 // Get all  nodes at a given level
 std::vector<Node> getNodesAtLevel(Node& root, int level) {
   std::vector<Node> nodes;
@@ -54,10 +53,8 @@ int size(Node& node) {
 
 // Surface area of an AABB
 float surface(const AxisAlignedBox& aabb) {
-  float dx = aabb.upper.x - aabb.lower.x;
-  float dy = aabb.upper.y - aabb.lower.y;
-  float dz = aabb.upper.z - aabb.lower.z;
-  return 2 * dx * dy + 2 * dx * dz + 2 * dy * dz;
+  glm::vec3 delta = aabb.upper - aabb.lower;
+  return 2 * delta.x * delta.y + 2 * delta.x * delta.z + 2 * delta.y * delta.z;
 }
 
 // Resize the AABB by expanding it if necessary
@@ -191,16 +188,19 @@ Node formTree(std::vector<TriangleBox>& triangles, int depth) {
     float coord;
     if (bestAxis == 0) {
       coord = center.x;
-    } else if (bestAxis == 1) {
+    }
+    else if (bestAxis == 1) {
       coord = center.y;
-    } else {
+    }
+    else {
       coord = center.z;
     }
 
     // See in which partition the triangle lies
     if (coord < bestSplit) {
       left.push_back(tb);
-    } else {
+    }
+    else {
       right.push_back(tb);
     }
   }
@@ -248,9 +248,9 @@ BoundingVolumeHierarchy::BoundingVolumeHierarchy(Scene* pScene): m_pScene(pScene
     // We create a tree for every mesh in the scene
     std::vector<TriangleBox> boxes;
     std::vector<Triangle>& triangles = meshes[i].triangles;
-    for (int j = 0; j < triangles.size(); j++) {
+    for (size_t j = 0; j < triangles.size(); j++) {
       AxisAlignedBox aabb = toBox(meshes[i], triangles[j]);
-      TriangleBox tb = TriangleBox{aabb, j};
+      TriangleBox tb = TriangleBox{aabb, static_cast<int>(j)};
       boxes.push_back(tb);
     }
 
@@ -276,7 +276,7 @@ void BoundingVolumeHierarchy::debugDraw(int level) {
   // Get the nodes
   std::vector<Node> nodes;
   std::vector<Mesh>& meshes = m_pScene -> meshes;
-  for (int i = 0; i < meshes.size(); i++) {
+  for (size_t i = 0; i < meshes.size(); i++) {
     // Get the nodes at the given level for each mesh
     std::vector<Node> nv = getNodesAtLevel(tree[tree.size() - meshes.size() + i], level);
     for (Node& nvn : nv) {
@@ -295,92 +295,80 @@ int BoundingVolumeHierarchy::numLevels() const {
   // The root nodes are the roots for each mesh
   int levels = 0;
   std::vector<Mesh>& meshes = m_pScene -> meshes;
-  for (int i = 0; i < meshes.size(); i++) {
+  for (size_t i = 0; i < meshes.size(); i++) {
     levels = std::max(levels, size(tree[tree.size() - meshes.size() + i]));
   }
 
   return levels;
 }
 
+bool intersectNode(Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) {
+  const Node& current = tree[index];
+  bool hit = false;
+  float oldT = ray.t;
+
+  // Ray does not intersect this node
+  if (!intersectRayWithShape(current.aabb, ray)) {
+    return false;
+  }
+
+  // Reset t for further intersect calculations
+  ray.t = oldT;
+
+  // Leaf node
+  if (current.leaf) {
+    // For each triangle in the node
+    for (int i : current.indices) {
+      const Triangle& tri = mesh.triangles[i];
+      const Vertex& v0 = mesh.vertices[tri[0]];
+      const Vertex& v1 = mesh.vertices[tri[1]];
+      const Vertex& v2 = mesh.vertices[tri[2]];
+
+      // Triangle intersection
+      if (intersectRayWithTriangle(v0.p, v1.p, v2.p, ray, hitInfo)) {
+        hitInfo.material = mesh.material;
+        hit = true;
+      }
+    }
+
+    return hit;
+  } else {
+    // Trace both halves
+    bool leftIntersect = intersectNode(ray, hitInfo, current.indices[0], mesh);
+    float leftT = ray.t;
+    ray.t = oldT;
+    bool rightIntersect = intersectNode(ray, hitInfo, current.indices[1], mesh);
+    float rightT = ray.t;
+    ray.t = oldT;
+
+    // No intersection
+    if (!leftIntersect && !rightIntersect) {
+      return false;
+    }
+
+    ray.t = std::min(leftT, rightT);
+    return true;
+  }
+}
+
 // Return true if something is hit, returns false otherwise. Only find hits if they are closer than t stored
 // in the ray and if the intersection is on the correct side of the origin (the new t >= 0). Replace the code
 // by a bounding volume hierarchy acceleration structure as described in the assignment. You can change any
 // file you like, including bounding_volume_hierarchy.h .
-bool BoundingVolumeHierarchy::intersect(Ray& ray, HitInfo& hitInfo) const
-{
-    bool hit = false;
-    std::vector<Mesh>& meshes = m_pScene->meshes;
-    for (int i = 0; i < meshes.size(); i++) {
-        Node root = tree[tree.size() - meshes.size() + i];
-        hit |= intersect( ray, hitInfo,tree.size() - meshes.size() + i, meshes[i]);
-    }
-     //Intersect with spheres.
-    for (const auto& sphere : m_pScene->spheres)
-       hit |= intersectRayWithShape(sphere, ray, hitInfo);
-    return hit;
+bool BoundingVolumeHierarchy::intersect(Ray& ray, HitInfo& hitInfo) const {
+  bool hit = false;
+
+  // For each mesh
+  std::vector<Mesh>& meshes = m_pScene -> meshes;
+  for (size_t i = 0; i < meshes.size(); i++) {
+    hit |= intersectNode(ray, hitInfo, tree.size() - meshes.size() + i, meshes[i]);
+  }
+
+  // For each sphere
+  // Spheres are not part of the BVH
+  for (const Sphere& sphere : m_pScene -> spheres) {
+    hit |= intersectRayWithShape(sphere, ray, hitInfo);
+  }
+
+  return hit;
 }
-
-bool BoundingVolumeHierarchy::intersect( Ray& ray, HitInfo& hitInfo,size_t index, const Mesh& mesh) const {
-    const Node& current = tree[index];
-    bool hit = false;
-    float rayt = ray.t;
-
-    if (current.leaf == false) {
-        const Node& leftChild = tree[current.indices[0]];
-        const Node& rightChild = tree[current.indices[1]];
-
-        bool leftChildHit = intersectRayWithShape(leftChild.aabb, ray);
-        ray.t = rayt;
-
-        bool rightChildHit = intersectRayWithShape(rightChild.aabb, ray);
-        ray.t = rayt;
-
-        if (leftChildHit && rightChildHit) {
-            hit = false;
-
-            hit |= intersect(ray, hitInfo, current.indices[0], mesh);
-            hit |= intersect(ray, hitInfo, current.indices[1], mesh);
-
-            return hit;
-        }
-        else if (leftChildHit) {
-            return intersect(ray, hitInfo, current.indices[0], mesh);
-        }
-        else if (rightChildHit) {
-            return intersect(ray, hitInfo, current.indices[1], mesh);
-        }
-    }
-    else {
-        hit = false;
-
-        for (auto index1 : current.indices) {
-            const auto& tri = mesh.triangles[index1];
-
-            const auto& v0 = mesh.vertices[tri[0]];
-            const auto& v1 = mesh.vertices[tri[1]];
-            const auto& v2 = mesh.vertices[tri[2]];
-
-            if (intersectRayWithTriangle(v0.p, v1.p, v2.p, ray, hitInfo)) {
-                hitInfo.material = mesh.material;
-                hit = true;
-            }
-        }
-        if (hit == true) {
-            return true;
-        }
-    }
-    ray.t = rayt;
-    return hit;
-
-}
-
-    
-
-
-
-
-
-
-
-
-

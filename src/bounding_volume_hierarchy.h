@@ -24,10 +24,6 @@ public:
     // is on the correct side of the origin (the new t >= 0).
     bool intersect(Ray& ray, HitInfo& hitInfo) const;
 
-    bool intersect( Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) const;
-
-  
-
 private:
     Scene* m_pScene;
 };

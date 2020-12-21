@@ -15,191 +15,156 @@ DISABLE_WARNINGS_POP()
 #include "ray.h"
 
 
-bool pointInTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& n, const glm::vec3& p)
-{
-    //total area of triangle
-    glm::vec3 crossProduct = glm::cross((v1 - v0), (v2 - v0));
-    float length = glm::length(crossProduct);
-    float area = length / 2;
-
-    //area of small triangle 1
-    glm::vec3 crossProduct1 = glm::cross((v2 - v1), (p - v1));
-    float u = glm::length(crossProduct1) / 2;
-
-    //area of small triangle 2
-    glm::vec3 crossProduct2 = glm::cross((v0 - v2), (p - v2));
-    float v = glm::length(crossProduct2) / 2;
-
-    //area of small triangle 3
-    glm::vec3 crossProduct3 = glm::cross((v1 - v0), (p - v0));
-    float w = glm::length(crossProduct3) / 2;
-
-    //if area of 3 triangles is equal to total area then point is inside, else it is outside
-    bool result = glm::abs(area - u - v - w) < 1e-6;
-
-
-    return result;
+// Util method to compare floats with a 1e-6 error margin
+bool eq(float f0, float f1) {
+  return std::abs(f0 - f1) < 1e-6;
 }
 
-bool intersectRayWithPlane(const Plane& plane, Ray& ray)
-{
-    float denominator = glm::dot(ray.direction, plane.normal);
+bool pointInTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& n, const glm::vec3& p) {
+  // ~ MAGIC ~
+  // This is a rewrite of P = v0 + u * (v1 - v0) + v * (v2 - v0)
+  // Where
+  // - v0, v1 and v2 are the triangle's vertices
+  // - P is a point in the triangle IFF u >= 0, v >= 0 and u + v <= 1
+  // We are solving for u and v for a given point P and checking the constraints
+  glm::vec3 a = v2 - v0;
+  glm::vec3 b = v1 - v0;
+  glm::vec3 c = p - v0;
 
-    //checking if ray and plane are parallel
-    if (glm::abs(denominator) < 1e-6) {
-        return false;
-    }
+  float f = glm::dot(a, a);
+  float g = glm::dot(a, b);
+  float h = glm::dot(a, c);
+  float i = glm::dot(b, b);
+  float j = glm::dot(b, c);
 
-    float numerator = plane.D - glm::dot(ray.origin, plane.normal);
+  float denom = f * i - g * g;
+  float u = (i * h - g * j) / denom;
+  float v = (f * j - g * h) / denom;
 
-    float t = numerator / denominator;
+  return u >= 0 && v >= 0 && u + v <= 1;
+}
 
-    //only positive values of t as we want to ray to be in front
-    if (t >= 0) {
-        if (t < ray.t) {
-            ray.t = t;
-            return true;
-        }
-    }
+bool intersectRayWithPlane(const Plane& plane, Ray& ray) {
+  glm::vec3 p = plane.normal * plane.D;  // Point on the plane
+  float f = glm::dot(ray.direction, plane.normal);
+  float g = glm::dot((p - ray.origin), plane.normal);
+
+  // Ray is parallel to plane and not inside plane
+  if (eq(f, 0) && !eq(g, 0)) {
     return false;
+  }
+
+  // Here we give t the value 0 IFF the ray is parallel and inside the plane
+  // This is not a perfect solution
+  float t = eq(g, 0) ? 0 : g / f;
+
+  // Behind the camera
+  if (t < 0) {
+    return false;
+  }
+
+  ray.t = t;
+  return true;
 }
 
-Plane trianglePlane(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2)
-{
-    Plane plane;
+Plane trianglePlane(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2) {
+  glm::vec3 a = v0 - v2;
+  glm::vec3 b = v1 - v2;
+  glm::vec3 normal = glm::normalize(glm::cross(a, b));
+  float d = glm::dot(normal, v0);
 
-    plane.normal = glm::cross((v0 - v2), (v1 - v2)) / glm::length(glm::cross((v0 - v2), (v1 - v2)));
-    plane.D = glm::dot(plane.normal, v0);
-
-    return plane;
+  // Note that d can be negative so we invert the normal and take its absolute value if thats the case This should not matter for calculations, but we do it anyways
+  return Plane{glm::abs(d), normal * (d < 0 ? -1.0f : 1.0f)};
 }
 
 /// Input: the three vertices of the triangle
-/// Output: if intersects then modify the hit parameter ray.t and return true, otherwise return false
-bool intersectRayWithTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, Ray& ray, HitInfo& hitInfo)
-{
-    //calculate the plane containing the triangle
-    Plane plane = trianglePlane(v0, v1, v2);
+/// Output: if intersects then modify the hit parameter ray.t and return true,
+/// otherwise return false
+bool intersectRayWithTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, Ray& ray, HitInfo& hitInfo) {
+  Plane plane = trianglePlane(v0, v1, v2);
 
-    float temp = ray.t;
+  // We save the old value
+  float oldT = ray.t;
 
-    //calculate the intersection point of the ray and the plane
-    bool intersection = intersectRayWithPlane(plane, ray);
-    if (intersection == true) {
-        glm::vec3 p = ray.origin + ray.direction * ray.t;
-        //check if the point is inside the triangle
-        bool result = pointInTriangle(v0, v1, v2, plane.normal, p);
-
-        if (temp < ray.t || glm::length(temp * ray.direction) < glm::length(ray.t * ray.direction)) {
-            ray.t = temp;
-        }
-        if (result == true) {
-            hitInfo.normal = plane.normal;
-            return true;
-        }
-        else {
-            //roll back the ray.t
-            ray.t = temp;
-            return false;
-        }
-    }
+  if (!intersectRayWithPlane(plane, ray)) {
     return false;
+  }
+
+  // Ray hits the triangle and the triangle is closer than the previous value
+  if (pointInTriangle(v0, v1, v2, plane.normal, ray.origin + ray.direction * ray.t) && ray.t <= oldT) {
+    // We manually update the hit info normal
+    hitInfo.normal = plane.normal;
+    return true;
+  }
+
+  // Rollback
+  ray.t = oldT;
+
+  return false;
 }
-
-
 
 /// Input: a sphere with the following attributes: sphere.radius, sphere.center
-/// Output: if intersects then modify the hit parameter ray.t and return true, otherwise return false
-bool intersectRayWithShape(const Sphere& sphere, Ray& ray, HitInfo& hitInfo)
-{
-    glm::vec3 temp = ray.origin;
-    ray.origin = ray.origin - sphere.center;
-    float A = (ray.direction.x * ray.direction.x) + (ray.direction.y * ray.direction.y) + (ray.direction.z * ray.direction.z);
-    float B = 2 * ((ray.direction.x * ray.origin.x) + (ray.direction.y * ray.origin.y) + (ray.direction.z * ray.origin.z));
-    float C = (ray.origin.x * ray.origin.x) + (ray.origin.y * ray.origin.y) + (ray.origin.z * ray.origin.z) - (sphere.radius * sphere.radius);
+/// Output: if intersects then modify the hit parameter ray.t and return true,
+/// otherwise return false
+bool intersectRayWithShape(const Sphere& sphere, Ray& ray, HitInfo& hitInfo) {
+  float det = std::pow(2 * glm::dot(ray.direction, ray.origin - sphere.center), 2) - 4 * std::pow(glm::length(ray.direction), 2) * (std::pow(glm::length(ray.origin - sphere.center), 2) - std::pow(sphere.radius, 2));
 
+  // No intersection
+  if (det < 0) {
+    return false;
+  }
 
-    float discriminant = sqrt((B * B) - (4 * A * C));
+  float base = -2 * glm::dot(ray.direction, ray.origin - sphere.center);
+  float denom = 2 * std::pow(glm::length(ray.direction), 2);
+  float t0 = (base - std::sqrt(det)) / denom;
+  float t1 = (base + std::sqrt(det)) / denom;
 
-    float t = 0.0f;
+  // Behind origin
+  if (t0 < 0 && t1 < 0) {
+    return false;
+  }
 
-    //the different possibilities of discriminants
-    if (discriminant > 0) {
-        float t0 = (-B + discriminant) / (2 * A);
-        float t1 = (-B - discriminant) / (2 * A);
-        if (t0 < 0) {
-            t0 = 100000.0f;
-        }
-        if (t1 < 0) {
-            t1 = 100000.0f;
-        }
-        t = glm::min(t0, t1);
-    }
-    else if (discriminant == 0) {
-        t = -B / (2 * A);
-    }
-    else {
-        ray.origin = temp;
-        return false;
-    }
+  // Smallest positive
+  float newT = t0 < 0 ? t1 : (t1 < 0 ? t0 : std::min(t0, t1));
 
-    ray.origin = temp;
-    float temp2 = ray.t;
-    ray.t = t;
-    if (temp2 < ray.t || glm::length(temp2 * ray.direction) < glm::length(ray.t * ray.direction)) {
-        ray.t = temp2;
-    }
-    glm::vec3 p = ray.origin + ray.t * ray.direction;
-    hitInfo.normal = glm::normalize(p - sphere.center);
-    hitInfo.material = sphere.material;
-    return true;
+  // Too far away
+  if (ray.t < newT) {
+    return false;
+  }
+
+  ray.t = newT;
+  return true;
 }
 
-/// Input: an axis-aligned bounding box with the following parameters: minimum coordinates box.lower and maximum coordinates box.upper
-/// Output: if intersects then modify the hit parameter ray.t and return true, otherwise return false
-bool intersectRayWithShape(const AxisAlignedBox& box, Ray& ray)
-{
-    float txmin = (box.lower.x - ray.origin.x) / ray.direction.x;
-    float txmax = (box.upper.x - ray.origin.x) / ray.direction.x;
+/// Input: an axis-aligned bounding box with the following parameters: minimum
+/// coordinates box.lower and maximum coordinates box.upper Output: if
+/// intersects then modify the hit parameter ray.t and return true, otherwise
+/// return false
+bool intersectRayWithShape(const AxisAlignedBox& box, Ray& ray) {
+  // If 1 or 2 direction components are 0 this should still work because the
+  // infinities are filtered out on intersection with min/max functions and else
+  // tin > tout will not hold
+  glm::vec3 a = (box.lower - ray.origin) / ray.direction;
+  glm::vec3 b = (box.upper - ray.origin) / ray.direction;
+  float tin = std::max({std::min(a.x, b.x), std::min(a.y, b.y), std::min(a.z, b.z)});
+  float tout = std::min({std::max(a.x, b.x), std::max(a.y, b.y), std::max(a.z, b.z)});
 
-    float tymin = (box.lower.y - ray.origin.y) / ray.direction.y;
-    float tymax = (box.upper.y - ray.origin.y) / ray.direction.y;
+  // Miss
+  if (tin > tout || tout < 0) {
+    return false;
+  }
 
-    float tzmin = (box.lower.z - ray.origin.z) / ray.direction.z;
-    float tzmax = (box.upper.z - ray.origin.z) / ray.direction.z;
+  // If tin < 0 then we are inside the box and the first intersection in front
+  // of the origin will be the outgoing point
+  float newT = tin < 0 ? tout : tin;
 
-    float tinx = glm::min(txmin, txmax);
-    float toutx = glm::max(txmin, txmax);
+  // Too far away
+  if (ray.t < newT) {
+    return false;
+  }
 
-    float tiny = glm::min(tymin, tymax);
-    float touty = glm::max(tymin, tymax);
-
-    float tinz = glm::min(tzmin, tzmax);
-    float toutz = glm::max(tzmin, tzmax);
-
-    float tin = std::max({ tinx, tiny,tinz });
-    float tout = std::min({ toutx, touty, toutz });
-
-    //check validity of tin
-    if (tin > tout || tout < 0) {
-        return false;
-    }
-
-    //check if the ray is intersecting inside the cube as well
-    if (tin < 0) {
-        ray.t = tout;
-        return true;
-    }
-
-
-    float temp = ray.t;
-    ray.t = tin;
-
-    if (temp < ray.t || glm::length(temp * ray.direction) < glm::length(ray.t * ray.direction)) {
-        ray.t = temp;
-    }
-
-    return true;
+  ray.t = newT;
+  return true;
 }
 
 
