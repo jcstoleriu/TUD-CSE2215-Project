@@ -26,6 +26,8 @@ DISABLE_WARNINGS_POP()
 #include <omp.h>
 #endif
 
+#define REFLECTION_MAX_TRACES (1 << 7)
+
 // This is the main application. The code in here does not need to be modified.
 constexpr glm::ivec2 windowResolution{ 800, 800 };
 const std::filesystem::path dataPath{ DATA_DIR };
@@ -36,80 +38,6 @@ enum class ViewMode {
     RayTracing = 1
 };
 
-static std::tuple<float, float> sampleSphere(const BoundingVolumeHierarchy& bvh, const SphericalLight& sphere, glm::vec3& point, glm::vec3 normal, Ray& ray) {
-  glm::vec3 n = point - sphere.position;
-  glm::vec3 nn = glm::normalize(n);
-
-  // Calculate the circle we intersect
-  // We calculate its center, radius and normal
-  float d = sphere.radius / (((glm::length(n) - sphere.radius) / sphere.radius) + 1); // Distance from point to sphere has a relation to distance between intersecting plane and sphere center
-  glm::vec3 intersect = sphere.position + d * nn;
-  float rad = std::sqrt(std::pow(sphere.radius, 2) - std::pow(glm::length(intersect - sphere.position), 2));
-
-  // We generate and trace a given amount of samples and we calculate what fraction hits
-  int samples = 1 << 6; // This may be too much
-  int hit = 0;
-  for (int i = 0; i < samples; i++) {
-    // Generate a random ray
-    // Random radius
-    float rRadius = rad * std::sqrt(((float) std::rand()) / RAND_MAX); // We use sqrt to ensure the random points are evenly destributed
-
-    // Random vector perpendicular to the normal
-    glm::vec3 tangent = glm::cross(nn, glm::vec3{-nn.z, nn.x, nn.y});
-    glm::vec3 bitangent = glm::cross(nn, tangent);
-    float randAngle = (((float) std::rand()) / RAND_MAX) * std::atan(1) * 8; // Value between 0 and 2 PI
-    glm::vec3 rDir = tangent * std::sin(randAngle) + bitangent * std::cos(randAngle);
-
-    // Calculate the point on the circle
-    glm::vec3 r = intersect + rRadius * glm::normalize(rDir); // Random point
-
-    // TODO: Check if ray comes from behind the surface the point lies on
-
-    Ray shadowRay = Ray{point + glm::normalize(r - point) * 0.01f, r - point, 1.0f}; // Small offset
-
-    // Turn the normal if it faces away from the ligt source
-    if (glm::dot(glm::normalize(ray.direction), normal) > 0) {
-        normal *= -1;
-    }
-
-    HitInfo hitInfo;
-    bvh.intersect(shadowRay, hitInfo); // We ignore the return value
-    // If we intersect t will be modified, if we hit the light t = 1
-    // We also draw a visual ray
-    // Floating point error correction
-    if (std::abs(shadowRay.t - 1.0f) <= 1e-6 && glm::dot(glm::normalize(shadowRay.direction), normal) > 0) {
-      hit++;
-      drawRay(shadowRay, glm::vec3{1.0f, 1.0f, 1.0f});
-    }
-    else {
-      drawRay(shadowRay, glm::vec3{1.0f, 0.0f, 0.0f});
-    }
-  }
-
-  // We return the fraction hit and the distance
-  // Note that this is the distance from the light center to the point
-  return std::tuple{((float) hit) / samples, glm::length(n)};
-}
-
-static glm::vec3 softShadow(const Scene& scene, const BoundingVolumeHierarchy& bvh, glm::vec3 normal, Ray& ray) {
-    glm::vec3 point = ray.origin + ray.t * ray.direction;
-    std::vector<std::tuple<glm::vec3, float, float>> results;
-    
-    // Get color, fraction visible and distance for each light source
-    for (SphericalLight sphericalLight : scene.sphericalLight) {
-      std::tuple<float, float> sampleResult = sampleSphere(bvh, sphericalLight, point, normal, ray);
-      results.push_back(std::tuple{sphericalLight.color, std::get<0>(sampleResult), std::get<1>(sampleResult)});
-    }
-
-    // Average
-    glm::vec3 sum = glm::vec3{0, 0, 0};
-    for (std::tuple<glm::vec3, float, float>& result : results) {
-      // TODO: Use distance in calculations
-      sum += (std::get<0>(result) * std::get<1>(result) / std::pow(std::get<2>(result), 2));
-    }
-    return sum / ((float) results.size());
-}
-
 // NOTE(Mathijs): separate function to make recursion easier (could also be done with lambda + std::function).
 static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray ray, int depth) {
     HitInfo hitInfo;
@@ -117,7 +45,7 @@ static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy
     // We hit something so the ray and hitinfo should be updated
     // We limit the amount of recursive calls to 2^7 to prevent infinite loops
     // After that many calls we just pretend the reflection misses
-    if (bvh.intersect(ray, hitInfo) && depth < (1 << 7)) {
+    if (bvh.intersect(ray, hitInfo) && depth < REFLECTION_MAX_TRACES) {
         glm::vec3 color = phongShading(scene, hitInfo, ray);
         color = glm::clamp(color, 0.0f, 1.0f);
 
@@ -126,7 +54,7 @@ static glm::vec3 getFinalColor(const Scene& scene, const BoundingVolumeHierarchy
 
         // Shadows on the color intensity
         bool hard = hardShadows(scene, bvh, ray);
-        glm::vec3 soft = softShadow(scene, bvh, hitInfo.normal, ray);
+        glm::vec3 soft = softShadows(scene, bvh, ray, hitInfo.normal);
         color *= glm::clamp(soft, 0.0f, 1.0f);
         
         // If Ks is not black (glm::vec3{0, 0, 0} has magnitude 0)

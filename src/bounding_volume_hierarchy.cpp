@@ -5,6 +5,8 @@
 #include <cmath>
 #include <limits>
 
+#define BVH_SPLIT_STEPS 16
+
 
 // Struct to help create the tree
 struct TriangleBox {
@@ -113,7 +115,7 @@ Node formTree(std::vector<TriangleBox>& triangles, int depth) {
     }
 
     // 16 bins evenly distributed
-    float step = (u - l) / 16;
+    float step = (u - l) / BVH_SPLIT_STEPS;
 
     // For each step
     for (float f = l + step; f <= u - step; f += step) {
