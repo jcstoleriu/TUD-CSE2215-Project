@@ -145,6 +145,11 @@ bool intersectRayWithShape(const Sphere& sphere, Ray& ray, HitInfo& hitInfo) {
   hitInfo.normal = glm::normalize(point - sphere.center);
   hitInfo.material = sphere.material;
 
+  // Turn the normal if it faces away from the ray origin
+  if (glm::dot(glm::normalize(ray.direction), hitInfo.normal) > 0) {
+    hitInfo.normal *= -1;
+  }
+
   return true;
 }
 
@@ -177,6 +182,6 @@ bool intersectRayWithShape(const AxisAlignedBox& box, Ray& ray) {
 
   ray.t = newT;
 
-  // I don't think hit info normal and material need to be updated here as a bounding box usually encapsulates something rather than it being the actual hit surface
+  // No material and surface normal are set, because a bounding box does not store those
   return true;
 }

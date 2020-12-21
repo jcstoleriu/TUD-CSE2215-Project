@@ -17,148 +17,104 @@ DISABLE_WARNINGS_POP()
 
 #define SOFT_SHADOW_SAMPLE_COUNT (1 << 6)
 
+bool traceShadowRay(const BoundingVolumeHierarchy& bvh, const glm::vec3& point, const glm::vec3& light, const glm::vec3& normal) {
+  glm::vec3 direction = light - point;
+  glm::vec3 directionn = glm::normalize(direction);
+  Ray ray = Ray{point + directionn * 0.01f, directionn, glm::length(direction)};
+  HitInfo hitInfo;
 
-bool hardShadows(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray ray) {
-    glm::vec3 point = ray.origin + ray.t * ray.direction;
-    HitInfo hitInfo;
-    std::vector<std::tuple<glm::vec3, float>> colors;
-    for (PointLight light : scene.pointLights) {
-        glm::vec3 direction = glm::normalize(light.position - point);
-        float distance = glm::length(light.position - point);
-
-        Ray shadow = Ray{point + 0.01f * direction, direction, distance};
-        if (bvh.intersect(shadow, hitInfo)) {
-            //drawRay(shadow, glm::vec3(1.0f, 0.0f, 0.0f));
-        }
-        else {
-            // At least one light is visible so no hard shadow
-            colors.push_back(std::tuple<glm::vec3, float>{light.color, distance});
-            //drawRay(shadow, glm::vec3{1.0f, 1.0f, 1.0f});
-        }
-    }
-
-    glm::vec3 color = glm::vec3{0.0f, 0.0f, 0.0f};
-    for (std::tuple<glm::vec3, float> tuple : colors) {
-      color += std::get<0>(tuple) / std::pow(std::get<1>(tuple), 2);
-    }
+  // Light is not visible
+  if (glm::dot(directionn, normal) < 0 || bvh.intersect(ray, hitInfo)) {
+    drawRay(ray, glm::vec3{1.0f, 0.0f, 0.0f});
     return true;
-    //color / ((float)colors.size());
+  }
+
+  drawRay(ray, glm::vec3{1.0f, 1.0f, 1.0f});
+  return false;
 }
 
-std::tuple<float, float> sampleSphere(const BoundingVolumeHierarchy& bvh, const SphericalLight& sphere, glm::vec3& point, glm::vec3& normal) {
-  glm::vec3 n = point - sphere.position;
+bool hardShadow(const BoundingVolumeHierarchy& bvh, const HitInfo& hitInfo, const glm::vec3& point, const glm::vec3& light) {
+  return traceShadowRay(bvh, point, light, hitInfo.normal);
+}
+
+float softShadow(const BoundingVolumeHierarchy& bvh, const HitInfo& hitInfo, const glm::vec3& point, const glm::vec3& light, const float& radius) {
+  glm::vec3 n = point - light;
   glm::vec3 nn = glm::normalize(n);
 
   // Calculate the circle we intersect
   // We calculate its center, radius and normal
-  float d = sphere.radius / (((glm::length(n) - sphere.radius) / sphere.radius) + 1);  // Distance from point to sphere has a relation to distance between intersecting plane and sphere center
-  glm::vec3 intersect = sphere.position + d * nn;
-  float rad = std::sqrt(std::pow(sphere.radius, 2) - std::pow(glm::length(intersect - sphere.position), 2));
+  float d = radius / (((glm::length(n) - radius) / radius) + 1);  // Distance from point to sphere has a relation to distance between intersecting plane and sphere center
+  glm::vec3 intersect = light + d * nn;
+  float rad = std::sqrt(std::pow(radius, 2) - std::pow(glm::length(intersect - light), 2));
 
-  // We generate and trace a given amount of samples and we calculate what
-  // fraction hits
+  // We generate and trace a given amount of samples and we calculate what fraction hits
   int hit = 0;
   for (int i = 0; i < SOFT_SHADOW_SAMPLE_COUNT; i++) {
     // Generate a random ray
+
     // Random radius
-    float rRadius = rad * std::sqrt(((float) std::rand()) / RAND_MAX);  // We use sqrt to ensure the random points are evenly destributed
+    float rRadius = rad * std::sqrt(((float) std::rand()) / RAND_MAX);  // We use sqrt to ensure the random points are evenly distributed
 
     // Random vector perpendicular to the normal
     glm::vec3 tangent = glm::cross(nn, glm::vec3{-nn.z, nn.x, nn.y});
     glm::vec3 bitangent = glm::cross(nn, tangent);
-    float randAngle = (((float)std::rand()) / RAND_MAX) * std::atan(1) * 8;  // Value between 0 and 2 PI
-    glm::vec3 rDir = tangent * std::sin(randAngle) + bitangent * std::cos(randAngle);
+    float randAngle = (((float) std::rand()) / RAND_MAX) * std::atan(1) * 8;  // Value between 0 and 2 PI
+    glm::vec3 rDir = glm::normalize(tangent * std::sin(randAngle) + bitangent * std::cos(randAngle));
 
     // Calculate the point on the circle
-    glm::vec3 r = intersect + rRadius * glm::normalize(rDir);  // Random point
+    glm::vec3 r = intersect + rRadius * rDir;  // Random point
 
-    Ray shadowRay = Ray{point + glm::normalize(r - point) * 0.01f, r - point, 1.0f};  // Small offset
-
-    HitInfo hitInfo;
-    bvh.intersect(shadowRay, hitInfo);  // We ignore the return value
-
-    // If we intersect t will be modified, if we hit the light t = 1
-    // We also ensure the shadow ray direction does not face away from the normal (light hits behind the surface)
-    // We also draw a visual ray
-    if (std::abs(shadowRay.t - 1.0f) <= 1e-6 && glm::dot(glm::normalize(shadowRay.direction), normal) > 0) {
+    // Shadow ray does not intersect
+    if (!traceShadowRay(bvh, point, r, hitInfo.normal)) {
       hit++;
-      drawRay(shadowRay, glm::vec3{1.0f, 1.0f, 1.0f});
-    }
-    else {
-      drawRay(shadowRay, glm::vec3{1.0f, 0.0f, 0.0f});
     }
   }
 
-  // We return the fraction hit and the distance
-  // Note that this is the distance from the light center to the point and not the hit point
-  return std::tuple{((float) hit) / SOFT_SHADOW_SAMPLE_COUNT, glm::length(n)};
+  // We return the fraction hit
+  return ((float) hit) / SOFT_SHADOW_SAMPLE_COUNT;
 }
 
-glm::vec3 softShadows(const Scene& scene, const BoundingVolumeHierarchy& bvh, Ray& ray, glm::vec3 normal) {
-  glm::vec3 point = ray.origin + ray.t * ray.direction;
+// TODO: Allow color calc from rays hitting the hit surface from behind
+glm::vec3 phongPart(const HitInfo& hitInfo, const glm::vec3& point, const glm::vec3 light, const glm::vec3& view, const glm::vec3& color) {
+  glm::vec3 n = glm::normalize(hitInfo.normal);
+  glm::vec3 l = glm::normalize(light - point);
+  glm::vec3 v = glm::normalize(view - point);
+  glm::vec3 r = glm::normalize(2 * glm::dot(l, n) * n - l);
 
-  // Tuple: color, fraction, distance
-  std::vector<std::tuple<glm::vec3, float, float>> results;
+  // Diffuse component
+  glm::vec3 diffuse = hitInfo.material.kd * glm::max(glm::dot(l, n), 0.0f) * color;
 
-  // Get color, fraction visible and distance for each light source
-  for (const SphericalLight& sphericalLight : scene.sphericalLight) {
-    std::tuple<float, float> sampleResult = sampleSphere(bvh, sphericalLight, point, normal);
-    results.push_back(std::tuple{sphericalLight.color, std::get<0>(sampleResult), std::get<1>(sampleResult)});
+  // Specular component
+  glm::vec3 specular = glm::vec3{0.0f, 0.0f, 0.0f};
+
+  if (glm::dot(l, n) > 0) {
+    specular = hitInfo.material.ks * glm::pow(glm::max(glm::dot(r, v), 0.0f), hitInfo.material.shininess) * color;
   }
 
-  // Average
-  glm::vec3 sum = glm::vec3{0, 0, 0};
-  for (std::tuple<glm::vec3, float, float>& result : results) {
-    sum += (std::get<0>(result) * std::get<1>(result) / std::pow(std::get<2>(result), 2));
-  }
-  return sum / ((float) results.size());
+  return diffuse + specular;
 }
 
 // Here we are just doing the phongShading
-glm::vec3 phongShading(const Scene& scene, const HitInfo hitInfo, const Ray& ray) {
-  glm::vec3 hit = ray.origin + ray.t * ray.direction;
+glm::vec3 phongShading(const Scene& scene, const BoundingVolumeHierarchy& bvh, const HitInfo& hitInfo, const Ray& ray) {
+  glm::vec3 point = ray.origin + ray.direction * ray.t;
+  glm::vec3 color = glm::vec3{0.0f, 0.0f, 0.0f};
 
-  glm::vec3 normal = glm::normalize(hitInfo.normal);
-  glm::vec3 colour(0, 0, 0);
-  for (PointLight lights : scene.pointLights) {
-    glm::vec3 light = lights.position - hit;
-    light = glm::normalize(light);
+  // Note that we ignore ambient color
 
-    // calculate the diffuse
-    glm::vec3 diffuse = hitInfo.material.kd *
-                        glm::max(glm::dot(normal, light), 0.0f) * lights.color;
-
-    glm::vec3 view = glm::normalize(ray.origin - hit);
-    float dot1 = glm::dot(normal, light);
-    float dot2 = glm::dot(normal, view);
-    if (dot1 * dot2 <= 0.0f) {
-      continue;
+  // Point lights
+  for (const PointLight& light : scene.pointLights) {
+    if (!hardShadow(bvh, hitInfo, point, light.position)) {
+      color += phongPart(hitInfo, point, light.position, ray.origin, light.color);
     }
-    glm::vec3 reflected = glm::reflect(-light, normal);
-    float spec = glm::pow(glm::max(glm::dot(view, reflected), 0.0f),
-                          hitInfo.material.shininess);
-    // calculating the specular
-    glm::vec3 specular = hitInfo.material.ks * spec;
-
-    colour += (diffuse + specular);
   }
 
-  for (SphericalLight sphericalLight : scene.sphericalLight) {
-    glm::vec3 light = sphericalLight.position - hit;
-    light = glm::normalize(light);
-    glm::vec3 view = glm::normalize(ray.origin - hit);
-    float dot1 = glm::dot(normal, light);
-    float dot2 = glm::dot(normal, view);
-    if (dot1 * dot2 <= 0.0f) {
-      continue;
+  // Spherical lights
+  for (const SphericalLight& light : scene.sphericalLight) {
+    float soft = softShadow(bvh, hitInfo, point, light.position, light.radius);
+    if (soft > 0) {
+      color += phongPart(hitInfo, point, light.position, ray.origin, light.color * soft);
     }
-
-    // calculate the diffuse
-    glm::vec3 diffuse = hitInfo.material.kd *
-                        glm::max(glm::dot(normal, light), 0.0f) *
-                        sphericalLight.color;
-    colour += diffuse;
   }
 
-  return colour;
+  return color;
 }

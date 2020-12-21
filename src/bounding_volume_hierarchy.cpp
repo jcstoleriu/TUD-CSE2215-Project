@@ -6,7 +6,7 @@
 #include <limits>
 
 #define BVH_SPLIT_STEPS 16
-
+#define BVH_MAX_DEPTH (1 << 6)
 
 // Struct to help create the tree
 struct TriangleBox {
@@ -60,11 +60,13 @@ float surface(const AxisAlignedBox& aabb) {
 }
 
 // Resize the AABB by expanding it if necessary
-void resize(AxisAlignedBox& aabb, glm::vec3 vec, bool min) {
-  glm::vec3& corner = min ? aabb.lower : aabb.upper;
-  corner.x = min ? std::min(corner.x, vec.x) : std::max(corner.x, vec.x);
-  corner.y = min ? std::min(corner.y, vec.y) : std::max(corner.y, vec.y);
-  corner.z = min ? std::min(corner.z, vec.z) : std::max(corner.z, vec.z);
+void resize(AxisAlignedBox& aabb, glm::vec3 vec) {
+  aabb.lower.x = std::min(aabb.lower.x, vec.x);
+  aabb.lower.y = std::min(aabb.lower.y, vec.y);
+  aabb.lower.z = std::min(aabb.lower.z, vec.z);
+  aabb.upper.x = std::max(aabb.upper.x, vec.x);
+  aabb.upper.y = std::max(aabb.upper.y, vec.y);
+  aabb.upper.z = std::max(aabb.upper.z, vec.z);
 }
 
 // Create a tree from triangles
@@ -72,12 +74,12 @@ Node formTree(std::vector<TriangleBox>& triangles, int depth) {
   // Get the AABB containing all triangles
   AxisAlignedBox surround = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
   for (TriangleBox& tb : triangles) {
-    resize(surround, tb.box.lower, true);
-    resize(surround, tb.box.upper, false);
+    resize(surround, tb.box.lower);
+    resize(surround, tb.box.upper);
   }
 
   // 2 triangles per leaf max or a max depth (64 iterations)
-  if (triangles.size() <= 2 || depth == (1 << 6) - 1) {
+  if (triangles.size() <= 2 || depth == BVH_MAX_DEPTH) {
     // Create a leaf node for the triangles
     Node node;
     for (TriangleBox& tb : triangles) {
@@ -141,13 +143,13 @@ Node formTree(std::vector<TriangleBox>& triangles, int depth) {
 
         // See in which partition the triangle lies and resize their AABBs accordingly
         if (coord < f) {
-          resize(leftPartition, tb.box.lower, true);
-          resize(leftPartition, tb.box.upper, false);
+          resize(leftPartition, tb.box.lower);
+          resize(leftPartition, tb.box.upper);
           leftSize++;
         }
         else {
-          resize(rightPartition, tb.box.lower, true);
-          resize(rightPartition, tb.box.upper, false);
+          resize(rightPartition, tb.box.lower);
+          resize(rightPartition, tb.box.upper);
           rightSize++;
         }
       }
@@ -229,12 +231,9 @@ AxisAlignedBox toBox(Mesh& mesh, Triangle& triangle) {
   glm::vec3 v2 = mesh.vertices[triangle[2]].p;
 
   AxisAlignedBox aabb = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
-  resize(aabb, v0, true);
-  resize(aabb, v0, false);
-  resize(aabb, v1, true);
-  resize(aabb, v1, false);
-  resize(aabb, v2, true);
-  resize(aabb, v2, false);
+  resize(aabb, v0);
+  resize(aabb, v1);
+  resize(aabb, v2);
 
   return aabb;
 }
@@ -306,7 +305,6 @@ int BoundingVolumeHierarchy::numLevels() const {
 
 bool intersectNode(Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) {
   const Node& current = tree[index];
-  bool hit = false;
   float oldT = ray.t;
 
   // Ray does not intersect this node
@@ -319,6 +317,8 @@ bool intersectNode(Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) {
 
   // Leaf node
   if (current.leaf) {
+    bool hit = false;
+
     // For each triangle in the node
     for (int i : current.indices) {
       const Triangle& tri = mesh.triangles[i];
@@ -337,20 +337,10 @@ bool intersectNode(Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) {
   }
   else {
     // Trace both halves
-    bool leftIntersect = intersectNode(ray, hitInfo, current.indices[0], mesh);
-    float leftT = ray.t;
-    ray.t = oldT;
-    bool rightIntersect = intersectNode(ray, hitInfo, current.indices[1], mesh);
-    float rightT = ray.t;
-    ray.t = oldT;
+    bool left = intersectNode(ray, hitInfo, current.indices[0], mesh);
+    bool right = intersectNode(ray, hitInfo, current.indices[1], mesh);
 
-    // No intersection
-    if (!leftIntersect && !rightIntersect) {
-      return false;
-    }
-
-    ray.t = std::min(leftT, rightT);
-    return true;
+    return left || right;
   }
 }
 
