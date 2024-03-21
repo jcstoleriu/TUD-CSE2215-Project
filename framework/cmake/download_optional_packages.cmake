@@ -23,7 +23,6 @@ macro(get_optional_packages)
 		if ("stb" IN_LIST FUNC_ARGS_PACKAGES)
 			FetchContent_Declare(stb
 				GIT_REPOSITORY "https://github.com/nothings/stb.git"
-				GIT_TAG "b42009b3b9d4ca35bc703f5310eedc74f584be58" # https://github.com/nothings/stb/commits/master
 				GIT_SHALLOW TRUE)
 			FetchContent_GetProperties(stb)
 			if(NOT stb_POPULATED)

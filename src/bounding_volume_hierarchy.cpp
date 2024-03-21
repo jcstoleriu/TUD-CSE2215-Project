@@ -1,367 +1,235 @@
+#include <iostream>
 #include "bounding_volume_hierarchy.h"
 #include "draw.h"
-#include "ray.h"
-#include <iostream>
-#include <cmath>
-#include <limits>
 
 #define BVH_SPLIT_STEPS 16
-#define BVH_MAX_DEPTH (1 << 6)
+#define BVH_MAX_DEPTH (1 << 4)
+#define BVH_LEAF_TRIANGLE_COUNT 2
 
-// Struct to help create the tree
-struct TriangleBox {
-  AxisAlignedBox box; // Triangle bounding box
-  int triangle; // Triangle index
-};
+extern bool isShadowCheck;
 
-std::vector<Node> tree;
-
-// Get all  nodes at a given level
-std::vector<Node> getNodesAtLevel(Node& root, int level) {
-  std::vector<Node> nodes;
-
-  // Current level
-  if (level == 0) {
-    nodes.push_back(root);
-    return nodes;
-  }
-
-  // No child values
-  if (root.leaf) {
-    return nodes;
-  }
-
-  for (int i = 0; i < root.indices.size(); i++) {
-    for (Node node : getNodesAtLevel(tree[root.indices[i]], level - 1)) {
-      nodes.push_back(node);
-    }
-  }
-  return nodes;
+static inline float surface(const AxisAlignedBox &aabb) {
+    glm::vec3 delta = aabb.upper - aabb.lower;
+    return 2.0F * delta.x * delta.y + 2.0F * delta.x * delta.z + 2.0F * delta.y * delta.z;
 }
 
-// Get the depth of the tree
-int size(Node& node) {
-  // Leaf node
-  if (node.leaf) {
-    return 1;
-  }
-
-  int s = 0;
-  for (int i = 0; i < node.indices.size(); i++) {
-    s = std::max(s, 1 + size(tree[node.indices[i]]));
-  }
-  return s;
+static inline void resize(AxisAlignedBox &aabb, const glm::vec3 &vec) {
+    for (size_t i = 0; i < 3; i++) {
+        aabb.lower[i] = std::min(aabb.lower[i], vec[i]);
+        aabb.upper[i] = std::max(aabb.upper[i], vec[i]);
+    }
 }
 
-// Surface area of an AABB
-float surface(const AxisAlignedBox& aabb) {
-  glm::vec3 delta = aabb.upper - aabb.lower;
-  return 2 * delta.x * delta.y + 2 * delta.x * delta.z + 2 * delta.y * delta.z;
+static inline AxisAlignedBox toBox(const Mesh &mesh, const Triangle &triangle) {
+    AxisAlignedBox aabb = AxisAlignedBox{glm::vec3(FLT_MAX), glm::vec3(-FLT_MAX)};
+    for (size_t i = 0; i < 3; i++) {
+        resize(aabb, mesh.vertices[triangle[i]].position);
+    }
+    return aabb;
 }
 
-// Resize the AABB by expanding it if necessary
-void resize(AxisAlignedBox& aabb, glm::vec3 vec) {
-  aabb.lower.x = std::min(aabb.lower.x, vec.x);
-  aabb.lower.y = std::min(aabb.lower.y, vec.y);
-  aabb.lower.z = std::min(aabb.lower.z, vec.z);
-  aabb.upper.x = std::max(aabb.upper.x, vec.x);
-  aabb.upper.y = std::max(aabb.upper.y, vec.y);
-  aabb.upper.z = std::max(aabb.upper.z, vec.z);
-}
+BoundingVolumeHierarchy::BoundingVolumeHierarchy(const Scene *scene) {
+    this->scene = scene;
 
-// Create a tree from triangles
-Node formTree(std::vector<TriangleBox>& triangles, int depth) {
-  // Get the AABB containing all triangles
-  AxisAlignedBox surround = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
-  for (TriangleBox& tb : triangles) {
-    resize(surround, tb.box.lower);
-    resize(surround, tb.box.upper);
-  }
+    std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> boxes;
+    const std::vector<Mesh> &meshes = scene->meshes;
+    for (size_t i = 0; i < meshes.size(); i++) {
+        const Mesh &mesh = meshes[i];
+        const std::vector<Triangle> &triangles = mesh.triangles;
 
-  // 2 triangles per leaf max or a max depth (64 iterations)
-  if (triangles.size() <= 2 || depth == BVH_MAX_DEPTH) {
-    // Create a leaf node for the triangles
-    Node node;
-    for (TriangleBox& tb : triangles) {
-      node.indices.push_back(tb.triangle);
-    }
-    node.leaf = true;
-    node.aabb = surround;
-    return node;
-  }
-
-  // Current best cost
-  float bestC = FLT_MAX;
-
-  // Try to find the best axis to split over (x = 0, y = 1, z = 2)
-  int bestAxis = -1;
-  float bestSplit = -1.0f;
-  for (int i = 0; i < 3; i++) {
-    float l;
-    float u;
-    if (i == 0) {
-      l = surround.lower.x;
-      u = surround.upper.x;
-    } else if (i == 1) {
-      l = surround.lower.y;
-      u = surround.upper.y;
-    }
-    else {
-      l = surround.lower.z;
-      u = surround.upper.z;
-    }
-
-    // The surrounding box does not span over this axis
-    if (std::abs(u - l) < 1e-6) {
-      continue;
-    }
-
-    // 16 bins evenly distributed
-    float step = (u - l) / BVH_SPLIT_STEPS;
-
-    // For each step
-    for (float f = l + step; f <= u - step; f += step) {
-      // Create partitions for each step
-      AxisAlignedBox leftPartition = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
-      AxisAlignedBox rightPartition = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
-      int leftSize = 0;
-      int rightSize = 0;
-
-      // Add the triangles to the right partition
-      for (TriangleBox& tb : triangles) {
-        glm::vec3 center = (tb.box.lower + tb.box.upper) / 2.0f;
-        float coord;
-        if (i == 0) {
-          coord = center.x;
+        for (size_t j = 0; j < triangles.size(); j++) {
+            AxisAlignedBox box = toBox(meshes[i], triangles[j]);
+            boxes.push_back({box, i, j});
         }
-        else if (i == 1) {
-          coord = center.y;
-        }
-        else {
-          coord = center.z;
-        }
-
-        // See in which partition the triangle lies and resize their AABBs accordingly
-        if (coord < f) {
-          resize(leftPartition, tb.box.lower);
-          resize(leftPartition, tb.box.upper);
-          leftSize++;
-        }
-        else {
-          resize(rightPartition, tb.box.lower);
-          resize(rightPartition, tb.box.upper);
-          rightSize++;
-        }
-      }
-
-      // Partitions with no triangles are ignored
-      if (leftSize == 0 || rightSize == 0) {
-        continue;
-      }
-
-      // Calculate the partition cost
-      float cost = leftSize * (surface(leftPartition) / surface(surround)) + rightSize * (surface(rightPartition) / surface(surround));
-
-      // New best cost
-      if (cost < bestC) {
-        bestC = cost;
-        bestSplit = f;
-        bestAxis = i;
-      }
-    }
-  }
-
-  // We don't find a good split so we just create one leaf node with all triangles
-  // This should not really happen
-  if (bestAxis == -1) {
-    Node node;
-    for (TriangleBox& tb : triangles) {
-      node.indices.push_back(tb.triangle);
-    }
-    node.leaf = true;
-    node.aabb = surround;
-    return node;
-  }
-
-  std::vector<TriangleBox> left;
-  std::vector<TriangleBox> right;
-
-  // For each triangle assign side
-  for (TriangleBox& tb : triangles) {
-    glm::vec3 center = (tb.box.lower + tb.box.upper) / 2.0f;
-    float coord;
-    if (bestAxis == 0) {
-      coord = center.x;
-    }
-    else if (bestAxis == 1) {
-      coord = center.y;
-    }
-    else {
-      coord = center.z;
     }
 
-    // See in which partition the triangle lies
-    if (coord < bestSplit) {
-      left.push_back(tb);
-    }
-    else {
-      right.push_back(tb);
-    }
-  }
-
-  
-  // Insert the partition nodes into the tree vector and save the indexes for our inner node
-  Node node;
-  Node leftNode = formTree(left, depth + 1);
-  Node rightNode = formTree(right, depth + 1);
-  int insertIndex = tree.size();
-  tree.push_back(leftNode);
-  tree.push_back(rightNode);
-  node.indices.push_back(insertIndex);
-  node.indices.push_back(insertIndex + 1);
-  node.leaf = false;
-  node.aabb = surround;
-  return node;
+    populateTree(boxes, 0);
 }
 
-// Create an AABB for a triangle
-AxisAlignedBox toBox(Mesh& mesh, Triangle& triangle) {
-  glm::vec3 v0 = mesh.vertices[triangle[0]].p;
-  glm::vec3 v1 = mesh.vertices[triangle[1]].p;
-  glm::vec3 v2 = mesh.vertices[triangle[2]].p;
-
-  AxisAlignedBox aabb = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
-  resize(aabb, v0);
-  resize(aabb, v1);
-  resize(aabb, v2);
-
-  return aabb;
+BoundingVolumeHierarchy::~BoundingVolumeHierarchy() {
+    if (left != NULL) {
+        delete left;
+    }
+    if (right != NULL) {
+        delete right;
+    }
 }
 
-BoundingVolumeHierarchy::BoundingVolumeHierarchy(Scene* pScene): m_pScene(pScene) {
-  tree.clear();
-
-  std::vector<Node> roots;
-  std::vector<Mesh>& meshes = pScene -> meshes;
-
-  // We iterate this way so we know the element's indices
-  for (int i = 0; i < meshes.size(); i++) {
-    // We create a tree for every mesh in the scene
-    std::vector<TriangleBox> boxes;
-    std::vector<Triangle>& triangles = meshes[i].triangles;
-    for (size_t j = 0; j < triangles.size(); j++) {
-      AxisAlignedBox aabb = toBox(meshes[i], triangles[j]);
-      TriangleBox tb = TriangleBox{aabb, static_cast<int>(j)};
-      boxes.push_back(tb);
+void BoundingVolumeHierarchy::debugDraw(const size_t level) const {
+    // Correct level
+    if (level == 0) {
+        drawAABB(aabb, DrawMode::WIREFRAME, glm::vec3(1.0F), 1.0F);
+        return;
     }
 
-    // One root node per mesh
-   Node root = formTree(boxes, 0);
+    size_t new_level = level - 1;
 
-    roots.push_back(root);
-  }
-
-  // Push the root nodes last
-  // This is so we can retrieve them with the mesh index
-  for (Node& root : roots) {
-    tree.push_back(root);
-  }
-}
-
-// Use this function to visualize your BVH. This can be useful for debugging. Use the functions in
-// draw.h to draw the various shapes. We have extended the AABB draw functions to support wireframe
-// mode, arbitrary colors and transparency.
-void BoundingVolumeHierarchy::debugDraw(int level) {
-  // We assum level is in range [0, numLevels() - 1]
-
-  // Get the nodes
-  std::vector<Node> nodes;
-  std::vector<Mesh>& meshes = m_pScene -> meshes;
-  for (size_t i = 0; i < meshes.size(); i++) {
-    // Get the nodes at the given level for each mesh
-    std::vector<Node> nv = getNodesAtLevel(tree[tree.size() - meshes.size() + i], level);
-    for (Node& nvn : nv) {
-      nodes.push_back(nvn);
+    if (left != NULL) {
+        left->debugDraw(new_level);
     }
-  }
-
-  // Draw AABB for every node
-  for (Node& node : nodes) {
-    drawAABB(node.aabb, DrawMode::Wireframe, glm::vec3{1.0f});
-  }
+    if (right != NULL) {
+        right->debugDraw(new_level);
+    }
 }
 
-int BoundingVolumeHierarchy::numLevels() const {
-  // Tree vector: [node0, ..., nodeN, root0, ..., rootN]
-  // The root nodes are the roots for each mesh
-  int levels = 0;
-  std::vector<Mesh>& meshes = m_pScene -> meshes;
-  for (size_t i = 0; i < meshes.size(); i++) {
-    levels = std::max(levels, size(tree[tree.size() - meshes.size() + i]));
-  }
-
-  return levels;
+size_t BoundingVolumeHierarchy::numLevels() const {
+    size_t ll = left == NULL ? 0 : left->numLevels();
+    size_t rl = right == NULL ? 0 : right->numLevels();
+    return 1 + std::max(ll, rl);
 }
 
-bool intersectNode(Ray& ray, HitInfo& hitInfo, size_t index, const Mesh& mesh) {
-  const Node& current = tree[index];
-  float oldT = ray.t;
+bool BoundingVolumeHierarchy::intersect(Ray &ray, HitInfo &hitInfo) const {
+    return intersectTriangles(ray, hitInfo);
+}
 
-  // Ray does not intersect this node
-  if (!intersectRayWithShape(current.aabb, ray)) {
-    return false;
-  }
+BoundingVolumeHierarchy::BoundingVolumeHierarchy() {
+    // Nothing
+}
 
-  // Reset t for further intersect calculations
-  ray.t = oldT;
+bool BoundingVolumeHierarchy::intersectTriangles(Ray &ray, HitInfo &hitInfo) const {
 
-  // Leaf node
-  if (current.leaf) {
+    float oldT = ray.t;
+
+    // Ray does not intersect this node
+    if (!intersectRayWithShape(aabb, ray)) {
+        return false;
+    }
+
+    // Reset t for further intersect calculations
+    ray.t = oldT;
+
     bool hit = false;
 
-    // For each triangle in the node
-    for (int i : current.indices) {
-      const Triangle& tri = mesh.triangles[i];
-      const Vertex& v0 = mesh.vertices[tri[0]];
-      const Vertex& v1 = mesh.vertices[tri[1]];
-      const Vertex& v2 = mesh.vertices[tri[2]];
-
-      // Triangle intersection
-      if (intersectRayWithTriangle(v0.p, v1.p, v2.p, ray, hitInfo)) {
-        hitInfo.material = mesh.material;
-        hit = true;
-      }
+    // Triangles in this hierarchy
+    for (const auto [mi, ti] : indices) {
+        const Mesh &mesh = scene->meshes[mi];
+        const Triangle &triangle = mesh.triangles[ti];
+        const Vertex &v0 = mesh.vertices[triangle[0]];
+        const Vertex &v1 = mesh.vertices[triangle[1]];
+        const Vertex &v2 = mesh.vertices[triangle[2]];
+        if (intersectRayWithTriangle(v0.position, v1.position, v2.position, ray, hitInfo)) {
+            hitInfo.material = mesh.material;
+            hit = true;
+        }
     }
 
-    return hit;
-  }
-  else {
-    // Trace both halves
-    bool left = intersectNode(ray, hitInfo, current.indices[0], mesh);
-    bool right = intersectNode(ray, hitInfo, current.indices[1], mesh);
+    bool lh = left == NULL ? false : left->intersectTriangles(ray, hitInfo);
+    bool rh = right == NULL ? false : right->intersectTriangles(ray, hitInfo);
 
-    return left || right;
-  }
+    return hit || lh || rh;
 }
 
-// Return true if something is hit, returns false otherwise. Only find hits if they are closer than t stored
-// in the ray and if the intersection is on the correct side of the origin (the new t >= 0). Replace the code
-// by a bounding volume hierarchy acceleration structure as described in the assignment. You can change any
-// file you like, including bounding_volume_hierarchy.h .
-bool BoundingVolumeHierarchy::intersect(Ray& ray, HitInfo& hitInfo) const {
-  bool hit = false;
+void BoundingVolumeHierarchy::populateTree(const std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> &boxes, size_t depth) {
+    // This function should only be called on init
 
-  // For each mesh
-  std::vector<Mesh>& meshes = m_pScene -> meshes;
-  for (size_t i = 0; i < meshes.size(); i++) {
-    hit |= intersectNode(ray, hitInfo, tree.size() - meshes.size() + i, meshes[i]);
-  }
+    // Get the AABB containing all triangles
+    AxisAlignedBox surround = AxisAlignedBox{glm::vec3(FLT_MAX), glm::vec3(-FLT_MAX)};
+    for (const auto &[box, mi, ti] : boxes) {
+        resize(surround, box.lower);
+        resize(surround, box.upper);
+    }
+    aabb = surround;
 
-  // For each sphere
-  // Spheres are not part of the BVH
-  for (const Sphere& sphere : m_pScene -> spheres) {
-    hit |= intersectRayWithShape(sphere, ray, hitInfo);
-  }
+    // If this needs to be a leaf
+    if (boxes.size() <= BVH_LEAF_TRIANGLE_COUNT || depth == BVH_MAX_DEPTH) {
+        for (const auto &[_, mi, ti] : boxes) {
+            indices.push_back({mi, ti});
+        }
+        return;
+    }
 
-  return hit;
+    // Current best cost
+    float bestC = FLT_MAX;
+
+    size_t bestAxis = 0;
+    float bestSplit = 0.0F;
+
+    // For each axis
+    for (size_t i = 0; i < 3; i++) {
+        float l = aabb.lower[i];
+        float u = aabb.upper[i];
+
+        // The surrounding box does not span over this axis
+        if (std::abs(u - l) < 1E-6) {
+            continue;
+        }
+
+        // Uniformly distributed bins
+        float step = (u - l) / BVH_SPLIT_STEPS;
+
+        // For each step
+        for (float f = l + step; f <= u - step; f += step) {
+            // Create partitions for each step
+            AxisAlignedBox leftPartition = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
+            AxisAlignedBox rightPartition = AxisAlignedBox{glm::vec3{FLT_MAX}, glm::vec3{-FLT_MAX}};
+
+            size_t leftSize = 0;
+            size_t rightSize = 0;
+
+            // Add the triangles to the right partition
+            for (const auto &[box, mi, ti] : boxes) {
+                glm::vec3 center = (box.lower + box.upper) / 2.0F;
+                float coord = center[i];
+
+                // See in which partition the triangle lies and resize their AABBs accordingly
+                if (coord < f) {
+                    resize(leftPartition, box.lower);
+                    resize(leftPartition, box.upper);
+                    leftSize++;
+                } else {
+                    resize(rightPartition, box.lower);
+                    resize(rightPartition, box.upper);
+                    rightSize++;
+                }
+            }
+
+            // Partitions with no triangles are ignored
+            if (leftSize == 0 || rightSize == 0) {
+                continue;
+            }
+
+            // Calculate the partition cost
+            float cost = leftSize * (surface(leftPartition) / surface(surround)) + rightSize * (surface(rightPartition) / surface(surround));
+
+            // New best cost
+            if (cost < bestC) {
+                bestC = cost;
+                bestSplit = f;
+                bestAxis = i;
+            }
+        }
+    }
+
+    // We do not find a good split so we just create one leaf node with all triangles
+    // This should not really happen
+    if (bestC == FLT_MAX) {
+        for (const auto &[box, mi, ti] : boxes) {
+            indices.push_back({mi, ti});
+        }
+        return;
+    }
+
+    std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> lb;
+    std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> rb;
+
+    // For each triangle assign side
+    for (const auto &[box, mi, ti] : boxes) {
+        glm::vec3 center = (box.lower + box.upper) / 2.0F;
+        float coord = center[bestAxis];
+
+        // See in which partition the triangle lies
+        if (coord < bestSplit) {
+            lb.push_back({box, mi, ti});
+        } else {
+            rb.push_back({box, mi, ti});
+        }
+    }
+
+    size_t new_depth = depth + 1;
+    left = new BoundingVolumeHierarchy();
+    left->scene = scene;
+    left->populateTree(lb, new_depth);
+    right = new BoundingVolumeHierarchy();
+    right->scene = scene;
+    right->populateTree(rb, new_depth);
 }

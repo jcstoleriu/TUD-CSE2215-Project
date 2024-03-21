@@ -1,7 +1,5 @@
-#include "draw.h"
 #include "disable_all_warnings.h"
 #include "opengl_includes.h"
-// Suppress warnings in third-party code.
 DISABLE_WARNINGS_PUSH()
 #ifdef __APPLE__
 #include <OpenGL/GLU.h>
@@ -16,72 +14,66 @@ DISABLE_WARNINGS_PUSH()
 #endif
 #include <GL/glu.h>
 #endif
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/gtc/type_ptr.hpp>
 DISABLE_WARNINGS_POP()
-#include <algorithm>
+#include "draw.h"
+#include "ray.h"
 
 bool enableDrawRay = false;
 
-static void setMaterial(const Material& material)
-{
+static void setMaterial(const Material &material) {
     // Set the material color of the shape.
-    const glm::vec4 kd4 { material.kd, 1.0f };
+    const glm::vec4 kd4 { material.kd, 1.0F };
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, glm::value_ptr(kd4));
 
-    const glm::vec4 zero { 0.0f };
+    const glm::vec4 zero { 0.0F };
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, glm::value_ptr(zero));
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, glm::value_ptr(zero));
 }
 
-void drawMesh(const Mesh& mesh)
-{
+void drawMesh(const Mesh& mesh) {
     setMaterial(mesh.material);
 
     glBegin(GL_TRIANGLES);
-    for (const auto& triangleIndex : mesh.triangles) {
-        for (int i = 0; i < 3; i++) {
-            const auto& vertex = mesh.vertices[triangleIndex[i]];
-            glNormal3fv(glm::value_ptr(vertex.n)); // Normal.
-            glVertex3fv(glm::value_ptr(vertex.p)); // Position.
+    for (const Triangle &triangleIndex : mesh.triangles) {
+        for (size_t i = 0; i < 3; i++) {
+            const Vertex &vertex = mesh.vertices[triangleIndex[i]];
+            glNormal3fv(glm::value_ptr(vertex.normal)); // Normal.
+            glVertex3fv(glm::value_ptr(vertex.position)); // Position.
         }
     }
     glEnd();
 }
 
-static void drawSphereInternal(const glm::vec3& center, float radius)
-{
+static void drawSphereInternal(const glm::vec3 &center, float radius) {
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     const glm::mat4 transform = glm::translate(glm::identity<glm::mat4>(), center);
     glMultMatrixf(glm::value_ptr(transform));
-    auto quadric = gluNewQuadric();
+    GLUquadric *quadric = gluNewQuadric();
     gluSphere(quadric, radius, 40, 20);
     gluDeleteQuadric(quadric);
     glPopMatrix();
 }
 
-void drawSphere(const Sphere& sphere)
-{
+void drawSphere(const Sphere& sphere) {
     glPushAttrib(GL_ALL_ATTRIB_BITS);
     setMaterial(sphere.material);
     drawSphereInternal(sphere.center, sphere.radius);
     glPopAttrib();
 }
 
-void drawSphere(const glm::vec3& center, float radius, const glm::vec3& color /*= glm::vec3(1.0f)*/)
-{
+void drawSphere(const glm::vec3 &center, float radius, const glm::vec3 &color) {
     glPushAttrib(GL_ALL_ATTRIB_BITS);
-    glColor4f(color.r, color.g, color.b, 1.0f);
+    glColor4f(color.r, color.g, color.b, 1.0F);
     glPolygonMode(GL_FRONT, GL_FILL);
     glPolygonMode(GL_BACK, GL_FILL);
     drawSphereInternal(center, radius);
     glPopAttrib();
 }
 
-static void drawAABBInternal(const AxisAlignedBox& box)
-{
+static void drawAABBInternal(const AxisAlignedBox &box) {
     glPushMatrix();
 
     // front      back
@@ -131,36 +123,33 @@ static void drawAABBInternal(const AxisAlignedBox& box)
     glPopMatrix();
 }
 
-void drawAABB(const AxisAlignedBox& box, DrawMode drawMode, const glm::vec3& color, float transparency)
-{
+void drawAABB(const AxisAlignedBox &box, DrawMode drawMode, const glm::vec3 &color, float transparency) {
     glPushAttrib(GL_ALL_ATTRIB_BITS);
     glColor4f(color.r, color.g, color.b, transparency);
-    if (drawMode == DrawMode::Filled) {
-        glPolygonMode(GL_FRONT, GL_FILL);
-        glPolygonMode(GL_BACK, GL_FILL);
-    } else {
-        glPolygonMode(GL_FRONT, GL_LINE);
-        glPolygonMode(GL_BACK, GL_LINE);
+    switch (drawMode) {
+        case DrawMode::FILLED:
+            glPolygonMode(GL_FRONT, GL_FILL);
+            glPolygonMode(GL_BACK, GL_FILL);
+            break;
+        case DrawMode::WIREFRAME:
+            glPolygonMode(GL_FRONT, GL_LINE);
+            glPolygonMode(GL_BACK, GL_LINE);
+            break;
     }
     drawAABBInternal(box);
     glPopAttrib();
 }
 
-void drawScene(const Scene& scene)
-{
-    for (const auto& mesh : scene.meshes)
+void drawScene(const Scene &scene) {
+    for (const Mesh &mesh : scene.meshes) {
         drawMesh(mesh);
-    for (const auto& sphere : scene.spheres)
-        drawSphere(sphere);
-    //for (const auto& box : scene.boxes)
-    //	drawShape(box);
+    }
 }
 
-void drawRay(const Ray& ray, const glm::vec3& color)
-{
+void drawRay(const Ray &ray, const glm::vec3 &color) {
     if (enableDrawRay) {
-        const glm::vec3 hitPoint = ray.origin + std::clamp(ray.t, 0.0f, 100.0f) * ray.direction;
-        const bool hit = (ray.t < std::numeric_limits<float>::max());
+        const glm::vec3 hitPoint = ray.origin + std::clamp(ray.t, 0.0F, 100.0F) * ray.direction;
+        const bool hit = ray.t < std::numeric_limits<float>::max();
 
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glDisable(GL_LIGHTING);
@@ -172,8 +161,9 @@ void drawRay(const Ray& ray, const glm::vec3& color)
         glVertex3fv(glm::value_ptr(hitPoint));
         glEnd();
 
-        if (hit)
-            drawSphere(hitPoint, 0.005f, glm::vec3(0, 1, 0));
+        if (hit) {
+            drawSphere(hitPoint, 0.005F, glm::vec3(0.0F, 1.0F, 0.0F));
+        }
 
         glPopAttrib();
     }

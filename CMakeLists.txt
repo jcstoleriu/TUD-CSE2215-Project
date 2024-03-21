@@ -11,15 +11,16 @@ endif()
 get_optional_packages(TARGET OptionalPackages PACKAGES "catch2" "assimp" "stb")
 
 add_executable(FinalProject2
+	"src/bounding_volume_hierarchy.cpp"
+	"src/draw.cpp"
+	"src/illumination.cpp"
+	"src/image.cpp"
 	"src/main.cpp"
+	"src/mesh.cpp"
 	"src/ray_tracing.cpp"
 	"src/scene.cpp"
-	"src/mesh.cpp"
-	"src/draw.cpp"
 	"src/screen.cpp"
-	"src/bounding_volume_hierarchy.cpp"
-	"src/image.cpp"
-	"src/stb_image.cpp"  "src/shadows.cpp")
+	"src/stb_image.cpp")
 # Link to all dependencies / make their header files available.
 target_link_libraries(FinalProject2 PRIVATE CGFramework OptionalPackages)
 target_compile_features(FinalProject2 PRIVATE cxx_std_17) # C++17

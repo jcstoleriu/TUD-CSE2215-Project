@@ -1,26 +1,14 @@
-#include "ray_tracing.h"
 #include "disable_all_warnings.h"
-// Suppress warnings in third-party code.
 DISABLE_WARNINGS_PUSH()
 #include <glm/geometric.hpp>
-#include <glm/gtx/component_wise.hpp>
-#include <glm/vector_relational.hpp>
 DISABLE_WARNINGS_POP()
-#include <cmath>
-#include <iostream>
-#include <limits>
-#include "scene.h"
-#include "bounding_volume_hierarchy.h"
-#include "draw.h"
-#include "ray.h"
+#include "ray_tracing.h"
 
-
-// Util method to compare floats with a 1e-6 error margin
-bool eq(float f0, float f1) {
-  return std::abs(f0 - f1) < 1e-6;
+static inline bool eq(float f0, float f1) {
+  return std::abs(f0 - f1) < 1E-6;
 }
 
-bool pointInTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& n, const glm::vec3& p) {
+bool pointInTriangle(const glm::vec3 &v0, const glm::vec3 &v1, const glm::vec3 &v2, const glm::vec3 &n, const glm::vec3 &p) {
   // ~ MAGIC ~
   // This is a rewrite of P = v0 + u * (v1 - v0) + v * (v2 - v0)
   // Where
@@ -44,13 +32,13 @@ bool pointInTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& 
   return u >= 0 && v >= 0 && u + v <= 1;
 }
 
-bool intersectRayWithPlane(const Plane& plane, Ray& ray) {
-  glm::vec3 p = plane.normal * plane.D;  // Point on the plane
+bool intersectRayWithPlane(const Plane &plane, Ray &ray) {
+  glm::vec3 p = plane.normal * plane.d;  // Point on the plane
   float f = glm::dot(ray.direction, plane.normal);
   float g = glm::dot((p - ray.origin), plane.normal);
 
   // Ray is parallel to plane and not inside plane
-  if (eq(f, 0) && !eq(g, 0)) {
+  if (eq(f, 0.0F) && !eq(g, 0.0F)) {
     return false;
   }
 
@@ -59,7 +47,7 @@ bool intersectRayWithPlane(const Plane& plane, Ray& ray) {
   float t = eq(g, 0) ? 0 : g / f;
 
   // Behind the camera
-  if (t < 0) {
+  if (t < 0.0F) {
     return false;
   }
 
@@ -67,20 +55,20 @@ bool intersectRayWithPlane(const Plane& plane, Ray& ray) {
   return true;
 }
 
-Plane trianglePlane(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2) {
+Plane trianglePlane(const glm::vec3 &v0, const glm::vec3 &v1, const glm::vec3 &v2) {
   glm::vec3 a = v0 - v2;
   glm::vec3 b = v1 - v2;
   glm::vec3 normal = glm::normalize(glm::cross(a, b));
   float d = glm::dot(normal, v0);
 
   // Note that d can be negative so we invert the normal and take its absolute value if thats the case This should not matter for calculations, but we do it anyways
-  return Plane{glm::abs(d), normal * (d < 0 ? -1.0f : 1.0f)};
+  return Plane{glm::abs(d), normal * (d < 0 ? -1.0F : 1.0F)};
 }
 
 /// Input: the three vertices of the triangle
 /// Output: if intersects then modify the hit parameter ray.t and return true,
 /// otherwise return false
-bool intersectRayWithTriangle(const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, Ray& ray, HitInfo& hitInfo) {
+bool intersectRayWithTriangle(const glm::vec3 &v0, const glm::vec3 &v1, const glm::vec3 &v2, Ray &ray, HitInfo &hitInfo) {
   Plane plane = trianglePlane(v0, v1, v2);
 
   // We save the old value
@@ -96,7 +84,7 @@ bool intersectRayWithTriangle(const glm::vec3& v0, const glm::vec3& v1, const gl
     hitInfo.normal = plane.normal;
 
     // Turn the normal if it faces away from the ray origin
-    if (glm::dot(glm::normalize(ray.direction), plane.normal) > 0) {
+    if (glm::dot(glm::normalize(ray.direction), plane.normal) > 0.0F) {
       hitInfo.normal *= -1;
     }
 
@@ -112,26 +100,26 @@ bool intersectRayWithTriangle(const glm::vec3& v0, const glm::vec3& v1, const gl
 /// Input: a sphere with the following attributes: sphere.radius, sphere.center
 /// Output: if intersects then modify the hit parameter ray.t and return true,
 /// otherwise return false
-bool intersectRayWithShape(const Sphere& sphere, Ray& ray, HitInfo& hitInfo) {
-  float det = std::pow(2 * glm::dot(ray.direction, ray.origin - sphere.center), 2) - 4 * std::pow(glm::length(ray.direction), 2) * (std::pow(glm::length(ray.origin - sphere.center), 2) - std::pow(sphere.radius, 2));
+bool intersectRayWithShape(const Sphere &sphere, Ray &ray, HitInfo &hitInfo) {
+  float det = std::pow(2.0F * glm::dot(ray.direction, ray.origin - sphere.center), 2.0F) - 4.0F * std::pow(glm::length(ray.direction), 2.0F) * (std::pow(glm::length(ray.origin - sphere.center), 2.0F) - std::pow(sphere.radius, 2.0F));
 
   // No intersection
-  if (det < 0) {
+  if (det < 0.0F) {
     return false;
   }
 
-  float base = -2 * glm::dot(ray.direction, ray.origin - sphere.center);
-  float denom = 2 * std::pow(glm::length(ray.direction), 2);
+  float base = -2.0F * glm::dot(ray.direction, ray.origin - sphere.center);
+  float denom = 2.0F * std::pow(glm::length(ray.direction), 2.0F);
   float t0 = (base - std::sqrt(det)) / denom;
   float t1 = (base + std::sqrt(det)) / denom;
 
   // Behind origin
-  if (t0 < 0 && t1 < 0) {
+  if (t0 < 0.0F && t1 < 0.0F) {
     return false;
   }
 
   // Smallest positive
-  float newT = t0 < 0 ? t1 : (t1 < 0 ? t0 : std::min(t0, t1));
+  float newT = t0 < 0.0F ? t1 : (t1 < 0.0F ? t0 : std::min(t0, t1));
 
   // Too far away
   if (ray.t < newT) {
@@ -157,23 +145,25 @@ bool intersectRayWithShape(const Sphere& sphere, Ray& ray, HitInfo& hitInfo) {
 /// coordinates box.lower and maximum coordinates box.upper Output: if
 /// intersects then modify the hit parameter ray.t and return true, otherwise
 /// return false
-bool intersectRayWithShape(const AxisAlignedBox& box, Ray& ray) {
+bool intersectRayWithShape(const AxisAlignedBox &box, Ray &ray) {
   // If 1 or 2 direction components are 0 this should still work because the
   // infinities are filtered out on intersection with min/max functions and else
   // tin > tout will not hold
   glm::vec3 a = (box.lower - ray.origin) / ray.direction;
   glm::vec3 b = (box.upper - ray.origin) / ray.direction;
-  float tin = std::max({std::min(a.x, b.x), std::min(a.y, b.y), std::min(a.z, b.z)});
-  float tout = std::min({std::max(a.x, b.x), std::max(a.y, b.y), std::max(a.z, b.z)});
+  glm::vec3 min = glm::min(a, b);
+  glm::vec3 max = glm::max(a, b);
+  float tin = std::max({min.x, min.y, min.z});
+  float tout = std::min({max.x, max.y, max.z});
 
   // Miss
-  if (tin > tout || tout < 0) {
+  if (tin > tout || tout < 0.0F) {
     return false;
   }
 
   // If tin < 0 then we are inside the box and the first intersection in front
   // of the origin will be the outgoing point
-  float newT = tin < 0 ? tout : tin;
+  float newT = tin < 0.0F ? tout : tin;
 
   // Too far away
   if (ray.t < newT) {

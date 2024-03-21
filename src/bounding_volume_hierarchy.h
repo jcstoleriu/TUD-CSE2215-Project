@@ -1,29 +1,30 @@
 #pragma once
+
 #include "ray_tracing.h"
 #include "scene.h"
-#include "draw.h"
-#include "ray.h"
-
-// Node structure for the BVH
-struct Node {
-  bool leaf; // If this is a leaf node
-  std::vector<int> indices; // The indices of the child nodes in the node vector or the triangle indices if it is a leaf node
-  AxisAlignedBox aabb;// The bounding box this node covers (I'm not sure if this is allowed but we can always create a bounding box for it
-};
 
 class BoundingVolumeHierarchy {
 public:
-    BoundingVolumeHierarchy(Scene* pScene);
+    BoundingVolumeHierarchy(const Scene *scene);
 
-    // Use this function to visualize your BVH. This can be useful for debugging.
-    void debugDraw(int level);
-    int numLevels() const;
+    ~BoundingVolumeHierarchy();
 
-    // Return true if something is hit, returns false otherwise.
-    // Only find hits if they are closer than t stored in the ray and the intersection
-    // is on the correct side of the origin (the new t >= 0).
-    bool intersect(Ray& ray, HitInfo& hitInfo) const;
+    void debugDraw(const size_t level) const;
+
+    size_t numLevels() const;
+
+    bool intersect(Ray &ray, HitInfo &hitInfo) const;
 
 private:
-    Scene* m_pScene;
+    BoundingVolumeHierarchy();
+
+    bool intersectTriangles(Ray &ray, HitInfo &hitInfo) const;
+
+    void populateTree(const std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> &boxes, size_t depth);
+
+    const Scene *scene = NULL;
+    AxisAlignedBox aabb = AxisAlignedBox{glm::vec3(FLT_MAX), glm::vec3(-FLT_MAX)};
+    std::vector<std::tuple<size_t, size_t>> indices;
+    BoundingVolumeHierarchy *left = NULL;
+    BoundingVolumeHierarchy *right = NULL;
 };
