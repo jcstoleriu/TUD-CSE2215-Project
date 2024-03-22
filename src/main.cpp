@@ -14,7 +14,9 @@ DISABLE_WARNINGS_POP()
 #include "window.h"
 #ifdef USE_OPENMP
 #include <omp.h>
+#include<deque>
 #endif
+#include <random>
 
 #define REFLECTION_MAX_TRACES (1 << 5)
 
@@ -73,15 +75,63 @@ static inline glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scen
 static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene& scene, const Trackball& camera, int selectedLight);
 
-static void sampleViewpoints(const Scene& scene) {
+static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
+    //total area
+    float total = 0.0f;
+    std::deque<float> areas;
     for (const Mesh& mesh : scene.meshes) {
-        //do stuff
+        for (glm::vec3 trig : mesh.triangles) {
+            glm::vec3 A = mesh.vertices[trig.x].position;
+            glm::vec3 B = mesh.vertices[trig.y].position;
+            glm::vec3 C = mesh.vertices[trig.z].position;
+
+            glm::vec3 AB = B - A;
+            glm::vec3 AC = C - A;
+
+            float area = glm::length(glm::cross(AB, AC)) / 2.0f;
+            total += area;
+            areas.push_back(area);
+        }
     }
+
+    //assign weights & sample
+    std::vector<glm::vec3> samples;
+    std::default_random_engine generator;
+    generator.seed(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_real_distribution<double> distribution(0.0, 1.0);
+    
+    for (const Mesh& mesh : scene.meshes) {
+        for (glm::vec3 trig : mesh.triangles) {
+            glm::vec3 A = mesh.vertices[trig.x].position;
+            glm::vec3 B = mesh.vertices[trig.y].position;
+            glm::vec3 C = mesh.vertices[trig.z].position;
+
+            float weight = 100.0*areas.front() / total;
+            areas.pop_front();
+
+            if (weight < 1.0f)
+                weight = 1.0f;
+
+            for (int i = 0; i < int(weight); i++) {
+                float t1 = distribution(generator);
+                float t2 = distribution(generator);
+                if (t1 + t2 > 1.0)
+                {
+                    t1 = 1.0 - t1;
+                    t2 = 1.0 - t2;
+                }
+                float t3 = 1.0 - t1 - t2;
+                samples.push_back(t1*A + t2*B + t3*C);
+            }
+        }
+    }
+    return samples;
 }
 
 // This is the main rendering function. You are free to change this function in any way (including the function signature).
 static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, Screen& screen) {
-    sampleViewpoints(scene);
+    std::vector<glm::vec3> samples = sampleViewpoints(scene);
+
 #ifdef USE_OPENMP
 #pragma omp parallel for
 #endif   
@@ -144,7 +194,7 @@ int main(int argc, char *argv[]) {
         });
 
     int selectedLight = 0;
-
+    std::vector<glm::vec3> samples = sampleViewpoints(scene);
     while (!window.shouldClose()) {
         window.updateInput();
 
