@@ -62,7 +62,7 @@ static glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scene, cons
 
     glm::vec3 reflecColor = getFinalColor(camera, scene, bvh, reflRay, depth + 1);
 
-    color += reflecColor;
+    color += hitInfo.material.ks * reflecColor;
   }
 
   return glm::clamp(color, 0.0F, 1.0F);
@@ -173,6 +173,8 @@ int main(int argc, char *argv[]) {
     int bvhDebugLevel = 0;
     bool debugBVH{ false };
     int selectedLight = 0;
+    bool showSelectedMesh = false;
+    int selectedMesh = 0;
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -248,6 +250,32 @@ int main(int argc, char *argv[]) {
                 ImGui::ColorEdit3("Light color", glm::value_ptr(scene.pointLights[selectedLight].color));
             }
         }
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Text("Meshes");
+        if (!scene.meshes.empty()) {
+            {
+                std::vector<std::string> options;
+                for (size_t i = 0; i < scene.meshes.size(); i++) {
+                    options.push_back("Mesh " + std::to_string(i + 1));
+                }
+
+                std::vector<const char *> optionsPointers;
+                std::transform(std::begin(options), std::end(options), std::back_inserter(optionsPointers), [](const auto &str) { return str.c_str(); });
+                ImGui::Combo("Selected mesh", &selectedMesh, optionsPointers.data(), static_cast<int>(optionsPointers.size()));
+            }
+            {
+                Material &material = scene.meshes[selectedMesh].material;
+                ImGui::ColorEdit3("kd", glm::value_ptr(material.kd));
+                ImGui::ColorEdit3("ks", glm::value_ptr(material.ks));
+                ImGui::SliderFloat("shininess", &material.shininess, 0.0F, 100.0F);
+                // Not supported
+                //ImGui::SliderFloat("transparency", &material.transparency, 0.0F, 1.0F);
+            }
+            {
+                ImGui::Checkbox("Highlight mesh", &showSelectedMesh);
+            }
+        }
 
         // Clear screen.
         glClearDepth(1.0F);
@@ -276,6 +304,17 @@ int main(int argc, char *argv[]) {
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             bvh.debugDraw(bvhDebugLevel);
+            glPopAttrib();
+        }
+
+        if (!scene.meshes.empty() && showSelectedMesh) {
+            glPushAttrib(GL_ALL_ATTRIB_BITS);
+            setOpenGLMatrices(camera);
+            glDisable(GL_LIGHTING);
+            glEnable(GL_DEPTH_TEST);
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            drawAABB(AxisAlignedBox{scene.meshes[selectedMesh].lower, scene.meshes[selectedMesh].upper}, DrawMode::WIREFRAME, glm::vec3(0.0F, 1.0F, 1.0F), 1.0F);
             glPopAttrib();
         }
 

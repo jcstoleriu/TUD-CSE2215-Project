@@ -151,5 +151,13 @@ std::vector<Mesh> loadMesh(const std::filesystem::path& file, bool normalize) {
         centerAndScaleToUnitMesh(out);
     }
 
+    // Bounding box
+    for (Mesh &mesh : out) {
+        for (const Vertex &vertex : mesh.vertices) {
+            mesh.lower = glm::min(mesh.lower, vertex.position);
+            mesh.upper = glm::max(mesh.upper, vertex.position);
+        }
+    }
+
     return out;
 }

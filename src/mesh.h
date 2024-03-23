@@ -25,6 +25,8 @@ struct Mesh {
 	std::vector<Vertex> vertices;
 	std::vector<Triangle> triangles;
 	Material material;
+	glm::vec3 lower{glm::vec3(FLT_MAX)};
+	glm::vec3 upper{glm::vec3(-FLT_MAX)};
 };
 
 [[nodiscard]] std::vector<Mesh> loadMesh(const std::filesystem::path &file, const bool normalize);
