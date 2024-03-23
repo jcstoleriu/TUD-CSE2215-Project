@@ -1,7 +1,7 @@
-# TUD-CSE2215-Project
-TU Delft CG Group Project  
-Course: TU Delft Course CSE2215 Computer Graphics  
-Project submission
+# TUD-IN4152-Project
+TU Delft 3DCGA Paper Presentation Demo  
+Course: TU Delft Course IN4152 3D Computer Graphics and Animation  
+Demo submission
 
-### Example render (ray traced, spherical white light)
+### Example render (ray traced, point white light, direct illumination, Lambert + Blinn-Phong specular)
 ![](render.png)

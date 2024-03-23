@@ -1,12 +1,9 @@
-#include <iostream>
 #include "bounding_volume_hierarchy.h"
 #include "draw.h"
 
 #define BVH_SPLIT_STEPS 16
 #define BVH_MAX_DEPTH (1 << 4)
 #define BVH_LEAF_TRIANGLE_COUNT 2
-
-extern bool isShadowCheck;
 
 static inline float surface(const AxisAlignedBox &aabb) {
     glm::vec3 delta = aabb.upper - aabb.lower;
@@ -79,25 +76,24 @@ size_t BoundingVolumeHierarchy::numLevels() const {
 }
 
 bool BoundingVolumeHierarchy::intersect(Ray &ray, HitInfo &hitInfo) const {
-    return intersectTriangles(ray, hitInfo);
-}
-
-BoundingVolumeHierarchy::BoundingVolumeHierarchy() {
-    // Nothing
-}
-
-bool BoundingVolumeHierarchy::intersectTriangles(Ray &ray, HitInfo &hitInfo) const {
-
-    float oldT = ray.t;
-
     // Ray does not intersect this node
-    if (!intersectRayWithShape(aabb, ray)) {
+    // There is a chance the ray is inside the bounding box, so it does not intersect any face
+    // This copy of the ray goes off to infinity, so it must intersect a face if the original ray is inside the bounding box
+    Ray copy{ray.origin, ray.direction};
+    if (!intersectRayWithShape(aabb, copy)) {
         return false;
     }
 
-    // Reset t for further intersect calculations
-    ray.t = oldT;
+    // These bools are all marked as const so they are forcibly evaluated
+    // This is because we care about the closest triangle we intersect, not just any triangle
+    const bool lh = left == NULL ? false : left->intersect(ray, hitInfo);
+    const bool rh = right == NULL ? false : right->intersect(ray, hitInfo);
+    const bool hit = intersectTriangles(ray, hitInfo);
 
+    return lh || rh || hit;
+}
+
+bool BoundingVolumeHierarchy::intersectTriangles(Ray &ray, HitInfo &hitInfo) const {
     bool hit = false;
 
     // Triangles in this hierarchy
@@ -113,10 +109,11 @@ bool BoundingVolumeHierarchy::intersectTriangles(Ray &ray, HitInfo &hitInfo) con
         }
     }
 
-    bool lh = left == NULL ? false : left->intersectTriangles(ray, hitInfo);
-    bool rh = right == NULL ? false : right->intersectTriangles(ray, hitInfo);
+    return hit;
+}
 
-    return hit || lh || rh;
+BoundingVolumeHierarchy::BoundingVolumeHierarchy() {
+    // Nothing
 }
 
 void BoundingVolumeHierarchy::populateTree(const std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> &boxes, size_t depth) {

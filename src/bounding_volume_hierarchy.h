@@ -15,10 +15,10 @@ public:
 
     bool intersect(Ray &ray, HitInfo &hitInfo) const;
 
+    bool intersectTriangles(Ray &ray, HitInfo &hitInfo) const;
+
 private:
     BoundingVolumeHierarchy();
-
-    bool intersectTriangles(Ray &ray, HitInfo &hitInfo) const;
 
     void populateTree(const std::vector<std::tuple<AxisAlignedBox, size_t, size_t>> &boxes, size_t depth);
 

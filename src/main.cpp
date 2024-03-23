@@ -4,7 +4,9 @@ DISABLE_WARNINGS_PUSH()
 #include <imgui.h>
 DISABLE_WARNINGS_POP()
 #include <array>
+#include <deque>
 #include <iostream>
+#include <random>
 #include <string>
 #include "bounding_volume_hierarchy.h"
 #include "draw.h"
@@ -14,9 +16,7 @@ DISABLE_WARNINGS_POP()
 #include "window.h"
 #ifdef USE_OPENMP
 #include <omp.h>
-#include<deque>
 #endif
-#include <random>
 
 #define REFLECTION_MAX_TRACES (1 << 5)
 
@@ -73,7 +73,7 @@ static inline glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scen
 }
 
 static void setOpenGLMatrices(const Trackball &camera);
-static void renderOpenGL(const Scene& scene, const Trackball& camera, int selectedLight);
+static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
 
 static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
     //total area
@@ -99,7 +99,7 @@ static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
     std::default_random_engine generator;
     generator.seed(std::chrono::system_clock::now().time_since_epoch().count());
     std::uniform_real_distribution<double> distribution(0.0, 1.0);
-    
+
     for (const Mesh& mesh : scene.meshes) {
         for (glm::vec3 trig : mesh.triangles) {
             glm::vec3 A = mesh.vertices[trig.x].position;
@@ -130,11 +130,9 @@ static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
 
 // This is the main rendering function. You are free to change this function in any way (including the function signature).
 static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, Screen& screen) {
-    std::vector<glm::vec3> samples = sampleViewpoints(scene);
-
 #ifdef USE_OPENMP
 #pragma omp parallel for
-#endif   
+#endif
     for (int y = 0; y < HEIGHT; y++) {
         for (int x = 0; x < WIDTH; x++) {
             // NOTE: (-1, -1) at the bottom left of the screen, (+1, +1) at the top right of the screen.
@@ -161,15 +159,20 @@ int main(int argc, char *argv[]) {
     camera.setCamera(glm::vec3(0.0F), glm::radians(glm::vec3(20.0F, 20.0F, 0.0F)), 3.0F);
 
     SceneType sceneType{SceneType::CornellBox};
-    std::optional<Ray> optDebugRay;
+
     Scene scene = loadScene(sceneType, dataPath);
+
     const std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
     BoundingVolumeHierarchy bvh{&scene};
     const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
+    std::vector<glm::vec3> samples = sampleViewpoints(scene);
+
+    std::optional<Ray> optDebugRay;
     int bvhDebugLevel = 0;
     bool debugBVH{ false };
+    int selectedLight = 0;
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -193,15 +196,13 @@ int main(int argc, char *argv[]) {
             }
         });
 
-    int selectedLight = 0;
-    std::vector<glm::vec3> samples = sampleViewpoints(scene);
     while (!window.shouldClose()) {
         window.updateInput();
 
         // === Setup the UI ===
         ImGui::Begin("Menu");
         {
-            constexpr std::array items{"Cornell Box (with mirror)", ""};
+            constexpr std::array items{"Cornell Box (with mirror)"};
             if (ImGui::Combo("Scenes", reinterpret_cast<int*>(&sceneType), items.data(), int(items.size()))) {
                 optDebugRay.reset();
                 scene = loadScene(sceneType, dataPath);

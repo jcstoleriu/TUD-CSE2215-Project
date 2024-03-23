@@ -25,11 +25,12 @@ glm::vec3 shader_blinn_phong_specular(const glm::vec3 &position, const glm::vec3
 static bool isShadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal) {
 	glm::vec3 direction = light - point;
 	glm::vec3 directionn = glm::normalize(direction);
-	Ray ray = Ray{point + directionn * 0.01F, directionn};
+	Ray ray = Ray{point + directionn * 0.01F, directionn, glm::length(direction)};
+
 	HitInfo hitInfo;
 
 	// Light is not visible
-	if (glm::dot(directionn, normal) < 0.0F || (bvh.intersect(ray, hitInfo) && ray.t < glm::length(direction) - 0.02F)) {
+	if (glm::dot(directionn, normal) < 0.0F || bvh.intersect(ray, hitInfo)) {
 		drawRay(ray, glm::vec3(1.0F, 0.0F, 0.0F));
 		return true;
 	}
