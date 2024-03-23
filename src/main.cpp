@@ -75,7 +75,7 @@ static inline glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scen
 static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
 
-static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
+static std::vector<glm::vec3> sampleViewpoints(const Scene& scene, int nrSamples = 0) {
     //total area
     float total = 0.0f;
     std::deque<float> areas;
@@ -106,7 +106,10 @@ static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
             glm::vec3 B = mesh.vertices[trig.y].position;
             glm::vec3 C = mesh.vertices[trig.z].position;
 
-            float weight = 100.0*areas.front() / total;
+            float weight = 100*areas.front() / total;
+            //use weight as a percentage of nrSamples basically
+            if (nrSamples)
+                weight = (weight * nrSamples) / 100.0;
             areas.pop_front();
 
             if (weight < 1.0f)
@@ -125,6 +128,7 @@ static std::vector<glm::vec3> sampleViewpoints(const Scene& scene) {
             }
         }
     }
+    std::cout << samples.size() << std::endl;
     return samples;
 }
 
@@ -167,7 +171,7 @@ int main(int argc, char *argv[]) {
     const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
-    std::vector<glm::vec3> samples = sampleViewpoints(scene);
+    std::vector<glm::vec3> samples = sampleViewpoints(scene, 200);
 
     std::optional<Ray> optDebugRay;
     int bvhDebugLevel = 0;
