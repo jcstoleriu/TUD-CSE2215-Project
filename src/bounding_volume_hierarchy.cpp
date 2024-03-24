@@ -1,9 +1,9 @@
 #include "bounding_volume_hierarchy.h"
 #include "draw.h"
 
-#define BVH_SPLIT_STEPS 16
-#define BVH_MAX_DEPTH (1 << 4)
-#define BVH_LEAF_TRIANGLE_COUNT 2
+static constexpr size_t BVH_SPLIT_STEPS = 16;
+static constexpr size_t BVH_MAX_DEPTH = 1 << 4;
+static constexpr size_t BVH_LEAF_TRIANGLE_COUNT = 2;
 
 static inline float surface(const AxisAlignedBox &aabb) {
     glm::vec3 delta = aabb.upper - aabb.lower;
