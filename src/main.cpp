@@ -18,13 +18,13 @@ DISABLE_WARNINGS_POP()
 #include <omp.h>
 #endif
 
-#define REFLECTION_MAX_TRACES (1 << 5)
-
 // This is the main application. The code in here does not need to be modified.
 static constexpr const size_t WIDTH = 800;
 static constexpr const size_t HEIGHT = 800;
 static const std::filesystem::path dataPath{ DATA_DIR };
 static const std::filesystem::path outputPath{ OUTPUT_DIR };
+static constexpr size_t REFLECTION_MAX_TRACES = 1 << 5;
+static constexpr size_t POINT_SAMPLE_COUNT = 1 << 10;
 
 // NOTE(Mathijs): separate function to make recursion easier (could also be done with lambda + std::function).
 static glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, Ray ray, size_t depth) {
@@ -75,60 +75,9 @@ static inline glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scen
 static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
 
-static std::vector<glm::vec3> sampleViewpoints(const Scene& scene, int nrSamples = 0) {
-    //total area
-    float total = 0.0f;
-    std::deque<float> areas;
-    for (const Mesh& mesh : scene.meshes) {
-        for (glm::vec3 trig : mesh.triangles) {
-            glm::vec3 A = mesh.vertices[trig.x].position;
-            glm::vec3 B = mesh.vertices[trig.y].position;
-            glm::vec3 C = mesh.vertices[trig.z].position;
-
-            glm::vec3 AB = B - A;
-            glm::vec3 AC = C - A;
-
-            float area = glm::length(glm::cross(AB, AC)) / 2.0f;
-            total += area;
-            areas.push_back(area);
-        }
-    }
-
-    //assign weights & sample
-    std::vector<glm::vec3> samples;
-    std::default_random_engine generator;
-    generator.seed(std::chrono::system_clock::now().time_since_epoch().count());
-    std::uniform_real_distribution<double> distribution(0.0, 1.0);
-
-    for (const Mesh& mesh : scene.meshes) {
-        for (glm::vec3 trig : mesh.triangles) {
-            glm::vec3 A = mesh.vertices[trig.x].position;
-            glm::vec3 B = mesh.vertices[trig.y].position;
-            glm::vec3 C = mesh.vertices[trig.z].position;
-
-            float weight = 100*areas.front() / total;
-            //use weight as a percentage of nrSamples basically
-            if (nrSamples)
-                weight = (weight * nrSamples) / 100.0;
-            areas.pop_front();
-
-            if (weight < 1.0f)
-                weight = 1.0f;
-
-            for (int i = 0; i < int(weight); i++) {
-                float t1 = distribution(generator);
-                float t2 = distribution(generator);
-                if (t1 + t2 > 1.0)
-                {
-                    t1 = 1.0 - t1;
-                    t2 = 1.0 - t2;
-                }
-                float t3 = 1.0 - t1 - t2;
-                samples.push_back(t1*A + t2*B + t3*C);
-            }
-        }
-    }
-    std::cout << samples.size() << std::endl;
+static std::vector<glm::vec3> sampleViewpoints(const Scene& scene, size_t nrSamples) {
+    unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::vector<glm::vec3> samples = generate_samples(scene, nrSamples, seed);
     return samples;
 }
 
@@ -166,12 +115,15 @@ int main(int argc, char *argv[]) {
 
     Scene scene = loadScene(sceneType, dataPath);
 
-    const std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
+    std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
     BoundingVolumeHierarchy bvh{&scene};
-    const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
+    std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
-    std::vector<glm::vec3> samples = sampleViewpoints(scene, 200);
+    start = std::chrono::high_resolution_clock::now();
+    std::vector<glm::vec3> samples = sampleViewpoints(scene, POINT_SAMPLE_COUNT);
+    end = std::chrono::high_resolution_clock::now();
+    std::cout << "Time to compute " << POINT_SAMPLE_COUNT << " random sample points: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
     std::optional<Ray> optDebugRay;
     int bvhDebugLevel = 0;
@@ -179,6 +131,7 @@ int main(int argc, char *argv[]) {
     int selectedLight = 0;
     bool showSelectedMesh = false;
     int selectedMesh = 0;
+    bool showSamples = false;
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -235,6 +188,7 @@ int main(int argc, char *argv[]) {
         if (debugBVH) {
             ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
         }
+        ImGui::Checkbox("Show sample points", &showSamples);
         ImGui::Spacing();
         ImGui::Separator();
         ImGui::Text("Lights");
@@ -308,6 +262,19 @@ int main(int argc, char *argv[]) {
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             bvh.debugDraw(bvhDebugLevel);
+            glPopAttrib();
+        }
+
+        if (showSamples) {
+            glPushAttrib(GL_ALL_ATTRIB_BITS);
+            setOpenGLMatrices(camera);
+            glDisable(GL_LIGHTING);
+            glEnable(GL_DEPTH_TEST);
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            for (const glm::vec3 &sample : samples) {
+                drawSphere(sample, 0.005F, glm::vec3(1.0F, 0.0F, 1.0F));
+            }
             glPopAttrib();
         }
 

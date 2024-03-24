@@ -2,8 +2,95 @@
 DISABLE_WARNINGS_PUSH()
 #include <glm/geometric.hpp>
 DISABLE_WARNINGS_POP()
+#include <random>
 #include "draw.h"
 #include "illumination.h"
+
+static inline float surface_triangle(const Mesh &mesh, const Triangle &triangle) {
+	glm::vec3 v0 = mesh.vertices[triangle.x].position;
+	glm::vec3 v1 = mesh.vertices[triangle.y].position;
+	glm::vec3 v2 = mesh.vertices[triangle.z].position;
+
+	glm::vec3 v01 = v1 - v0;
+	glm::vec3 v02 = v2 - v0;
+
+	return glm::length(glm::cross(v01, v02)) / 2.0F;
+}
+
+static inline glm::vec3 point_in_triangle(const Mesh &mesh, const Triangle &triangle, const float u1, const float u2) {
+	glm::vec3 v0 = mesh.vertices[triangle.x].position;
+	glm::vec3 v1 = mesh.vertices[triangle.y].position;
+	glm::vec3 v2 = mesh.vertices[triangle.z].position;
+
+	float t1 = u1;
+	float t2 = u2;
+
+	if (t1 + t2 > 1.0F) {
+		t1 = 1.0F - t1;
+		t2 = 1.0F - t2;
+	}
+
+	float t3 = 1.0F - t1 - t2;
+	return t1 * v0 + t2 * v1 + t3 * v2;
+}
+
+std::vector<glm::vec3> generate_samples(const Scene &scene, const size_t count, const unsigned int seed) {
+	// Surface calculation
+	float surface = 0.0F;
+	std::vector<std::tuple<float, size_t, size_t>> triangles;
+	for (size_t i  = 0; i < scene.meshes.size(); i++) {
+		const Mesh &mesh = scene.meshes[i];
+		for (size_t j = 0; j < mesh.triangles.size(); j++) {
+			const Triangle &triangle = mesh.triangles[j];
+			float area = surface_triangle(mesh, triangle);
+			triangles.push_back({area, i, j});
+			surface += area;
+		}
+	}
+
+	// RNG
+	std::default_random_engine generator;
+	generator.seed(seed);
+	std::uniform_real_distribution<float> d1(0.0F, surface);
+	std::uniform_real_distribution<float> d2(0.0F, 1.0F);
+
+	// Sample generation
+	std::vector<glm::vec3> samples;
+	for (size_t i = 0; i < count; i++) {
+		float rand = d1(generator);
+		float cursor = 0.0F;
+		for (const auto &[area, mi, ti] : triangles) {
+			cursor += area;
+			if (cursor >= rand) {
+				const Mesh &mesh = scene.meshes[mi];
+				const Triangle &triangle = mesh.triangles[ti];
+				float u1 = d2(generator);
+				float u2 = d2(generator);
+				samples.push_back(point_in_triangle(mesh, triangle, u1, u2));
+				break;
+			}
+		}
+	}
+
+	return samples;
+}
+
+bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal) {
+	glm::vec3 direction = light - point;
+	glm::vec3 directionn = glm::normalize(direction);
+	Ray ray = Ray{point + directionn * 0.01F, directionn, glm::length(direction)};
+
+	HitInfo hitInfo;
+
+	// Light is not visible
+	if (glm::dot(directionn, normal) < 0.0F || bvh.intersect(ray, hitInfo)) {
+		drawRay(ray, glm::vec3(1.0F, 0.0F, 0.0F));
+		return true;
+	}
+
+	drawRay(ray, glm::vec3(1.0F, 1.0F, 1.0F));
+	return false;
+}
 
 glm::vec3 shader_lambert(const glm::vec3 &position, const glm::vec3 &normal, const Material &material, const PointLight &light) {
 	float factor = glm::dot(glm::normalize(light.position - position), glm::normalize(normal));
@@ -22,29 +109,12 @@ glm::vec3 shader_blinn_phong_specular(const glm::vec3 &position, const glm::vec3
 	return glm::clamp(color, 0.0F, 1.0F);
 }
 
-static bool isShadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal) {
-	glm::vec3 direction = light - point;
-	glm::vec3 directionn = glm::normalize(direction);
-	Ray ray = Ray{point + directionn * 0.01F, directionn, glm::length(direction)};
-
-	HitInfo hitInfo;
-
-	// Light is not visible
-	if (glm::dot(directionn, normal) < 0.0F || bvh.intersect(ray, hitInfo)) {
-		drawRay(ray, glm::vec3(1.0F, 0.0F, 0.0F));
-		return true;
-	}
-
-	drawRay(ray, glm::vec3(1.0F, 1.0F, 1.0F));
-	return false;
-}
-
 glm::vec3 shader(const Scene &scene, const BoundingVolumeHierarchy &bvh, const Ray &ray, const HitInfo &hitInfo, const glm::vec3 &camera) {
 	glm::vec3 point = ray.origin + ray.direction * ray.t;
 	glm::vec3 color = glm::vec3(0.0F);
 
 	for (const PointLight &light : scene.pointLights) {
-		if (!isShadow(bvh, point, light.position, hitInfo.normal)) {
+		if (!is_shadow(bvh, point, light.position, hitInfo.normal)) {
 			color += shader_lambert(point, hitInfo.normal, hitInfo.material, light);
 			color += shader_blinn_phong_specular(point, hitInfo.normal, hitInfo.material, light, camera);
 		}
