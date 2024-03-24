@@ -75,12 +75,6 @@ static inline glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scen
 static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
 
-static std::vector<glm::vec3> sampleViewpoints(const Scene& scene, size_t nrSamples) {
-    unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::vector<glm::vec3> samples = generate_samples(scene, nrSamples, seed);
-    return samples;
-}
-
 // This is the main rendering function. You are free to change this function in any way (including the function signature).
 static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, Screen& screen) {
 #ifdef USE_OPENMP
@@ -121,7 +115,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
     start = std::chrono::high_resolution_clock::now();
-    std::vector<glm::vec3> samples = sampleViewpoints(scene, POINT_SAMPLE_COUNT);
+    std::vector<glm::vec3> samples = generate_samples(scene, POINT_SAMPLE_COUNT, std::chrono::system_clock::now().time_since_epoch().count());
     end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute " << POINT_SAMPLE_COUNT << " random sample points: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
