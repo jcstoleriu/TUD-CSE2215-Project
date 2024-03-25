@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
     start = std::chrono::high_resolution_clock::now();
-    std::vector<glm::vec3> samples = generate_samples(scene, POINT_SAMPLE_COUNT, std::chrono::system_clock::now().time_since_epoch().count());
+    std::vector<SamplePoint> samples = generate_samples(scene, POINT_SAMPLE_COUNT, std::chrono::system_clock::now().time_since_epoch().count());
     end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute " << POINT_SAMPLE_COUNT << " random sample points: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
@@ -266,8 +266,8 @@ int main(int argc, char *argv[]) {
             glEnable(GL_DEPTH_TEST);
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-            for (const glm::vec3 &sample : samples) {
-                drawSphere(sample, 0.005F, glm::vec3(1.0F, 0.0F, 1.0F));
+            for (const SamplePoint &sample : samples) {
+                drawSphere(sample.position, 0.005F, glm::vec3(1.0F, 0.0F, 1.0F));
             }
             glPopAttrib();
         }

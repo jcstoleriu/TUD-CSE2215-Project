@@ -8,7 +8,14 @@ DISABLE_WARNINGS_POP()
 #include "mesh.h"
 #include "scene.h"
 
-std::vector<glm::vec3> generate_samples(const Scene &scene, const size_t count, const unsigned int seed);
+struct SamplePoint {
+	glm::vec3 position;
+	glm::vec3 normal;
+	size_t mesh_id;
+	size_t sample_id;
+};
+
+std::vector<SamplePoint> generate_samples(const Scene &scene, const size_t count, const unsigned int seed);
 
 bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal);
 

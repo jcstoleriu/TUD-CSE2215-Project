@@ -17,24 +17,7 @@ static inline float surface_triangle(const Mesh &mesh, const Triangle &triangle)
 	return glm::length(glm::cross(v01, v02)) / 2.0F;
 }
 
-static inline glm::vec3 point_in_triangle(const Mesh &mesh, const Triangle &triangle, const float u1, const float u2) {
-	glm::vec3 v0 = mesh.vertices[triangle.x].position;
-	glm::vec3 v1 = mesh.vertices[triangle.y].position;
-	glm::vec3 v2 = mesh.vertices[triangle.z].position;
-
-	float t1 = u1;
-	float t2 = u2;
-
-	if (t1 + t2 > 1.0F) {
-		t1 = 1.0F - t1;
-		t2 = 1.0F - t2;
-	}
-
-	float t3 = 1.0F - t1 - t2;
-	return t1 * v0 + t2 * v1 + t3 * v2;
-}
-
-std::vector<glm::vec3> generate_samples(const Scene &scene, const size_t count, const unsigned int seed) {
+std::vector<SamplePoint> generate_samples(const Scene &scene, const size_t count, const unsigned int seed) {
 	// Surface calculation
 	float surface = 0.0F;
 	std::vector<std::tuple<float, size_t, size_t>> triangles;
@@ -55,7 +38,7 @@ std::vector<glm::vec3> generate_samples(const Scene &scene, const size_t count, 
 	std::uniform_real_distribution<float> d2(0.0F, 1.0F);
 
 	// Sample generation
-	std::vector<glm::vec3> samples;
+	std::vector<SamplePoint> samples;
 	for (size_t i = 0; i < count; i++) {
 		float rand = d1(generator);
 		float cursor = 0.0F;
@@ -66,7 +49,23 @@ std::vector<glm::vec3> generate_samples(const Scene &scene, const size_t count, 
 				const Triangle &triangle = mesh.triangles[ti];
 				float u1 = d2(generator);
 				float u2 = d2(generator);
-				samples.push_back(point_in_triangle(mesh, triangle, u1, u2));
+
+				// Generating a point in the triangle
+				const Vertex &v0 = mesh.vertices[triangle.x];
+				const Vertex &v1 = mesh.vertices[triangle.y];
+				const Vertex &v2 = mesh.vertices[triangle.z];
+
+				if (u1 + u2 > 1.0F) {
+					u1 = 1.0F - u1;
+					u2 = 1.0F - u2;
+				}
+
+				float u3 = 1.0F - u1 - u2;
+
+				glm::vec3 position = u1 * v0.position + u2 * v1.position + u3 * v2.position;
+				glm::vec3 normal = u1 * v0.normal + u2 * v1.normal + u3 * v2.normal;
+
+				samples.push_back({position, normal, mi, i});
 				break;
 			}
 		}
