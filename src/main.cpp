@@ -4,6 +4,7 @@ DISABLE_WARNINGS_PUSH()
 #include <imgui.h>
 DISABLE_WARNINGS_POP()
 #include <array>
+#include <atomic>
 #include <deque>
 #include <iostream>
 #include <random>
@@ -23,60 +24,13 @@ static constexpr const size_t WIDTH = 800;
 static constexpr const size_t HEIGHT = 800;
 static const std::filesystem::path dataPath{ DATA_DIR };
 static const std::filesystem::path outputPath{ OUTPUT_DIR };
-static constexpr size_t REFLECTION_MAX_TRACES = 1 << 5;
-static constexpr size_t POINT_SAMPLE_COUNT = 1 << 10;
-
-// NOTE(Mathijs): separate function to make recursion easier (could also be done with lambda + std::function).
-static glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, Ray ray, size_t depth) {
-  HitInfo hitInfo;
-
-  // Ray miss
-  if (depth >= REFLECTION_MAX_TRACES || !bvh.intersect(ray, hitInfo)) {
-      // Draw a red debug ray if the ray missed.
-      drawRay(ray, glm::vec3(1.0F, 0.0F, 0.0F));
-
-      // Set the color of the pixel to black if the ray misses.
-      return glm::vec3(0.0F);
-  }
-
-
-  glm::vec3 color = shader(scene, bvh, ray, hitInfo, camera);
-
-  // Draw a white debug ray.
-  drawRay(ray, glm::vec3(1.0F));
-
-  // If Ks is not black (glm::vec3{0, 0, 0} has magnitude 0)
-  if (glm::length(hitInfo.material.ks) > 0) {
-    glm::vec3 normal = glm::normalize(hitInfo.normal);
-
-    // Because we intersect we know t != infinity
-    glm::vec3 hitPoint = ray.origin + ray.direction * ray.t;
-
-    // Reflection of ray direction over the given normal
-    // I don't know if the result is normalized so we do it manually anyways
-    glm::vec3 reflectionDir = glm::normalize(ray.direction - 2 * glm::dot(ray.direction, normal) * normal);
-
-    // We give the reflection ray an offset of 0.01 * direction, otherwise we start inside of the triangle we hit
-    // This may not be optimal
-    Ray reflRay = Ray{hitPoint + reflectionDir * 0.01F, reflectionDir};
-
-    glm::vec3 reflecColor = getFinalColor(camera, scene, bvh, reflRay, depth + 1);
-
-    color += hitInfo.material.ks * reflecColor;
-  }
-
-  return glm::clamp(color, 0.0F, 1.0F);
-}
-
-static inline glm::vec3 getFinalColor(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, Ray ray) {
-  return getFinalColor(camera, scene, bvh, ray, 0);
-}
 
 static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
 
 // This is the main rendering function. You are free to change this function in any way (including the function signature).
-static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, Screen& screen) {
+static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, const ShadingData &data, std::default_random_engine rng, Screen& screen) {
+    std::atomic_size_t render_progress = 0;
 #ifdef USE_OPENMP
 #pragma omp parallel for
 #endif
@@ -88,9 +42,17 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
                 float(y) / HEIGHT * 2.0F - 1.0F
             };
             const Ray cameraRay = camera.generateRay(normalizedPixelPos);
-            screen.setPixel(x, y, getFinalColor(camera.position(), scene, bvh, cameraRay));
+            glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay);
+            screen.setPixel(x, y, color);
+
+            size_t i = ++render_progress;
+            if (i % 64 == 0) {
+                float f = 100.0F * i / (WIDTH * HEIGHT);
+                std::cout << "\r\033[2KProgress: " << f << "%" << std::flush;
+            }
         }
     }
+    std::cout << std::endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -114,10 +76,10 @@ int main(int argc, char *argv[]) {
     std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
-    start = std::chrono::high_resolution_clock::now();
-    std::vector<SamplePoint> samples = generate_samples(scene, POINT_SAMPLE_COUNT, std::chrono::system_clock::now().time_since_epoch().count());
-    end = std::chrono::high_resolution_clock::now();
-    std::cout << "Time to compute " << POINT_SAMPLE_COUNT << " random sample points: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
+    unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine rng;
+    rng.seed(seed);
+    std::cout << "Seed: " << seed << std::endl;
 
     std::optional<Ray> optDebugRay;
     int bvhDebugLevel = 0;
@@ -125,7 +87,7 @@ int main(int argc, char *argv[]) {
     int selectedLight = 0;
     bool showSelectedMesh = false;
     int selectedMesh = 0;
-    bool showSamples = false;
+    ShadingData data = ShadingData{false, 3, 32};
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -154,24 +116,21 @@ int main(int argc, char *argv[]) {
 
         // === Setup the UI ===
         ImGui::Begin("Menu");
+        ImGui::SliderInt("Depth", &data.max_traces, 1, 8);
+        ImGui::SliderInt("Samples", &data.samples, 0, 64);
         {
-            constexpr std::array items{"Cornell Box (with mirror)"};
-            if (ImGui::Combo("Scenes", reinterpret_cast<int*>(&sceneType), items.data(), int(items.size()))) {
-                optDebugRay.reset();
-                scene = loadScene(sceneType, dataPath);
-                bvh = BoundingVolumeHierarchy(&scene);
-                if (optDebugRay) {
-                    HitInfo dummy{};
-                    bvh.intersect(*optDebugRay, dummy);
-                }
+            if (ImGui::InputScalar("Seed", ImGuiDataType_::ImGuiDataType_U32, (void *) &seed, NULL, NULL, "%u", 0)) {
+                rng.seed(seed);
             }
         }
+        ImGui::Spacing();
+        ImGui::Separator();
         if (ImGui::Button("Render to file")) {
             {
                 const std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
-                renderRayTracing(scene, camera, bvh, screen);
+                renderRayTracing(scene, camera, bvh, data, rng, screen);
                 const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
-                std::cout << "Time to render image: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
+                std::cout << "Time to render image: " << std::chrono::duration<float, std::milli>(end - start).count() / 1000.0F << " second(s)" << std::endl;
             }
             screen.writeBitmapToFile(outputPath / "render.bmp");
         }
@@ -182,7 +141,6 @@ int main(int argc, char *argv[]) {
         if (debugBVH) {
             ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
         }
-        ImGui::Checkbox("Show sample points", &showSamples);
         ImGui::Spacing();
         ImGui::Separator();
         ImGui::Text("Lights");
@@ -237,11 +195,12 @@ int main(int argc, char *argv[]) {
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         renderOpenGL(scene, camera, selectedLight);
         if (optDebugRay) {
-            // Call getFinalColor for the debug ray. Ignore the result but tell the function that it should
-            // draw the rays instead.
-            enableDrawRay = true;
-            (void) getFinalColor(camera.position(), scene, bvh, *optDebugRay);
-            enableDrawRay = false;
+            data.debug = true;
+            // We do not reuse the original rng to make the debug output consistent
+            std::default_random_engine rand;
+            rand.seed(seed);
+            (void) get_color(camera.position(), scene, bvh, data, rand, *optDebugRay);
+            data.debug = false;
         }
         glPopAttrib();
 
@@ -256,19 +215,6 @@ int main(int argc, char *argv[]) {
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             bvh.debugDraw(bvhDebugLevel);
-            glPopAttrib();
-        }
-
-        if (showSamples) {
-            glPushAttrib(GL_ALL_ATTRIB_BITS);
-            setOpenGLMatrices(camera);
-            glDisable(GL_LIGHTING);
-            glEnable(GL_DEPTH_TEST);
-            glEnable(GL_BLEND);
-            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-            for (const SamplePoint &sample : samples) {
-                drawSphere(sample.position, 0.005F, glm::vec3(1.0F, 0.0F, 1.0F));
-            }
             glPopAttrib();
         }
 

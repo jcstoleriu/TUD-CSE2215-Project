@@ -20,8 +20,6 @@ DISABLE_WARNINGS_POP()
 #include "draw.h"
 #include "ray.h"
 
-bool enableDrawRay = false;
-
 static void setMaterial(const Material &material) {
     // Set the material color of the shape.
     const glm::vec4 kd4 { material.kd, 1.0F };
@@ -147,24 +145,22 @@ void drawScene(const Scene &scene) {
 }
 
 void drawRay(const Ray &ray, const glm::vec3 &color) {
-    if (enableDrawRay) {
-        const glm::vec3 hitPoint = ray.origin + std::clamp(ray.t, 0.0F, 100.0F) * ray.direction;
-        const bool hit = ray.t < std::numeric_limits<float>::max();
+    const glm::vec3 hitPoint = ray.origin + std::clamp(ray.t, 0.0F, 100.0F) * ray.direction;
+    const bool hit = ray.t < std::numeric_limits<float>::max();
 
-        glPushAttrib(GL_ALL_ATTRIB_BITS);
-        glDisable(GL_LIGHTING);
-        glBegin(GL_LINES);
+    glPushAttrib(GL_ALL_ATTRIB_BITS);
+    glDisable(GL_LIGHTING);
+    glBegin(GL_LINES);
 
-        glColor3fv(glm::value_ptr(color));
-        glVertex3fv(glm::value_ptr(ray.origin));
-        glColor3fv(glm::value_ptr(color));
-        glVertex3fv(glm::value_ptr(hitPoint));
-        glEnd();
+    glColor3fv(glm::value_ptr(color));
+    glVertex3fv(glm::value_ptr(ray.origin));
+    glColor3fv(glm::value_ptr(color));
+    glVertex3fv(glm::value_ptr(hitPoint));
+    glEnd();
 
-        if (hit) {
-            drawSphere(hitPoint, 0.005F, glm::vec3(0.0F, 1.0F, 0.0F));
-        }
-
-        glPopAttrib();
+    if (hit) {
+        drawSphere(hitPoint, 0.005F, glm::vec3(0.0F, 1.0F, 0.0F));
     }
+
+    glPopAttrib();
 }

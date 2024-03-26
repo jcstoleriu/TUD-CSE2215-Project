@@ -18,6 +18,4 @@ void drawAABB(const AxisAlignedBox &box, const DrawMode drawMode, const glm::vec
 
 void drawScene(const Scene &scene);
 
-extern bool enableDrawRay;
-
 void drawRay(const Ray &ray, const glm::vec3 &color);
