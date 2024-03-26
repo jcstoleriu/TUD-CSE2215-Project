@@ -86,7 +86,12 @@ int main(int argc, char *argv[]) {
     bool debugBVH{ false };
     int selectedLight = 0;
     bool showSelectedMesh = false;
+    bool showSelectedMeshE = false; // for showing meshes selected for edit
     int selectedMesh = 0;
+    int selectedMeshA = 0;
+    int selectedMeshB = 0;
+    float offset = 0.0F;
+    float scalar = 0.0F;
     ShadingData data = ShadingData{false, 3, 32};
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
@@ -186,6 +191,36 @@ int main(int argc, char *argv[]) {
                 ImGui::Checkbox("Highlight mesh", &showSelectedMesh);
             }
         }
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Text("Edits");
+        if (!scene.meshes.empty()) {
+            {
+                std::vector<std::string> optionsA;
+                for (size_t i = 0; i < scene.meshes.size(); i++) {
+                    optionsA.push_back("Mesh " + std::to_string(i + 1));
+                }
+
+                std::vector<std::string> optionsB;
+                for (size_t i = 0; i < scene.meshes.size(); i++) {
+                    optionsB.push_back("Mesh " + std::to_string(i + 1));
+                }
+
+                std::vector<const char*> optionsPointersA;
+                std::transform(std::begin(optionsA), std::end(optionsA), std::back_inserter(optionsPointersA), [](const auto& str) { return str.c_str(); });
+                ImGui::Combo("Selected mesh A", &selectedMeshA, optionsPointersA.data(), static_cast<int>(optionsPointersA.size()));
+                std::vector<const char*> optionsPointersB;
+                std::transform(std::begin(optionsB), std::end(optionsB), std::back_inserter(optionsPointersB), [](const auto& str) { return str.c_str(); });
+                ImGui::Combo("Selected mesh B", &selectedMeshB, optionsPointersB.data(), static_cast<int>(optionsPointersB.size()));
+            }
+            {
+                ImGui::SliderFloat("offset", &offset, 0.0F, 100.0F);
+                ImGui::SliderFloat("scalar value", &scalar, 0.0F, 100.0F);
+            }
+            {
+                ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);
+            }
+        }
 
         // Clear screen.
         glClearDepth(1.0F);
@@ -226,6 +261,18 @@ int main(int argc, char *argv[]) {
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             drawAABB(AxisAlignedBox{scene.meshes[selectedMesh].lower, scene.meshes[selectedMesh].upper}, DrawMode::WIREFRAME, glm::vec3(0.0F, 1.0F, 1.0F), 1.0F);
+            glPopAttrib();
+        }
+
+        if (!scene.meshes.empty() && showSelectedMeshE) {
+            glPushAttrib(GL_ALL_ATTRIB_BITS);
+            setOpenGLMatrices(camera);
+            glDisable(GL_LIGHTING);
+            glEnable(GL_DEPTH_TEST);
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            drawAABB(AxisAlignedBox{ scene.meshes[selectedMeshA].lower, scene.meshes[selectedMeshA].upper }, DrawMode::WIREFRAME, glm::vec3(1.0F, 0.0F, 0.0F), 1.0F);
+            drawAABB(AxisAlignedBox{ scene.meshes[selectedMeshB].lower, scene.meshes[selectedMeshB].upper }, DrawMode::WIREFRAME, glm::vec3(0.0F, 1.0F, 0.0F), 1.0F);
             glPopAttrib();
         }
 
