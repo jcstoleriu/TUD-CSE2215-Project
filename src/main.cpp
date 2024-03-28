@@ -92,7 +92,20 @@ int main(int argc, char *argv[]) {
     int selectedMeshB = 0;
     float offset = 0.0F;
     float scalar = 0.0F;
-    ShadingData data = ShadingData{false, 3, 32};
+    // matrix of (scale, offset), fill with 0
+    std::vector<std::vector<std::vector<float>>> transforms;
+    for (int i = 0; i < scene.meshes.size(); i++) {
+        std::vector<std::vector<float>> row;
+        for (int j = 0; j < scene.meshes.size(); j++) {
+            std::vector<float> elem;
+            elem.push_back(scalar);
+            elem.push_back(offset);
+            row.push_back(elem);
+        }
+        transforms.push_back(row);
+    }
+        
+    ShadingData data = ShadingData{false, 3, 32, transforms};
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -214,8 +227,14 @@ int main(int argc, char *argv[]) {
                 ImGui::Combo("Selected mesh B", &selectedMeshB, optionsPointersB.data(), static_cast<int>(optionsPointersB.size()));
             }
             {
-                ImGui::SliderFloat("offset", &offset, 0.0F, 100.0F);
-                ImGui::SliderFloat("scalar value", &scalar, 0.0F, 100.0F);
+                bool changedOffset = ImGui::SliderFloat("offset", &offset, 0.0F, 100.0F);
+                bool changedScale = ImGui::SliderFloat("scalar value", &scalar, 0.0F, 100.0F);
+                if (changedOffset && changedScale) {
+                    std::vector<float> newVal = std::vector<float>(scalar, offset);
+                    ptrdiff_t idxA = std::find(scene.meshes.begin(), scene.meshes.end(), selectedMeshA) - scene.meshes.begin();
+                    ptrdiff_t idxB = std::find(scene.meshes.begin(), scene.meshes.end(), selectedMeshB) - scene.meshes.begin();
+                    updateTransforms(data, newVal, 0, 0);
+                }
             }
             {
                 ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);

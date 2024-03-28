@@ -95,8 +95,11 @@ static glm::vec3 random_hemisphere_vector(std::default_random_engine &rng, const
 	return glm::vec3(x, y, z);
 }
 
-static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray, size_t depth) {
-	HitInfo hitInfo;
+void updateTransforms(ShadingData& data, std::vector<float>& newVal, size_t i, size_t j) {
+	data.transforms[i][j] = newVal;
+}
+
+static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray, size_t depth, HitInfo hitInfo) {
 
 	// Ray miss
 	if (depth >= data.max_traces || !bvh.intersect(ray, hitInfo)) {
@@ -125,7 +128,7 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 		// Reflection of ray direction over the given normal
 		glm::vec3 reflectionDir = glm::normalize(ray.direction - 2.0F * glm::dot(ray.direction, hitInfo.normal) * hitInfo.normal);
 		Ray reflRay = Ray{position + reflectionDir * OFFSET, reflectionDir};
-		glm::vec3 reflColor = get_color(position, scene, bvh, data, rng, reflRay, new_depth);
+		glm::vec3 reflColor = get_color(position, scene, bvh, data, rng, reflRay, new_depth, hitInfo);
 		glm::vec3 color =  hitInfo.material.ks * reflColor;
 		//if (reflRay.t < std::numeric_limits<float>::max()) {
 		//	color /= reflRay.t * reflRay.t;
@@ -145,7 +148,7 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 			Ray sampleRayLen1 = Ray{sampleRay.origin, sampleRay.direction, 0.1F};
 			drawRay(sampleRayLen1, glm::vec3(1.0F, 1.0F, 0.0F));
 		} else {
-			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, std::max(data.max_traces - 2, (int) new_depth));
+			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, std::max(data.max_traces - 2, (int) new_depth), hitInfo);
 			float factor = glm::dot(hitInfo.normal, dir);
 			//if (sampleRay.t < std::numeric_limits<float>::max()) {
 			//	factor /= sampleRay.t * sampleRay.t;
@@ -163,5 +166,6 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 }
 
 glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray) {
-	return get_color(camera, scene, bvh, data, rng, ray, 0);
+	HitInfo newHit;
+	return get_color(camera, scene, bvh, data, rng, ray, 0, newHit);
 }

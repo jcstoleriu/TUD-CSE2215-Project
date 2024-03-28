@@ -7,6 +7,7 @@
 struct HitInfo {
     glm::vec3 normal;
     Material material;
+    size_t meshIdx;
 };
 
 bool intersectRayWithPlane(const Plane &plane, Ray &ray);
