@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
     int selectedMeshA = 0;
     int selectedMeshB = 0;
     float offset = 0.0F;
-    float scalar = 0.0F;
+    float scalar = 1.0F;
     // matrix of (scale, offset), fill with 0
     std::vector<std::vector<std::vector<float>>> transforms;
     for (int i = 0; i < scene.meshes.size(); i++) {
@@ -228,12 +228,12 @@ int main(int argc, char *argv[]) {
             }
             {
                 bool changedOffset = ImGui::SliderFloat("offset", &offset, 0.0F, 100.0F);
-                bool changedScale = ImGui::SliderFloat("scalar value", &scalar, 0.0F, 100.0F);
-                if (changedOffset && changedScale) {
-                    std::vector<float> newVal = std::vector<float>(scalar, offset);
-                    ptrdiff_t idxA = std::find(scene.meshes.begin(), scene.meshes.end(), selectedMeshA) - scene.meshes.begin();
-                    ptrdiff_t idxB = std::find(scene.meshes.begin(), scene.meshes.end(), selectedMeshB) - scene.meshes.begin();
-                    updateTransforms(data, newVal, 0, 0);
+                bool changedScale = ImGui::SliderFloat("scalar value", &scalar, 0.0F, 10.0F);
+                if (changedScale) {
+                    updateTransforms(data, scalar, 0, selectedMeshA, selectedMeshB);
+                }
+                if (changedOffset) {
+                    updateTransforms(data, offset, 1, selectedMeshA, selectedMeshB);
                 }
             }
             {

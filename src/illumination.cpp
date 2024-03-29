@@ -95,12 +95,12 @@ static glm::vec3 random_hemisphere_vector(std::default_random_engine &rng, const
 	return glm::vec3(x, y, z);
 }
 
-void updateTransforms(ShadingData& data, std::vector<float>& newVal, size_t i, size_t j) {
-	data.transforms[i][j] = newVal;
+void updateTransforms(ShadingData& data, float newVal, int idx, size_t i, size_t j) {
+	data.transforms[i][j][idx] = newVal;
 }
 
-static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray, size_t depth, HitInfo hitInfo) {
-
+static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray, size_t depth, HitInfo from) {
+	HitInfo hitInfo;
 	// Ray miss
 	if (depth >= data.max_traces || !bvh.intersect(ray, hitInfo)) {
 		// Draw a red debug ray if the ray missed.
@@ -156,6 +156,11 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 			indirect += factor * color;
 		}
 	}
+	if (0 <= from.meshIdx && from.meshIdx < scene.meshes.size()) {
+		indirect *= data.transforms[from.meshIdx][hitInfo.meshIdx][0];
+		indirect += data.transforms[from.meshIdx][hitInfo.meshIdx][1];
+	}
+
 	if (data.samples != 0) {
 		indirect /= data.samples;
 		indirect *= 2.0F * M_PI;
