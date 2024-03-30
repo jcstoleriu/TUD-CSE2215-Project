@@ -2,6 +2,7 @@
 DISABLE_WARNINGS_PUSH()
 #include <glm/geometric.hpp>
 DISABLE_WARNINGS_POP()
+#include <iostream>
 #include <random>
 #include "draw.h"
 #include "illumination.h"
@@ -11,6 +12,7 @@ DISABLE_WARNINGS_POP()
 
 static constexpr const float OFFSET = 0.01F;
 static constexpr const float M_PI = 3.14159265358979323846F;
+static constexpr const size_t INVALID_INDEX = (size_t) -1;
 
 bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal, const bool debug) {
 	glm::vec3 direction = light - point;
@@ -95,12 +97,7 @@ static glm::vec3 random_hemisphere_vector(std::default_random_engine &rng, const
 	return glm::vec3(x, y, z);
 }
 
-void updateTransforms(ShadingData& data, float newVal, int idx, size_t i, size_t j) {
-	data.transforms[i][j][idx] = newVal;
-}
-
-static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray, size_t depth, HitInfo from) {
-	HitInfo hitInfo;
+static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray, HitInfo &hitInfo, const size_t depth) {
 	// Ray miss
 	if (depth >= data.max_traces || !bvh.intersect(ray, hitInfo)) {
 		// Draw a red debug ray if the ray missed.
@@ -128,7 +125,8 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 		// Reflection of ray direction over the given normal
 		glm::vec3 reflectionDir = glm::normalize(ray.direction - 2.0F * glm::dot(ray.direction, hitInfo.normal) * hitInfo.normal);
 		Ray reflRay = Ray{position + reflectionDir * OFFSET, reflectionDir};
-		glm::vec3 reflColor = get_color(position, scene, bvh, data, rng, reflRay, new_depth, hitInfo);
+		HitInfo new_hitInfo;
+		glm::vec3 reflColor = get_color(position, scene, bvh, data, rng, reflRay, new_hitInfo, new_depth);
 		glm::vec3 color =  hitInfo.material.ks * reflColor;
 		//if (reflRay.t < std::numeric_limits<float>::max()) {
 		//	color /= reflRay.t * reflRay.t;
@@ -148,17 +146,23 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 			Ray sampleRayLen1 = Ray{sampleRay.origin, sampleRay.direction, 0.1F};
 			drawRay(sampleRayLen1, glm::vec3(1.0F, 1.0F, 0.0F));
 		} else {
-			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, std::max(data.max_traces - 2, (int) new_depth), hitInfo);
+			HitInfo sample_hitInfo;
+			sample_hitInfo.meshIdx = INVALID_INDEX;
+			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, sample_hitInfo, std::max(data.max_traces - 2, (int) new_depth));
 			float factor = glm::dot(hitInfo.normal, dir);
+
+			// Transform
+			// Note that the resulting color is not clamped to [0, 1] on purpose
+			if (sample_hitInfo.meshIdx != INVALID_INDEX) {
+				const auto &[scalar, offset] = (*data.transforms)[sample_hitInfo.meshIdx][hitInfo.meshIdx];
+				color = scalar * color + offset;
+			}
+
 			//if (sampleRay.t < std::numeric_limits<float>::max()) {
 			//	factor /= sampleRay.t * sampleRay.t;
 			//}
 			indirect += factor * color;
 		}
-	}
-	if (0 <= from.meshIdx && from.meshIdx < scene.meshes.size()) {
-		indirect *= data.transforms[from.meshIdx][hitInfo.meshIdx][0];
-		indirect += data.transforms[from.meshIdx][hitInfo.meshIdx][1];
 	}
 
 	if (data.samples != 0) {
@@ -170,7 +174,7 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 	return glm::clamp(color, 0.0F, 1.0F);
 }
 
-glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine rng, Ray ray) {
-	HitInfo newHit;
-	return get_color(camera, scene, bvh, data, rng, ray, 0, newHit);
+glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray) {
+	HitInfo hitInfo;
+	return get_color(camera, scene, bvh, data, rng, ray, hitInfo, 0);
 }

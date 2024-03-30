@@ -41,7 +41,7 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
                 float(x) / WIDTH * 2.0F - 1.0F,
                 float(y) / HEIGHT * 2.0F - 1.0F
             };
-            const Ray cameraRay = camera.generateRay(normalizedPixelPos);
+            Ray cameraRay = camera.generateRay(normalizedPixelPos);
             glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay);
             screen.setPixel(x, y, color);
 
@@ -90,22 +90,10 @@ int main(int argc, char *argv[]) {
     int selectedMesh = 0;
     int selectedMeshA = 0;
     int selectedMeshB = 0;
-    float offset = 0.0F;
-    float scalar = 1.0F;
-    // matrix of (scale, offset), fill with 0
-    std::vector<std::vector<std::vector<float>>> transforms;
-    for (int i = 0; i < scene.meshes.size(); i++) {
-        std::vector<std::vector<float>> row;
-        for (int j = 0; j < scene.meshes.size(); j++) {
-            std::vector<float> elem;
-            elem.push_back(scalar);
-            elem.push_back(offset);
-            row.push_back(elem);
-        }
-        transforms.push_back(row);
-    }
-        
-    ShadingData data = ShadingData{false, 3, 32, transforms};
+
+    size_t meshCount = scene.meshes.size();
+    std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
+    ShadingData data = ShadingData{false, 3, 32, &transforms};
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -206,7 +194,7 @@ int main(int argc, char *argv[]) {
         }
         ImGui::Spacing();
         ImGui::Separator();
-        ImGui::Text("Edits");
+        ImGui::Text("Transforms (A -> B)");
         if (!scene.meshes.empty()) {
             {
                 std::vector<std::string> optionsA;
@@ -221,24 +209,17 @@ int main(int argc, char *argv[]) {
 
                 std::vector<const char*> optionsPointersA;
                 std::transform(std::begin(optionsA), std::end(optionsA), std::back_inserter(optionsPointersA), [](const auto& str) { return str.c_str(); });
-                ImGui::Combo("Selected mesh A", &selectedMeshA, optionsPointersA.data(), static_cast<int>(optionsPointersA.size()));
+                ImGui::Combo("Mesh A", &selectedMeshA, optionsPointersA.data(), static_cast<int>(optionsPointersA.size()));
                 std::vector<const char*> optionsPointersB;
                 std::transform(std::begin(optionsB), std::end(optionsB), std::back_inserter(optionsPointersB), [](const auto& str) { return str.c_str(); });
-                ImGui::Combo("Selected mesh B", &selectedMeshB, optionsPointersB.data(), static_cast<int>(optionsPointersB.size()));
+                ImGui::Combo("Mesh B", &selectedMeshB, optionsPointersB.data(), static_cast<int>(optionsPointersB.size()));
             }
             {
-                bool changedOffset = ImGui::SliderFloat("offset", &offset, 0.0F, 100.0F);
-                bool changedScale = ImGui::SliderFloat("scalar value", &scalar, 0.0F, 10.0F);
-                if (changedScale) {
-                    updateTransforms(data, scalar, 0, selectedMeshA, selectedMeshB);
-                }
-                if (changedOffset) {
-                    updateTransforms(data, offset, 1, selectedMeshA, selectedMeshB);
-                }
+                auto &[scalar, offset] = (*data.transforms)[selectedMeshA][selectedMeshB];
+                ImGui::InputFloat3("Scalar", glm::value_ptr(scalar));
+                ImGui::InputFloat3("Offset", glm::value_ptr(offset));
             }
-            {
-                ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);
-            }
+            ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);
         }
 
         // Clear screen.
