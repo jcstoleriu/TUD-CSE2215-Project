@@ -116,6 +116,7 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 
 	glm::vec3 position = ray.origin + ray.direction * ray.t;
 	size_t new_depth = depth + 1;
+	size_t sample_depth = data.max_traces < 2 ? new_depth : std::max(new_depth, (size_t) data.max_traces - 2);
 
 	// Direct color
 
@@ -148,7 +149,7 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 		} else {
 			HitInfo sample_hitInfo;
 			sample_hitInfo.meshIdx = INVALID_INDEX;
-			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, sample_hitInfo, std::max(data.max_traces - 2, (int) new_depth));
+			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, sample_hitInfo, sample_depth);
 			float factor = glm::dot(hitInfo.normal, dir);
 
 			// Transform

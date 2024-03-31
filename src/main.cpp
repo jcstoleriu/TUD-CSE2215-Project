@@ -123,7 +123,7 @@ int main(int argc, char *argv[]) {
         // === Setup the UI ===
         ImGui::Begin("Menu");
         ImGui::SliderInt("Depth", &data.max_traces, 1, 8);
-        ImGui::SliderInt("Samples", &data.samples, 0, 64);
+        ImGui::SliderInt("Samples", &data.samples, 0, 128);
         {
             if (ImGui::InputScalar("Seed", ImGuiDataType_::ImGuiDataType_U32, (void *) &seed, NULL, NULL, "%u", 0)) {
                 rng.seed(seed);
