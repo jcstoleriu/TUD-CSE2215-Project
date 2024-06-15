@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\bounding_volume_hierarchy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\illumination.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\ray_tracing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\src\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\gsl-lite.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6FCDFD64-B5E9-3095-A7C2-0B5EF3FD205E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

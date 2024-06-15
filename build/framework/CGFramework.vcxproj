@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x86</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|win32">
+      <Configuration>Debug</Configuration>
+      <Platform>win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|win32">
+      <Configuration>Release</Configuration>
+      <Platform>win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0D5EE24B-156B-337C-95DB-1CF97DD1E6CF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>win32</Platform>
+    <ProjectName>CGFramework</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">CGFramework.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">CGFrameworkd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|win32'">CGFramework.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|win32'">CGFramework</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">CGFramework.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">CGFramework</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">CGFramework.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">CGFramework</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GSL_THROW_ON_CONTRACT_VIOLATION=1;IMGUI_IMPL_OPENGL_LOADER_GLAD=1;gsl_CONFIG_DEFAULTS_VERSION=1;FMT_LOCALE;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\glad\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\imgui-src;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-src\glm\..;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\include;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">Building Custom Rule D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe "-SD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project" "-BD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build" --check-stamp-file "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/framework/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\CompilerWarnings.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\Sanitizers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\StaticAnalyzers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_framework_packages.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_optional_packages.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent\CMakeLists.cmake.in;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|win32'">Building Custom Rule D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|win32'">setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe "-SD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project" "-BD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build" --check-stamp-file "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/framework/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\CompilerWarnings.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\Sanitizers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\StaticAnalyzers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_framework_packages.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_optional_packages.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent\CMakeLists.cmake.in;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">Building Custom Rule D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe "-SD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project" "-BD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build" --check-stamp-file "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/framework/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\CompilerWarnings.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\Sanitizers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\StaticAnalyzers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_framework_packages.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_optional_packages.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent\CMakeLists.cmake.in;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">Building Custom Rule D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe "-SD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project" "-BD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build" --check-stamp-file "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/framework/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\CompilerWarnings.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\Sanitizers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\StaticAnalyzers.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_framework_packages.cmake;D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\cmake\download_optional_packages.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FetchContent\CMakeLists.cmake.in;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\src\trackball.cpp" />
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\src\window.cpp" />
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\src\shader.cpp" />
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\src\imgui_impl_glfw.cpp" />
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\src\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\framework\src\imgui_impl_opengl3.cpp" />
+    <Natvis Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\gsllite-src\gsl-lite.natvis">
+    </Natvis>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\ZERO_CHECK.vcxproj">
+      <Project>{0BD3BFAF-533B-3C1E-AC11-E60E630B171B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\fmt-build\fmt.vcxproj">
+      <Project>{EB29914D-B417-35ED-931B-96E2EB0146DE}</Project>
+      <Name>fmt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\glad\glad.vcxproj">
+      <Project>{E21332D8-08F2-3A1D-B210-567E31130B0D}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-build\src\glfw.vcxproj">
+      <Project>{67D7CC84-B073-3A07-B29E-C870723E712F}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\framework\imgui.vcxproj">
+      <Project>{52A20302-80A9-3C3B-9C13-B0211FF97956}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

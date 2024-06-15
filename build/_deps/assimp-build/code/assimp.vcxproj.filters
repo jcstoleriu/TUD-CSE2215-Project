@@ -1,0 +1,1859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Assimp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\CApi\CInterfaceIOWrapper.cpp">
+      <Filter>CApi</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\BaseImporter.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\BaseProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\PostStepRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\ImporterRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\DefaultIOStream.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\DefaultIOSystem.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\ZipArchiveIOSystem.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Importer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\SGSpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\VertexTriangleAdjacency.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\SpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\SceneCombiner.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\ScenePreprocessor.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\SkeletonMeshBuilder.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\SplitByBoneCountProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\StandardShapes.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\TargetAnimation.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\RemoveComments.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Subdivision.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\scene.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Bitmap.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Version.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\CreateAnimMesh.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\simd.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\DefaultLogger.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Exporter.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\CApi\AssimpCExport.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\CalcTangentsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ComputeUVMappingProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ConvertToLHProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\EmbedTexturesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FindDegenerates.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FindInstancesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FindInvalidDataProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FixNormalsStep.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\DropFaceNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\GenFaceNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\GenVertexNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\PretransformVertices.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ImproveCacheLocality.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\JoinVerticesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\LimitBoneWeightsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\RemoveRedundantMaterials.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\RemoveVCProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\SortByPTypeProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\SplitLargeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\TextureTransform.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\TriangulateProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ValidateDataStructure.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\OptimizeGraph.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\OptimizeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\DeboneProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ProcessHelper.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\MakeVerboseFormat.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ScaleProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\GenBoundingBoxesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Material\MaterialSystem.cpp">
+      <Filter>MaterialSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\STEPParser\STEPFileReader.cpp">
+      <Filter>STEPParser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\STEPParser\STEPFileEncoding.cpp">
+      <Filter>STEPParser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter_Geometry.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter_Material.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter_Postprocess.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3DS\3DSConverter.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3DS\3DSLoader.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AC\ACLoader.cpp">
+      <Filter>AC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\ASE\ASELoader.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\ASE\ASEParser.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assbin\AssbinLoader.cpp">
+      <Filter>ASSBIN</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\B3D\B3DImporter.cpp">
+      <Filter>B3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\BVH\BVHLoader.cpp">
+      <Filter>BVH</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaLoader.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaParser.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\DXF\DXFLoader.cpp">
+      <Filter>DXF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\CSM\CSMLoader.cpp">
+      <Filter>CSM</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\HMP\HMPLoader.cpp">
+      <Filter>HMP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Irr\IRRMeshLoader.cpp">
+      <Filter>IRRMESH</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Irr\IRRShared.cpp">
+      <Filter>IRR</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Irr\IRRLoader.cpp">
+      <Filter>IRR</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOAnimation.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOBLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOMaterial.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWS\LWSLoader.cpp">
+      <Filter>LWS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD2\MD2Loader.cpp">
+      <Filter>MD2</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD3\MD3Loader.cpp">
+      <Filter>MD3</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD5\MD5Loader.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD5\MD5Parser.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDC\MDCLoader.cpp">
+      <Filter>MDC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDL\MDLLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDL\MDLMaterialLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\NFF\NFFLoader.cpp">
+      <Filter>NFF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\NDO\NDOLoader.cpp">
+      <Filter>NDO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OFF\OFFLoader.cpp">
+      <Filter>OFF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileImporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileMtlImporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileParser.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreImporter.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreStructs.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreBinarySerializer.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreXmlSerializer.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreMaterial.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OpenGEX\OpenGEXImporter.cpp">
+      <Filter>OPENGEX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ply\PlyLoader.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ply\PlyParser.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MS3D\MS3DLoader.cpp">
+      <Filter>MS3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\COB\COBLoader.cpp">
+      <Filter>COB</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderLoader.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderDNA.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderScene.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderModifier.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderBMesh.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderTessellator.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderCustomData.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCLoader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCReaderGen1_2x3.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCReaderGen2_2x3.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCUtil.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCGeometry.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCMaterial.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCProfile.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCCurve.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCBoolean.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCOpenings.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\XGL\XGLLoader.cpp">
+      <Filter>XGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXImporter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXParser.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXTokenizer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXConverter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXUtil.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXDocument.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXProperties.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXMeshGeometry.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXMaterial.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXModel.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXAnimation.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXNodeAttribute.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXDeformer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXBinaryTokenizer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXDocumentUtil.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3D\Q3DLoader.cpp">
+      <Filter>Q3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3BSP\Q3BSPFileParser.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3BSP\Q3BSPFileImporter.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Raw\RawLoader.cpp">
+      <Filter>RAW</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\SIB\SIBImporter.cpp">
+      <Filter>SIB</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\SMD\SMDLoader.cpp">
+      <Filter>SMD</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\STL\STLLoader.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Terragen\TerragenLoader.cpp">
+      <Filter>TERRAGEN</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Unreal\UnrealLoader.cpp">
+      <Filter>3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileImporter.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileParser.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Geometry2D.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Geometry3D.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Group.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Light.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Metadata.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Networking.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Postprocess.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Rendering.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Shape.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Texturing.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\FIReader.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DVocabulary.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFCommon.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFImporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2Importer.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\D3MFImporter.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\D3MFOpcPackage.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDImporter.cpp">
+      <Filter>MMD</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDPmxParser.cpp">
+      <Filter>MMD</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\StepFile\StepFileImporter.cpp">
+      <Filter>STEP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\StepFile\StepFileGen1.cpp">
+      <Filter>STEP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\StepFile\StepFileGen2.cpp">
+      <Filter>STEP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\StepFile\StepFileGen3.cpp">
+      <Filter>STEP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3DS\3DSExporter.cpp">
+      <Filter>3DS_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assbin\AssbinExporter.cpp">
+      <Filter>ASSBIN_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assxml\AssxmlExporter.cpp">
+      <Filter>ASSXML_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaExporter.cpp">
+      <Filter>COLLADA_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjExporter.cpp">
+      <Filter>OBJ_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OpenGEX\OpenGEXExporter.cpp">
+      <Filter>OPENGEX_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ply\PlyExporter.cpp">
+      <Filter>PLY_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXExporter.cpp">
+      <Filter>FBX_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXExportNode.cpp">
+      <Filter>FBX_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXExportProperty.cpp">
+      <Filter>FBX_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\STL\STLExporter.cpp">
+      <Filter>STL_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileExporter.cpp">
+      <Filter>X_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DExporter.cpp">
+      <Filter>X3D_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFExporter.cpp">
+      <Filter>GLTF_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2Exporter.cpp">
+      <Filter>GLTF_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\D3MFExporter.cpp">
+      <Filter>3MF_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assjson\cencode.c">
+      <Filter>ASSJSON_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assjson\json_exporter.cpp">
+      <Filter>ASSJSON_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assjson\mesh_splitter.cpp">
+      <Filter>ASSJSON_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Step\StepExporter.cpp">
+      <Filter>STEP_EXPORTER</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\unzip\ioapi.c">
+      <Filter>Contrib\unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\unzip\unzip.c">
+      <Filter>Contrib\unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\common\shapes.cc">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\advancing_front.cc">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\cdt.cc">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\sweep.cc">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\sweep_context.cc">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\clipper\clipper.cpp">
+      <Filter>Contrib\Clipper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\code\OpenDDLParser.cpp">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\code\DDLNode.cpp">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\code\OpenDDLCommon.cpp">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\code\OpenDDLExport.cpp">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\code\Value.cpp">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\code\OpenDDLStream.cpp">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcArithmeticCodec.cpp">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTools.cpp">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTriangleFans.cpp">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\zip\src\zip.c">
+      <Filter>ziplib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\CApi\CInterfaceIOWrapper.h">
+      <Filter>CApi</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\BaseProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Importer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\ScenePrivate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\DefaultProgressHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\PolyTools.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\IFF.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\VertexTriangleAdjacency.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\ScenePreprocessor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\SplitByBoneCountProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\TargetAnimation.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\simd.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\DefaultLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\LogStream.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Logger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\NullLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\Win32DebugLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\FileLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Common\StdOStreamLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\BlobIOSystem.h">
+      <Filter>Exporter</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\CalcTangentsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ComputeUVMappingProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ConvertToLHProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\EmbedTexturesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FindDegenerates.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FindInstancesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FindInvalidDataProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\FixNormalsStep.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\DropFaceNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\GenFaceNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\GenVertexNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\PretransformVertices.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ImproveCacheLocality.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\JoinVerticesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\LimitBoneWeightsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\RemoveRedundantMaterials.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\RemoveVCProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\SortByPTypeProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\SplitLargeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\TextureTransform.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\TriangulateProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ValidateDataStructure.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\OptimizeGraph.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\OptimizeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\DeboneProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ProcessHelper.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\MakeVerboseFormat.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\ScaleProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\PostProcessing\GenBoundingBoxesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Material\MaterialSystem.h">
+      <Filter>MaterialSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\STEPParser\STEPFileReader.h">
+      <Filter>STEPParser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\STEPParser\STEPFileEncoding.h">
+      <Filter>STEPParser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter_Macro.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AMF\AMFImporter_Node.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3DS\3DSHelper.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3DS\3DSLoader.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\AC\ACLoader.h">
+      <Filter>AC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\ASE\ASELoader.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\ASE\ASEParser.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assbin\AssbinLoader.h">
+      <Filter>ASSBIN</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\B3D\B3DImporter.h">
+      <Filter>B3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\BVH\BVHLoader.h">
+      <Filter>BVH</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaHelper.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaLoader.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaParser.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\DXF\DXFLoader.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\DXF\DXFHelper.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\CSM\CSMLoader.h">
+      <Filter>CSM</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\HMP\HMPFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\HMP\HMPLoader.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\HMP\HalfLifeFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Irr\IRRMeshLoader.h">
+      <Filter>IRRMESH</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Irr\IRRShared.h">
+      <Filter>IRR</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Irr\IRRLoader.h">
+      <Filter>IRR</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOAnimation.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOFileData.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWO\LWOLoader.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\LWS\LWSLoader.h">
+      <Filter>LWS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD2\MD2FileData.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD2\MD2Loader.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD2\MD2NormalTable.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD3\MD3FileData.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD3\MD3Loader.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD5\MD5Loader.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MD5\MD5Parser.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDC\MDCFileData.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDC\MDCLoader.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDC\MDCNormalTable.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDL\MDLDefaultColorMap.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDL\MDLFileData.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MDL\MDLLoader.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\NFF\NFFLoader.h">
+      <Filter>NFF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\NDO\NDOLoader.h">
+      <Filter>NDO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OFF\OFFLoader.h">
+      <Filter>OFF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileData.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileImporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileMtlImporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjFileParser.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjTools.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreImporter.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreStructs.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreParsingUtils.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreBinarySerializer.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ogre\OgreXmlSerializer.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OpenGEX\OpenGEXImporter.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OpenGEX\OpenGEXStructs.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ply\PlyLoader.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ply\PlyParser.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MS3D\MS3DLoader.h">
+      <Filter>MS3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\COB\COBLoader.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\COB\COBScene.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderLoader.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderDNA.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderDNA.inl">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderScene.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderSceneGen.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderIntermediate.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderModifier.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderBMesh.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderTessellator.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Blender\BlenderCustomData.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCLoader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCReaderGen_2x3.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\IFC\IFCUtil.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\XGL\XGLLoader.h">
+      <Filter>XGL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXCompileConfig.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXImporter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXParser.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXTokenizer.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXImportSettings.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXConverter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXUtil.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXDocument.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXProperties.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXMeshGeometry.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXCommon.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3D\Q3DLoader.h">
+      <Filter>Q3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3BSP\Q3BSPFileData.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3BSP\Q3BSPFileParser.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Q3BSP\Q3BSPFileImporter.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Raw\RawLoader.h">
+      <Filter>RAW</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\SIB\SIBImporter.h">
+      <Filter>SIB</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\SMD\SMDLoader.h">
+      <Filter>SMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\STL\STLLoader.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Terragen\TerragenLoader.h">
+      <Filter>TERRAGEN</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Unreal\UnrealLoader.h">
+      <Filter>3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileHelper.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileImporter.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileParser.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Macro.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DImporter_Node.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\FIReader.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFCommon.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFAsset.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFAsset.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFAssetWriter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFAssetWriter.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFImporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2Asset.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2Asset.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2AssetWriter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2AssetWriter.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2Importer.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\D3MFImporter.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\D3MFOpcPackage.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\3MFXmlTags.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDCpp14.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDImporter.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDPmdParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDPmxParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\MMD\MMDVmdParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Step\STEPFile.h">
+      <Filter>STEP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\StepFile\StepFileImporter.h">
+      <Filter>STEP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Importer\StepFile\StepReaderGen.h">
+      <Filter>STEP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3DS\3DSExporter.h">
+      <Filter>3DS_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assbin\AssbinExporter.h">
+      <Filter>ASSBIN_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assxml\AssxmlExporter.h">
+      <Filter>ASSXML_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Collada\ColladaExporter.h">
+      <Filter>COLLADA_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Obj\ObjExporter.h">
+      <Filter>OBJ_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\OpenGEX\OpenGEXExporter.h">
+      <Filter>OPENGEX_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Ply\PlyExporter.h">
+      <Filter>PLY_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXExporter.h">
+      <Filter>FBX_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXExportNode.h">
+      <Filter>FBX_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\FBX\FBXExportProperty.h">
+      <Filter>FBX_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\STL\STLExporter.h">
+      <Filter>STL_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X\XFileExporter.h">
+      <Filter>X_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\X3D\X3DExporter.hpp">
+      <Filter>X3D_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF\glTFExporter.h">
+      <Filter>GLTF_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\glTF2\glTF2Exporter.h">
+      <Filter>GLTF_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\3MF\D3MFExporter.h">
+      <Filter>3MF_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assjson\cencode.h">
+      <Filter>ASSJSON_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Assjson\mesh_splitter.h">
+      <Filter>ASSJSON_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\Step\StepExporter.h">
+      <Filter>STEP_EXPORTER</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\irrXMLWrapper.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\unzip\crypt.h">
+      <Filter>Contrib\unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\unzip\ioapi.h">
+      <Filter>Contrib\unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\unzip\unzip.h">
+      <Filter>Contrib\unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\common\shapes.h">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\common\utils.h">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\advancing_front.h">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\cdt.h">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\sweep.h">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\poly2tri\poly2tri\sweep\sweep_context.h">
+      <Filter>Contrib\Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\clipper\clipper.hpp">
+      <Filter>Contrib\Clipper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\OpenDDLParser.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\OpenDDLExport.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\OpenDDLStream.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\DDLNode.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\openddlparser\include\openddlparser\Value.h">
+      <Filter>Contrib\openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcAdjacencyInfo.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcArithmeticCodec.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcBinaryStream.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcCommon.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcDVEncodeParams.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcDynamicVector.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcFIFO.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcIndexedFaceSet.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcIndexedFaceSet.inl">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcSC3DMCDecoder.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcSC3DMCEncoder.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTimer.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTriangleFans.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTriangleListDecoder.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTriangleListDecoder.inl">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTriangleListEncoder.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcTriangleListEncoder.inl">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcVector.h">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\Open3DGC\o3dgcVector.inl">
+      <Filter>Contrib\open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\zip\src\miniz.h">
+      <Filter>ziplib</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\contrib\zip\src\zip.h">
+      <Filter>ziplib</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\aabb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\ai_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\color4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\color4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-build\include\assimp\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\cfileio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\material.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\matrix3x3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\matrix3x3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\matrix4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\matrix4x4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\pbrmaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\postprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\metadata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\vector2.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\vector3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\cimport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\importerdesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Importer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\ProgressHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\IOStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\IOSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\cexport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Exporter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\DefaultIOStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\DefaultIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\ZipArchiveIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\SceneCombiner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\fast_atof.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\qnan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\BaseImporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\MemoryIOWrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\ParsingUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\StreamReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\StreamWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\StringComparison.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\StringUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\SGSpatialSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\GenericProperty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\SpatialSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\SkeletonMeshBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\SmoothingGroups.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\SmoothingGroups.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\StandardShapes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\RemoveComments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Subdivision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\LineSplitter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\TinyFormatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\LogAux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\XMLTools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\IOStreamBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\CreateAnimMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\MathFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Exceptional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\ByteSwapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Compiler\pushpack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Compiler\poppack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\include\assimp\Compiler\pstdint.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\assimp-src\code\res\assimp.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="3D">
+      <UniqueIdentifier>{E0C49120-BA2A-364F-9D0F-3F4F0420A1F2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DS">
+      <UniqueIdentifier>{9CE18692-B804-3AAD-8EB0-9DF60E98511A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DS_EXPORTER">
+      <UniqueIdentifier>{0BFD0E80-C75B-3065-80AF-D2E69D54BE37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3MF">
+      <UniqueIdentifier>{0A5254E9-F8F0-3063-AA97-8380378BB43E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3MF_EXPORTER">
+      <UniqueIdentifier>{2A2A193F-A198-39B5-B53F-BAC6AB75BBC4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AC">
+      <UniqueIdentifier>{72A33186-AE52-3E9C-AE03-D332A25BDA79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AMF">
+      <UniqueIdentifier>{8ED2A756-76AB-3387-AD2F-3E291197BFFC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASE">
+      <UniqueIdentifier>{3B83A6E4-053E-33A2-B36C-336ADDF8C4B6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSBIN">
+      <UniqueIdentifier>{CF5544F8-E3F6-32B7-B963-9E58AA695FC7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSBIN_EXPORTER">
+      <UniqueIdentifier>{087D301C-95FA-365E-9B74-3629E5F72B8F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSJSON_EXPORTER">
+      <UniqueIdentifier>{3CB1AE00-6FDC-3328-B9AA-F159C2730A86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSXML_EXPORTER">
+      <UniqueIdentifier>{9148575A-4EC2-3CDE-8ADD-F89AEBC68540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="B3D">
+      <UniqueIdentifier>{5C8FB644-4CCF-3473-8341-B63FE47856B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BLEND">
+      <UniqueIdentifier>{BD3CEAA1-340B-3F14-8780-B5CF11AD4B5B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BVH">
+      <UniqueIdentifier>{6CF8C2F4-3951-32A5-8678-43BE86B84CB9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CApi">
+      <UniqueIdentifier>{14044FE4-3857-3A91-ABD1-517860A82255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COB">
+      <UniqueIdentifier>{D1476F6B-8B19-3DD9-B10B-6A0969502098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COLLADA">
+      <UniqueIdentifier>{BD54C1C1-A967-38BD-969A-FA77B03E6A7B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COLLADA_EXPORTER">
+      <UniqueIdentifier>{EB550149-BA1F-3F31-9D52-8D11ACA73AF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSM">
+      <UniqueIdentifier>{4FE7DBB2-FB0E-3155-8798-98D593ACEC93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{1007B550-AABE-38CD-AF50-C9120F0C431D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Compiler">
+      <UniqueIdentifier>{6B808EFB-E54B-3523-8DAE-1994E1E665F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib">
+      <UniqueIdentifier>{B44B2E7E-9CC3-342B-BFE1-5FF51210F8AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\Clipper">
+      <UniqueIdentifier>{6DCA7A95-95BD-309F-A8E9-8286C38E276C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\Poly2Tri">
+      <UniqueIdentifier>{AD2A98BE-5AFC-3892-8FC7-27A0F3B558DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\open3dgc">
+      <UniqueIdentifier>{04E1339B-D447-31DE-AD38-4F161AD7E47D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\openddl_parser">
+      <UniqueIdentifier>{500F5774-3A48-351B-9436-1CCDBAAD0511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\unzip">
+      <UniqueIdentifier>{7FC7B0C3-C179-3AFC-BE13-FFE9BD143F7D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DXF">
+      <UniqueIdentifier>{E9A9ACB6-0223-312B-B254-9894685EC5B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter">
+      <UniqueIdentifier>{372643BC-67A4-32F7-890E-63D5BDE8E59B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FBX">
+      <UniqueIdentifier>{35080968-9CFB-3462-A8E1-FC8B842A0DAA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FBX_EXPORTER">
+      <UniqueIdentifier>{931FA415-6205-3C83-8F14-AF969F051A42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLTF">
+      <UniqueIdentifier>{42329D66-34A6-37E8-9B30-2D47F3453E9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLTF_EXPORTER">
+      <UniqueIdentifier>{F295BABE-1808-3BD6-AB28-7A92FA48CE56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HMP">
+      <UniqueIdentifier>{9F336BA0-2E8F-39A7-9E91-B970919041B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{CD4908A4-5BF8-32BA-A94F-E894688ABD30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IFC">
+      <UniqueIdentifier>{AA5E0946-8D18-36AA-8673-AF09DBB816FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IRR">
+      <UniqueIdentifier>{4565954E-A38D-3B77-B672-6DF01DCE9004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IRRMESH">
+      <UniqueIdentifier>{9100E948-A6E1-373A-BCDA-53C4BE1D34E9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IrrXML">
+      <UniqueIdentifier>{23BB0C7B-1CBC-36E0-ACC9-91A5EE0B2FD5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWO">
+      <UniqueIdentifier>{9C91D085-9284-3335-A3AC-9E746F5063C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWS">
+      <UniqueIdentifier>{C44E8A86-7879-34C1-A6D8-E13CB34810D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{5D11A0D1-BFE1-37B0-B32F-0763C4D9CC55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD2">
+      <UniqueIdentifier>{FF40F322-1CDB-3942-A146-DF7CA7D16BA8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD3">
+      <UniqueIdentifier>{66FAF570-14E6-3F8F-955E-8D1A6338FE91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{95DCF0D3-C7A7-394C-A305-092CB0281D1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDC">
+      <UniqueIdentifier>{D64D7E51-7DEB-399D-BAB5-837092BEA551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDL">
+      <UniqueIdentifier>{C85CBE96-1FF6-3053-A363-7912227C144B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MMD">
+      <UniqueIdentifier>{FC725881-7F4A-3277-B0D0-8F63E4DBAA8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MS3D">
+      <UniqueIdentifier>{EDD7922A-5D06-35D8-938E-3D685F191EAC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MaterialSystem">
+      <UniqueIdentifier>{3229CBF9-B68E-30B0-A09B-AA81A23C336B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NDO">
+      <UniqueIdentifier>{C6D3847E-02EE-3B43-BD31-BA0760648B68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NFF">
+      <UniqueIdentifier>{17B53377-1F87-3FBC-A005-5BB3426C9329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OBJ">
+      <UniqueIdentifier>{5F61B549-FBC4-3A5B-921F-A3519F028322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OBJ_EXPORTER">
+      <UniqueIdentifier>{3811EDD7-FFA2-3847-B537-477050028D44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OFF">
+      <UniqueIdentifier>{045CF283-6B32-3022-B963-2E570A76F1F9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OGRE">
+      <UniqueIdentifier>{7B019541-DF11-3852-9E36-550D889F204B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OPENGEX">
+      <UniqueIdentifier>{2B3556BA-7CFC-3E00-9F98-23DF870DA440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OPENGEX_EXPORTER">
+      <UniqueIdentifier>{0C6AC8C8-1E4A-3807-8399-5A196C07B58E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLY">
+      <UniqueIdentifier>{7F14BA30-1FE6-3E3F-AFEE-23F03897D65A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLY_EXPORTER">
+      <UniqueIdentifier>{1D2006EB-EC5F-3514-8A53-2DE5995D4D35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcessing">
+      <UniqueIdentifier>{BCEB7A72-638A-3DB1-8C96-A5CA851A1D3B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3BSP">
+      <UniqueIdentifier>{560FDA27-C121-3AC5-9078-79F2C7E9BBB9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3D">
+      <UniqueIdentifier>{A66DB8E3-7D6C-3321-BDFD-0EC45B89BC04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RAW">
+      <UniqueIdentifier>{94A83359-AC85-320B-990D-6FC9D37449E9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SIB">
+      <UniqueIdentifier>{93F9BBB8-4A1A-3CB6-AA9F-6780D29F925A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMD">
+      <UniqueIdentifier>{9C68F43E-BEFF-325E-A1EF-BA0F924D69E9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STEP">
+      <UniqueIdentifier>{B5E19680-5816-3CBB-9BCF-12E9C9CA02F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STEPParser">
+      <UniqueIdentifier>{2C33EB75-3019-3534-91D1-89C13A7D5098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STEP_EXPORTER">
+      <UniqueIdentifier>{2E8A446B-1E64-3CEF-8E7D-0ECBEDDE1373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{CBFD036A-0C63-3214-8799-8E1550E0143E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL_EXPORTER">
+      <UniqueIdentifier>{A93F7FD8-B7C6-3A7B-A87D-AF50185385B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6FCDFD64-B5E9-3095-A7C2-0B5EF3FD205E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TERRAGEN">
+      <UniqueIdentifier>{98881315-C143-3C63-A49F-59308B08A983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X">
+      <UniqueIdentifier>{C8BCFFDD-65E9-34E9-AB48-3E922855B3DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X3D">
+      <UniqueIdentifier>{1B074738-F6AF-3D96-A0B9-0E57C6FCBCF5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X3D_EXPORTER">
+      <UniqueIdentifier>{FA2562DD-4A5C-30A8-BF0B-BCC6AFD301BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XGL">
+      <UniqueIdentifier>{A0CC9512-6F4A-3F4B-B3C4-AAB5267F3B3D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X_EXPORTER">
+      <UniqueIdentifier>{6B46E026-1EA8-3764-9A5D-9116CF5754E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ziplib">
+      <UniqueIdentifier>{CEAE18E4-E8AB-3965-84DC-F591B3BD2882}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

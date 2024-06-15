@@ -1,0 +1,150 @@
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-MKDIR.RULE
+setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -Dcfgdir=/Debug -P "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-mkdirs.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-mkdir"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-DOWNLOAD.RULE
+setlocal
+cd "D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -P "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-gitclone.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-download"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-UPDATE.RULE
+setlocal
+cd "D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-src"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -Dcan_fetch=YES -P "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/tmp/glfw-populate-gitupdate.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-PATCH.RULE
+setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-patch"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-CONFIGURE.RULE
+setlocal
+cd "D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-build"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-configure"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-BUILD.RULE
+setlocal
+cd "D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-build"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-build"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-INSTALL.RULE
+setlocal
+cd "D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-build"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-install"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\3D32C7E9D352818C47B79DBAF4BAA3E9\GLFW-POPULATE-TEST.RULE
+setlocal
+cd "D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glfw-build"
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-test"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\F21BB88B91D33980FA8256A876A80F71\GLFW-POPULATE-COMPLETE.RULE
+setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E make_directory "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/CMakeFiles/Debug"
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/CMakeFiles/Debug/glfw-populate-complete"
+if %errorlevel% neq 0 goto :cmEnd
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E touch "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/Debug/glfw-populate-done"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKEFILES\207AF0A9320CAA1A8FAFB2AB942A71BF\GLFW-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLFW-SUBBUILD\CMAKELISTS.TXT
+setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe "-SD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild" "-BD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild" --check-stamp-file "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-subbuild/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

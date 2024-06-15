@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\0451e7406155de1774e1eebbc9b69007\glm-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\9b75767991d1d6332287a772d1e66679\glm-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\3f233d0c3731a2b187d8ce0d06fd2f26\glm-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Jasmine\Master year1\q3 3d Computer Graphics and Animation\TUD-CSE2215-Project\build\_deps\glm-subbuild\CMakeFiles\glm-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{16A166EA-858F-326B-9142-E7106117E9BC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

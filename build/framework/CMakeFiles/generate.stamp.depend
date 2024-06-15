@@ -1,0 +1,14 @@
+# CMake generation dependency list for this directory.
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/CMakeLists.txt
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/cmake/CompilerWarnings.cmake
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/cmake/Sanitizers.cmake
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/cmake/StaticAnalyzers.cmake
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/cmake/download_framework_packages.cmake
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/framework/cmake/download_optional_packages.cmake
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FetchContent.cmake
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FetchContent/CMakeLists.cmake.in
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindGit.cmake
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindOpenGL.cmake
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake
+D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake

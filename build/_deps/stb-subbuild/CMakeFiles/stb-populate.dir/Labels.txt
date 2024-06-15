@@ -1,0 +1,14 @@
+# Target labels
+ stb-populate
+# Source files and their labels
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/stb-populate
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/426a0a7ecaa85f70deb1052f3b6f4355/stb-populate.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/dde04fc4cfc8a65b7227ef2c14e109cc/stb-populate-complete.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-build.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-configure.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-download.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-install.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-mkdir.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-patch.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-test.rule
+D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/stb-subbuild/CMakeFiles/522bc96fe98c4183fbbce273f924ae91/stb-populate-update.rule

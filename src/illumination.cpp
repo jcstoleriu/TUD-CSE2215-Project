@@ -10,6 +10,10 @@ DISABLE_WARNINGS_POP()
 #include <omp.h>
 #endif
 
+#include <vector>
+
+
+
 static constexpr const float OFFSET = 0.01F;
 static constexpr const float M_PI = 3.14159265358979323846F;
 static constexpr const size_t INVALID_INDEX = (size_t) -1;
@@ -51,7 +55,7 @@ static glm::vec3 shader_blinn_phong_specular(const glm::vec3 &position, const gl
 	return glm::clamp(color, 0.0F, 1.0F);
 }
 
-static glm::vec3 shader(const Scene &scene, const BoundingVolumeHierarchy &bvh, const Ray &ray, const HitInfo &hitInfo, const glm::vec3 &camera, const bool debug) {
+static glm::vec3 shader(const Scene &scene, const BoundingVolumeHierarchy &bvh, const Ray &ray, const HitInfo &hitInfo, const glm::vec3 &camera, const bool debug, TransportMatrix &transportMatrix) {
 	glm::vec3 point = ray.origin + ray.direction * ray.t;
 	glm::vec3 color = glm::vec3(0.0F);
 
@@ -59,6 +63,10 @@ static glm::vec3 shader(const Scene &scene, const BoundingVolumeHierarchy &bvh, 
 		if (!is_shadow(bvh, point, light.position, hitInfo.normal, debug)) {
 			color += shader_lambert(point, hitInfo.normal, hitInfo.material, light);
 			color += shader_blinn_phong_specular(point, hitInfo.normal, hitInfo.material, light, camera);
+
+			// TODO: Accumulate transfer to transport matrix
+            // float transfer = glm::dot(hitInfo.normal, light.position - point);
+            // transportMatrix.matrix[hitInfo.meshIdx][light.meshIdx] += transfer;
 		}
 	}
 
@@ -97,7 +105,7 @@ static glm::vec3 random_hemisphere_vector(std::default_random_engine &rng, const
 	return glm::vec3(x, y, z);
 }
 
-static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray, HitInfo &hitInfo, const size_t depth) {
+static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray, TransportMatrix &transportMatrix, HitInfo &hitInfo, const size_t depth) {
 	// Ray miss
 	if (depth >= data.max_traces || !bvh.intersect(ray, hitInfo)) {
 		// Draw a red debug ray if the ray missed.
@@ -119,15 +127,16 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 	size_t sample_depth = data.max_traces < 2 ? new_depth : std::max(new_depth, (size_t) data.max_traces - 2);
 
 	// Direct color
+	TransportMatrix transport;
 
-	glm::vec3 direct = shader(scene, bvh, ray, hitInfo, camera, data.debug);
+	glm::vec3 direct = shader(scene, bvh, ray, hitInfo, camera, data.debug, transport);
 	// If Ks is not black (glm::vec3{0, 0, 0} has magnitude 0)
 	if (glm::length(hitInfo.material.ks) > 0.0F) {
 		// Reflection of ray direction over the given normal
 		glm::vec3 reflectionDir = glm::normalize(ray.direction - 2.0F * glm::dot(ray.direction, hitInfo.normal) * hitInfo.normal);
 		Ray reflRay = Ray{position + reflectionDir * OFFSET, reflectionDir};
 		HitInfo new_hitInfo;
-		glm::vec3 reflColor = get_color(position, scene, bvh, data, rng, reflRay, new_hitInfo, new_depth);
+		glm::vec3 reflColor = get_color(position, scene, bvh, data, rng, reflRay, transportMatrix, new_hitInfo, new_depth);
 		glm::vec3 color =  hitInfo.material.ks * reflColor;
 		//if (reflRay.t < std::numeric_limits<float>::max()) {
 		//	color /= reflRay.t * reflRay.t;
@@ -149,12 +158,13 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 		} else {
 			HitInfo sample_hitInfo;
 			sample_hitInfo.meshIdx = INVALID_INDEX;
-			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, sample_hitInfo, sample_depth);
+			glm::vec3 color = get_color(position, scene, bvh, data, rng, sampleRay, transportMatrix, sample_hitInfo, sample_depth);
 			float factor = glm::dot(hitInfo.normal, dir);
 
 			// Transform
 			// Note that the resulting color is not clamped to [0, 1] on purpose
 			if (sample_hitInfo.meshIdx != INVALID_INDEX) {
+				transportMatrix.matrix[hitInfo.meshIdx][sample_hitInfo.meshIdx] += (factor / data.samples) * color;
 				const auto &[scalar, offset] = (*data.transforms)[sample_hitInfo.meshIdx][hitInfo.meshIdx];
 				color = scalar * color + offset;
 			}
@@ -175,7 +185,7 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 	return glm::clamp(color, 0.0F, 1.0F);
 }
 
-glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray) {
+glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray, TransportMatrix &transportMatrix) {
 	HitInfo hitInfo;
-	return get_color(camera, scene, bvh, data, rng, ray, hitInfo, 0);
+	return get_color(camera, scene, bvh, data, rng, ray, transportMatrix, hitInfo, 0);
 }

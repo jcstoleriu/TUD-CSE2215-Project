@@ -1,0 +1,10 @@
+^D:\JASMINE\MASTER YEAR1\Q3 3D COMPUTER GRAPHICS AND ANIMATION\TUD-CSE2215-PROJECT\BUILD\_DEPS\GLM-SUBBUILD\CMAKEFILES\3F233D0C3731A2B187D8CE0D06FD2F26\GENERATE.STAMP.RULE
+setlocal
+D:\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe "-SD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild" "-BD:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/glm-populate.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

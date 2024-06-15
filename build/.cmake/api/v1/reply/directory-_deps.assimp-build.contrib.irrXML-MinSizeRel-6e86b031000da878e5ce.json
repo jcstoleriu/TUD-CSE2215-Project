@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/_deps/assimp-src/contrib/irrXML/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 24,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/assimp-build/contrib/irrXML/MinSizeRel/IrrXML.lib"
+			],
+			"targetId" : "IrrXML::@66ce1a81ebf65d4d7093",
+			"targetIndex" : 12,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/assimp-build/contrib/irrXML",
+		"source" : "build/_deps/assimp-src/contrib/irrXML"
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/fmt-populate"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/d2489943691d8257e0e69eac99c99f92/fmt-populate.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/386e80c80d951d237c8adef79e58ced3/fmt-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-build.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-download.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-install.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-test.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-subbuild/CMakeFiles/58f0c0ed5eef3203a87dd8c6bfd9a6d7/fmt-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"fmt-populate"
+		],
+		"name" : "fmt-populate"
+	}
+}

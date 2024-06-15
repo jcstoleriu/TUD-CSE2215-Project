@@ -1,0 +1,1280 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.22631 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+      生成启动时间为 2024/6/10 16:12:58。
+      
+      节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj”(默认目标)。
+      PrepareForBuild:
+        正在创建目录“Debug\\”。
+        已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+        正在创建目录“Debug\\CompilerIdCXX.tlog\\”。
+      InitializeBuildStatus:
+        正在创建“Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        正在对“Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild”执行 Touch 任务。
+      VcpkgTripletSelection:
+        Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /analyze- /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+        或批处理文件。
+        命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx86\\x86\\cl.exe
+      FinalizeBuildStatus:
+        正在删除文件“Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild”。
+        正在对“Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate”执行 Touch 任务。
+      已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj”(默认目标)的操作。
+      
+      已成功生成。
+          0 个警告
+          0 个错误
+      
+      已用时间 00:00:11.96
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/3.27.2-msvc1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rkz8k8"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rkz8k8"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rkz8k8'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_14439.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:13:12。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\cmTC_14439.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_14439.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\Debug\\”。
+          正在创建目录“cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_14439.dir\\Debug\\\\" /Fd"cmTC_14439.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\VS\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_14439.dir\\Debug\\\\" /Fd"cmTC_14439.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\VS\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\Debug\\cmTC_14439.exe" /INCREMENTAL /ILK:"cmTC_14439.dir\\Debug\\cmTC_14439.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rkz8k8/Debug/cmTC_14439.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rkz8k8/Debug/cmTC_14439.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_14439.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_14439.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\Debug\\cmTC_14439.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\Debug\\cmTC_14439.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\cmTC_14439.write.1u.tlog" "cmTC_14439.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\Debug\\cmTC_14439.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\cmTC_14439.write.1u.tlog" "cmTC_14439.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\Debug\\cmTC_14439.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\cmTC_14439.write.1u.tlog" "cmTC_14439.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_14439.dir\\Debug\\cmTC_14439.tlog\\cmTC_14439.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rkz8k8\\cmTC_14439.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:07.94
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+      生成启动时间为 2024/6/10 16:13:36。
+      
+      节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdC\\CompilerIdC.vcxproj”(默认目标)。
+      PrepareForBuild:
+        正在创建目录“Debug\\”。
+        已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+        正在创建目录“Debug\\CompilerIdC.tlog\\”。
+      InitializeBuildStatus:
+        正在创建“Debug\\CompilerIdC.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        正在对“Debug\\CompilerIdC.tlog\\unsuccessfulbuild”执行 Touch 任务。
+      VcpkgTripletSelection:
+        Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /analyze- /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdC\\CompilerIdC.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdC\\CompilerIdC.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+        或批处理文件。
+        命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdC\\CompilerIdC.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+        "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdC\\CompilerIdC.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx86\\x86\\cl.exe
+      FinalizeBuildStatus:
+        正在删除文件“Debug\\CompilerIdC.tlog\\unsuccessfulbuild”。
+        正在对“Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate”执行 Touch 任务。
+      已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\3.27.2-msvc1\\CompilerIdC\\CompilerIdC.vcxproj”(默认目标)的操作。
+      
+      已成功生成。
+          0 个警告
+          0 个错误
+      
+      已用时间 00:00:04.87
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/3.27.2-msvc1/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rr1rdu"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rr1rdu"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rr1rdu'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_50ad0.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:13:42。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\cmTC_50ad0.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_50ad0.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\Debug\\”。
+          正在创建目录“cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_50ad0.dir\\Debug\\\\" /Fd"cmTC_50ad0.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\VS\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_50ad0.dir\\Debug\\\\" /Fd"cmTC_50ad0.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\VS\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\Debug\\cmTC_50ad0.exe" /INCREMENTAL /ILK:"cmTC_50ad0.dir\\Debug\\cmTC_50ad0.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rr1rdu/Debug/cmTC_50ad0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rr1rdu/Debug/cmTC_50ad0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_50ad0.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_50ad0.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\Debug\\cmTC_50ad0.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\Debug\\cmTC_50ad0.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\cmTC_50ad0.write.1u.tlog" "cmTC_50ad0.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\Debug\\cmTC_50ad0.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\cmTC_50ad0.write.1u.tlog" "cmTC_50ad0.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\Debug\\cmTC_50ad0.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\cmTC_50ad0.write.1u.tlog" "cmTC_50ad0.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_50ad0.dir\\Debug\\cmTC_50ad0.tlog\\cmTC_50ad0.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rr1rdu\\cmTC_50ad0.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:05.25
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build/_deps/glfw-src/CMakeLists.txt:58 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-1pyypg"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-1pyypg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-1pyypg'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_da925.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:13:48。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\cmTC_da925.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_da925.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\Debug\\”。
+          正在创建目录“cmTC_da925.dir\\Debug\\cmTC_da925.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_da925.dir\\Debug\\cmTC_da925.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_da925.dir\\Debug\\cmTC_da925.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_da925.dir\\Debug\\\\" /Fd"cmTC_da925.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\src.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_da925.dir\\Debug\\\\" /Fd"cmTC_da925.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\src.c"
+          src.c
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\src.c(1,10): error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\cmTC_da925.vcxproj]
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\cmTC_da925.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\cmTC_da925.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\src.c(1,10): error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1pyypg\\cmTC_da925.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:02.50
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "build/_deps/glfw-src/CMakeLists.txt:58 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-du59cv"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-du59cv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-du59cv'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d8e55.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:13:52。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\cmTC_d8e55.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_d8e55.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\Debug\\”。
+          正在创建目录“cmTC_d8e55.dir\\Debug\\cmTC_d8e55.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_d8e55.dir\\Debug\\cmTC_d8e55.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_d8e55.dir\\Debug\\cmTC_d8e55.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d8e55.dir\\Debug\\\\" /Fd"cmTC_d8e55.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\CheckFunctionExists.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d8e55.dir\\Debug\\\\" /Fd"cmTC_d8e55.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\Debug\\cmTC_d8e55.exe" /INCREMENTAL /ILK:"cmTC_d8e55.dir\\Debug\\cmTC_d8e55.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-du59cv/Debug/cmTC_d8e55.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-du59cv/Debug/cmTC_d8e55.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_d8e55.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\cmTC_d8e55.vcxproj]
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\cmTC_d8e55.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\cmTC_d8e55.vcxproj”(默认目标) (1) ->
+        (Link 目标) -> 
+          LINK : fatal error LNK1104: 无法打开文件“pthreads.lib” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-du59cv\\cmTC_d8e55.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:02.05
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "build/_deps/glfw-src/CMakeLists.txt:58 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zmas8z"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zmas8z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zmas8z'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e89a0.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:13:55。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\cmTC_e89a0.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_e89a0.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\Debug\\”。
+          正在创建目录“cmTC_e89a0.dir\\Debug\\cmTC_e89a0.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_e89a0.dir\\Debug\\cmTC_e89a0.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_e89a0.dir\\Debug\\cmTC_e89a0.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e89a0.dir\\Debug\\\\" /Fd"cmTC_e89a0.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\CheckFunctionExists.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e89a0.dir\\Debug\\\\" /Fd"cmTC_e89a0.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\Debug\\cmTC_e89a0.exe" /INCREMENTAL /ILK:"cmTC_e89a0.dir\\Debug\\cmTC_e89a0.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zmas8z/Debug/cmTC_e89a0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zmas8z/Debug/cmTC_e89a0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e89a0.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\cmTC_e89a0.vcxproj]
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\cmTC_e89a0.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\cmTC_e89a0.vcxproj”(默认目标) (1) ->
+        (Link 目标) -> 
+          LINK : fatal error LNK1104: 无法打开文件“pthread.lib” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmas8z\\cmTC_e89a0.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:02.08
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "build/_deps/fmt-src/support/cmake/cxx14.cmake:39 (check_cxx_compiler_flag)"
+      - "build/_deps/fmt-src/CMakeLists.txt:95 (include)"
+    checks:
+      - "Performing Test has_std_11_flag"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zgf5xr"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zgf5xr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-src/support/cmake"
+    buildResult:
+      variable: "has_std_11_flag"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zgf5xr'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_0067c.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:14:55。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\cmTC_0067c.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_0067c.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\Debug\\”。
+          正在创建目录“cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D has_std_11_flag /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0067c.dir\\Debug\\\\" /Fd"cmTC_0067c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue  -std=c++11 "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\src.cxx"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D has_std_11_flag /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0067c.dir\\Debug\\\\" /Fd"cmTC_0067c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue  -std=c++11 "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\src.cxx"
+        cl : 命令行  warning D9002: 忽略未知选项“-std=c++11” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\cmTC_0067c.vcxproj]
+          src.cxx
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\Debug\\cmTC_0067c.exe" /INCREMENTAL /ILK:"cmTC_0067c.dir\\Debug\\cmTC_0067c.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zgf5xr/Debug/cmTC_0067c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-zgf5xr/Debug/cmTC_0067c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0067c.dir\\Debug\\src.obj
+          cmTC_0067c.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\Debug\\cmTC_0067c.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\Debug\\cmTC_0067c.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\cmTC_0067c.write.1u.tlog" "cmTC_0067c.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\Debug\\cmTC_0067c.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\cmTC_0067c.write.1u.tlog" "cmTC_0067c.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\Debug\\cmTC_0067c.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\cmTC_0067c.write.1u.tlog" "cmTC_0067c.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_0067c.dir\\Debug\\cmTC_0067c.tlog\\cmTC_0067c.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\cmTC_0067c.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\cmTC_0067c.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          cl : 命令行  warning D9002: 忽略未知选项“-std=c++11” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zgf5xr\\cmTC_0067c.vcxproj]
+        
+            1 个警告
+            0 个错误
+        
+        已用时间 00:00:05.17
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "build/_deps/fmt-src/support/cmake/cxx14.cmake:40 (check_cxx_compiler_flag)"
+      - "build/_deps/fmt-src/CMakeLists.txt:95 (include)"
+    checks:
+      - "Performing Test has_std_0x_flag"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-0vky9y"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-0vky9y"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-src/support/cmake"
+    buildResult:
+      variable: "has_std_0x_flag"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-0vky9y'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1bc33.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:15:01。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\cmTC_1bc33.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_1bc33.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\Debug\\”。
+          正在创建目录“cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D has_std_0x_flag /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1bc33.dir\\Debug\\\\" /Fd"cmTC_1bc33.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue  -std=c++0x "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\src.cxx"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D has_std_0x_flag /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1bc33.dir\\Debug\\\\" /Fd"cmTC_1bc33.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue  -std=c++0x "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\src.cxx"
+        cl : 命令行  warning D9002: 忽略未知选项“-std=c++0x” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\cmTC_1bc33.vcxproj]
+          src.cxx
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\Debug\\cmTC_1bc33.exe" /INCREMENTAL /ILK:"cmTC_1bc33.dir\\Debug\\cmTC_1bc33.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-0vky9y/Debug/cmTC_1bc33.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-0vky9y/Debug/cmTC_1bc33.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1bc33.dir\\Debug\\src.obj
+          cmTC_1bc33.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\Debug\\cmTC_1bc33.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\Debug\\cmTC_1bc33.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\cmTC_1bc33.write.1u.tlog" "cmTC_1bc33.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\Debug\\cmTC_1bc33.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\cmTC_1bc33.write.1u.tlog" "cmTC_1bc33.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\Debug\\cmTC_1bc33.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\cmTC_1bc33.write.1u.tlog" "cmTC_1bc33.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_1bc33.dir\\Debug\\cmTC_1bc33.tlog\\cmTC_1bc33.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\cmTC_1bc33.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\cmTC_1bc33.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          cl : 命令行  warning D9002: 忽略未知选项“-std=c++0x” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0vky9y\\cmTC_1bc33.vcxproj]
+        
+            1 个警告
+            0 个错误
+        
+        已用时间 00:00:05.39
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "build/_deps/fmt-src/support/cmake/cxx14.cmake:52 (check_cxx_source_compiles)"
+      - "build/_deps/fmt-src/CMakeLists.txt:95 (include)"
+    checks:
+      - "Performing Test SUPPORTS_USER_DEFINED_LITERALS"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-4v1z94"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-4v1z94"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-src/support/cmake"
+    buildResult:
+      variable: "SUPPORTS_USER_DEFINED_LITERALS"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-4v1z94'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_6831c.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:15:07。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\cmTC_6831c.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_6831c.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\Debug\\”。
+          正在创建目录“cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D SUPPORTS_USER_DEFINED_LITERALS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6831c.dir\\Debug\\\\" /Fd"cmTC_6831c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\src.cxx"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D SUPPORTS_USER_DEFINED_LITERALS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6831c.dir\\Debug\\\\" /Fd"cmTC_6831c.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\src.cxx"
+          src.cxx
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\Debug\\cmTC_6831c.exe" /INCREMENTAL /ILK:"cmTC_6831c.dir\\Debug\\cmTC_6831c.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-4v1z94/Debug/cmTC_6831c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-4v1z94/Debug/cmTC_6831c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_6831c.dir\\Debug\\src.obj
+          cmTC_6831c.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\Debug\\cmTC_6831c.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\Debug\\cmTC_6831c.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\cmTC_6831c.write.1u.tlog" "cmTC_6831c.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\Debug\\cmTC_6831c.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\cmTC_6831c.write.1u.tlog" "cmTC_6831c.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\Debug\\cmTC_6831c.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\cmTC_6831c.write.1u.tlog" "cmTC_6831c.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_6831c.dir\\Debug\\cmTC_6831c.tlog\\cmTC_6831c.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4v1z94\\cmTC_6831c.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:06.62
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "build/_deps/fmt-src/support/cmake/cxx14.cmake:62 (check_cxx_source_compiles)"
+      - "build/_deps/fmt-src/CMakeLists.txt:95 (include)"
+    checks:
+      - "Performing Test FMT_HAS_VARIANT"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rh8s6a"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rh8s6a"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-src/support/cmake"
+    buildResult:
+      variable: "FMT_HAS_VARIANT"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rh8s6a'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e7801.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:15:15。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_e7801.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\Debug\\”。
+          正在创建目录“cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D FMT_HAS_VARIANT /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e7801.dir\\Debug\\\\" /Fd"cmTC_e7801.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue  -std=c++1z "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\src.cxx"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D FMT_HAS_VARIANT /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e7801.dir\\Debug\\\\" /Fd"cmTC_e7801.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue  -std=c++1z "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\src.cxx"
+        cl : 命令行  warning D9002: 忽略未知选项“-std=c++1z” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj]
+          src.cxx
+        D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\include\\variant(12): warning STL4038: The contents of <variant> are available only with C++17 or later. [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj]
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\Debug\\cmTC_e7801.exe" /INCREMENTAL /ILK:"cmTC_e7801.dir\\Debug\\cmTC_e7801.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rh8s6a/Debug/cmTC_e7801.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-rh8s6a/Debug/cmTC_e7801.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e7801.dir\\Debug\\src.obj
+          cmTC_e7801.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\Debug\\cmTC_e7801.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\Debug\\cmTC_e7801.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\cmTC_e7801.write.1u.tlog" "cmTC_e7801.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\Debug\\cmTC_e7801.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\cmTC_e7801.write.1u.tlog" "cmTC_e7801.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\Debug\\cmTC_e7801.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\cmTC_e7801.write.1u.tlog" "cmTC_e7801.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_e7801.dir\\Debug\\cmTC_e7801.tlog\\cmTC_e7801.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          cl : 命令行  warning D9002: 忽略未知选项“-std=c++1z” [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj]
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\include\\variant(12): warning STL4038: The contents of <variant> are available only with C++17 or later. [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rh8s6a\\cmTC_e7801.vcxproj]
+        
+            2 个警告
+            0 个错误
+        
+        已用时间 00:00:05.16
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckSymbolExists.cmake:70 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "build/_deps/fmt-src/CMakeLists.txt:174 (check_symbol_exists)"
+    checks:
+      - "Looking for _strtod_l"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-viqttz"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-viqttz"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/fmt-src/support/cmake"
+    buildResult:
+      variable: "HAVE_STRTOD_L"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-viqttz'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_62f2e.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:15:21。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\cmTC_62f2e.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_62f2e.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\Debug\\”。
+          正在创建目录“cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_62f2e.dir\\Debug\\\\" /Fd"cmTC_62f2e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\CheckSymbolExists.cxx"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_62f2e.dir\\Debug\\\\" /Fd"cmTC_62f2e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\CheckSymbolExists.cxx"
+          CheckSymbolExists.cxx
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\Debug\\cmTC_62f2e.exe" /INCREMENTAL /ILK:"cmTC_62f2e.dir\\Debug\\cmTC_62f2e.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-viqttz/Debug/cmTC_62f2e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-viqttz/Debug/cmTC_62f2e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_62f2e.dir\\Debug\\CheckSymbolExists.obj
+          cmTC_62f2e.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\Debug\\cmTC_62f2e.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\Debug\\cmTC_62f2e.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\cmTC_62f2e.write.1u.tlog" "cmTC_62f2e.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\Debug\\cmTC_62f2e.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\cmTC_62f2e.write.1u.tlog" "cmTC_62f2e.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\Debug\\cmTC_62f2e.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\cmTC_62f2e.write.1u.tlog" "cmTC_62f2e.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_62f2e.dir\\Debug\\cmTC_62f2e.tlog\\cmTC_62f2e.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-viqttz\\cmTC_62f2e.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:06.03
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "build/_deps/assimp-src/contrib/zlib/CMakeLists.txt:35 (check_include_file)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-yddsrm"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-yddsrm"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-yddsrm'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f9ba0.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:16:57。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\cmTC_f9ba0.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_f9ba0.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\Debug\\”。
+          正在创建目录“cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9ba0.dir\\Debug\\\\" /Fd"cmTC_f9ba0.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\CheckIncludeFile.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9ba0.dir\\Debug\\\\" /Fd"cmTC_f9ba0.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\Debug\\cmTC_f9ba0.exe" /INCREMENTAL /ILK:"cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-yddsrm/Debug/cmTC_f9ba0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-yddsrm/Debug/cmTC_f9ba0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f9ba0.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_f9ba0.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\Debug\\cmTC_f9ba0.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\Debug\\cmTC_f9ba0.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\cmTC_f9ba0.write.1u.tlog" "cmTC_f9ba0.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\Debug\\cmTC_f9ba0.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\cmTC_f9ba0.write.1u.tlog" "cmTC_f9ba0.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\Debug\\cmTC_f9ba0.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\cmTC_f9ba0.write.1u.tlog" "cmTC_f9ba0.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_f9ba0.dir\\Debug\\cmTC_f9ba0.tlog\\cmTC_f9ba0.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yddsrm\\cmTC_f9ba0.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:04.57
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "build/_deps/assimp-src/contrib/zlib/CMakeLists.txt:36 (check_include_file)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-525133"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-525133"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-525133'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c62e3.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:03。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\cmTC_c62e3.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_c62e3.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\Debug\\”。
+          正在创建目录“cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c62e3.dir\\Debug\\\\" /Fd"cmTC_c62e3.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\CheckIncludeFile.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c62e3.dir\\Debug\\\\" /Fd"cmTC_c62e3.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\Debug\\cmTC_c62e3.exe" /INCREMENTAL /ILK:"cmTC_c62e3.dir\\Debug\\cmTC_c62e3.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-525133/Debug/cmTC_c62e3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-525133/Debug/cmTC_c62e3.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c62e3.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_c62e3.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\Debug\\cmTC_c62e3.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\Debug\\cmTC_c62e3.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\cmTC_c62e3.write.1u.tlog" "cmTC_c62e3.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\Debug\\cmTC_c62e3.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\cmTC_c62e3.write.1u.tlog" "cmTC_c62e3.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\Debug\\cmTC_c62e3.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\cmTC_c62e3.write.1u.tlog" "cmTC_c62e3.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_c62e3.dir\\Debug\\cmTC_c62e3.tlog\\cmTC_c62e3.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-525133\\cmTC_c62e3.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:05.47
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "build/_deps/assimp-src/contrib/zlib/CMakeLists.txt:37 (check_include_file)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-f54y8r"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-f54y8r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-f54y8r'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_6b744.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:09。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\cmTC_6b744.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_6b744.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\Debug\\”。
+          正在创建目录“cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6b744.dir\\Debug\\\\" /Fd"cmTC_6b744.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\CheckIncludeFile.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6b744.dir\\Debug\\\\" /Fd"cmTC_6b744.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\Debug\\cmTC_6b744.exe" /INCREMENTAL /ILK:"cmTC_6b744.dir\\Debug\\cmTC_6b744.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-f54y8r/Debug/cmTC_6b744.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-f54y8r/Debug/cmTC_6b744.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_6b744.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_6b744.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\Debug\\cmTC_6b744.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\Debug\\cmTC_6b744.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\cmTC_6b744.write.1u.tlog" "cmTC_6b744.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\Debug\\cmTC_6b744.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\cmTC_6b744.write.1u.tlog" "cmTC_6b744.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\Debug\\cmTC_6b744.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\cmTC_6b744.write.1u.tlog" "cmTC_6b744.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_6b744.dir\\Debug\\cmTC_6b744.tlog\\cmTC_6b744.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-f54y8r\\cmTC_6b744.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:05.37
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "build/_deps/assimp-src/contrib/zlib/CMakeLists.txt:55 (check_type_size)"
+    checks:
+      - "Check size of off64_t"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-eefdjh"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-eefdjh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_OFF64_T"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-eefdjh'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_cdb42.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:15。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_cdb42.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\Debug\\”。
+          正在创建目录“cmTC_cdb42.dir\\Debug\\cmTC_cdb42.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_cdb42.dir\\Debug\\cmTC_cdb42.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_cdb42.dir\\Debug\\cmTC_cdb42.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cdb42.dir\\Debug\\\\" /Fd"cmTC_cdb42.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cdb42.dir\\Debug\\\\" /Fd"cmTC_cdb42.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c"
+          OFF64_T.c
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(29,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(30,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(31,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(32,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(33,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(29,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(30,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(31,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(32,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\OFF64_T.c(33,12): error C2065: “off64_t”: 未声明的标识符 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eefdjh\\cmTC_cdb42.vcxproj]
+        
+            0 个警告
+            5 个错误
+        
+        已用时间 00:00:01.53
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "build/_deps/assimp-src/contrib/zlib/CMakeLists.txt:64 (check_function_exists)"
+    checks:
+      - "Looking for fseeko"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-epxvdz"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-epxvdz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "HAVE_FSEEKO"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-epxvdz'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_08664.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:17。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_08664.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\Debug\\”。
+          正在创建目录“cmTC_08664.dir\\Debug\\cmTC_08664.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_08664.dir\\Debug\\cmTC_08664.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_08664.dir\\Debug\\cmTC_08664.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08664.dir\\Debug\\\\" /Fd"cmTC_08664.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\CheckFunctionExists.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08664.dir\\Debug\\\\" /Fd"cmTC_08664.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\Debug\\cmTC_08664.exe" /INCREMENTAL /ILK:"cmTC_08664.dir\\Debug\\cmTC_08664.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-epxvdz/Debug/cmTC_08664.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-epxvdz/Debug/cmTC_08664.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_08664.dir\\Debug\\CheckFunctionExists.obj
+        CheckFunctionExists.obj : error LNK2019: 无法解析的外部符号 _fseeko，函数 _main 中引用了该符号 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj]
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\Debug\\cmTC_08664.exe : fatal error LNK1120: 1 个无法解析的外部命令 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj]
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj”(默认目标) (1) ->
+        (Link 目标) -> 
+          CheckFunctionExists.obj : error LNK2019: 无法解析的外部符号 _fseeko，函数 _main 中引用了该符号 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj]
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\Debug\\cmTC_08664.exe : fatal error LNK1120: 1 个无法解析的外部命令 [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-epxvdz\\cmTC_08664.vcxproj]
+        
+            0 个警告
+            2 个错误
+        
+        已用时间 00:00:02.31
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "build/_deps/assimp-src/contrib/zlib/CMakeLists.txt:72 (check_include_file)"
+    checks:
+      - "Looking for unistd.h"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-6u1u08"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-6u1u08"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/assimp-src/cmake-modules"
+    buildResult:
+      variable: "Z_HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-6u1u08'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_10dba.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:22。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\cmTC_10dba.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_10dba.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\Debug\\”。
+          正在创建目录“cmTC_10dba.dir\\Debug\\cmTC_10dba.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_10dba.dir\\Debug\\cmTC_10dba.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_10dba.dir\\Debug\\cmTC_10dba.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_10dba.dir\\Debug\\\\" /Fd"cmTC_10dba.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\CheckIncludeFile.c"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_10dba.dir\\Debug\\\\" /Fd"cmTC_10dba.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\CheckIncludeFile.c(1,10): error C1083: 无法打开包括文件: “unistd.h”: No such file or directory [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\cmTC_10dba.vcxproj]
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\cmTC_10dba.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\cmTC_10dba.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\CheckIncludeFile.c(1,10): error C1083: 无法打开包括文件: “unistd.h”: No such file or directory [D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6u1u08\\cmTC_10dba.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:01.61
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-38cu9f"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-38cu9f"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_openmp"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-38cu9f'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_07cbc.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:25。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\cmTC_07cbc.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_07cbc.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\Debug\\”。
+          正在创建目录“cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_07cbc.dir\\Debug\\\\" /Fd"cmTC_07cbc.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\OpenMPTryFlag.cpp"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_07cbc.dir\\Debug\\\\" /Fd"cmTC_07cbc.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\OpenMPTryFlag.cpp"
+          OpenMPTryFlag.cpp
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\Debug\\cmTC_07cbc.exe" /INCREMENTAL /ILK:"cmTC_07cbc.dir\\Debug\\cmTC_07cbc.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-38cu9f/Debug/cmTC_07cbc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-38cu9f/Debug/cmTC_07cbc.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_07cbc.dir\\Debug\\OpenMPTryFlag.obj
+          cmTC_07cbc.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\Debug\\cmTC_07cbc.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\Debug\\cmTC_07cbc.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\cmTC_07cbc.write.1u.tlog" "cmTC_07cbc.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\Debug\\cmTC_07cbc.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\cmTC_07cbc.write.1u.tlog" "cmTC_07cbc.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\Debug\\cmTC_07cbc.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\cmTC_07cbc.write.1u.tlog" "cmTC_07cbc.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_07cbc.dir\\Debug\\cmTC_07cbc.tlog\\cmTC_07cbc.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-38cu9f\\cmTC_07cbc.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:04.90
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindOpenMP.cmake:419 (try_compile)"
+      - "D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_SPEC_DATE)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "Detecting CXX OpenMP version"
+    directories:
+      source: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-u14td4"
+      binary: "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-u14td4"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+    buildResult:
+      variable: "OpenMP_SPECTEST_CXX_"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-u14td4'
+        
+        Run Build Command(s): D:/VS/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_565a9.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:n
+        适用于 .NET Framework MSBuild 版本 17.8.3+195e7f5a3
+        生成启动时间为 2024/6/10 16:17:31。
+        
+        节点 1 上的项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\cmTC_565a9.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_565a9.dir\\Debug\\”。
+          已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+          正在创建目录“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\Debug\\”。
+          正在创建目录“cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+          正在对“cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\unsuccessfulbuild”执行 Touch 任务。
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\CL.exe /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_565a9.dir\\Debug\\\\" /Fd"cmTC_565a9.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\OpenMPCheckVersion.cpp"
+          用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.38.33133 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          cl /c /I"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /openmp /Fo"cmTC_565a9.dir\\Debug\\\\" /Fd"cmTC_565a9.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\OpenMPCheckVersion.cpp"
+          OpenMPCheckVersion.cpp
+        Link:
+          D:\\VS\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\Debug\\cmTC_565a9.exe" /INCREMENTAL /ILK:"cmTC_565a9.dir\\Debug\\cmTC_565a9.ilk" /NOLOGO /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-u14td4/Debug/cmTC_565a9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/CMakeFiles/CMakeScratch/TryCompile-u14td4/Debug/cmTC_565a9.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_565a9.dir\\Debug\\OpenMPCheckVersion.obj
+          cmTC_565a9.vcxproj -> D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\Debug\\cmTC_565a9.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\Debug\\cmTC_565a9.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\cmTC_565a9.write.1u.tlog" "cmTC_565a9.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+          或批处理文件。
+          命令“pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\Debug\\cmTC_565a9.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\cmTC_565a9.write.1u.tlog" "cmTC_565a9.dir\\Debug\\vcpkg.applocal.log"”已退出，代码为 9009。
+          "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "D:\\Jasmine\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\Debug\\cmTC_565a9.exe" "D:\\Jasmine\\vcpkg\\installed\\x86-windows\\bin" "cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\cmTC_565a9.write.1u.tlog" "cmTC_565a9.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_565a9.dir\\Debug\\cmTC_565a9.tlog\\cmTC_565a9.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“D:\\Jasmine\\Master year1\\q3 3d Computer Graphics and Animation\\TUD-CSE2215-Project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14td4\\cmTC_565a9.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:04.89
+        
+      exitCode: 0
+...

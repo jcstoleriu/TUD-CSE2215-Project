@@ -1,0 +1,108 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/_deps/gsllite-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 143,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 161,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 167,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 171,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/gsl-lite",
+			"exportName" : "gsl-lite-targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "gsl-lite::@5a90b555ca06b3f67482",
+					"index" : 0
+				},
+				{
+					"id" : "gsl-lite-v0::@5a90b555ca06b3f67482",
+					"index" : 0
+				},
+				{
+					"id" : "gsl-lite-v1::@5a90b555ca06b3f67482",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/gsllite-build/CMakeFiles/Export/95ba0980806bdd2d3ecb26c82a76a35f/gsl-lite-targets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/gsl-lite",
+			"paths" : 
+			[
+				"build/_deps/gsllite-build/gsl-lite-config.cmake",
+				"build/_deps/gsllite-build/gsl-lite-config-version.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include/gsl",
+			"paths" : 
+			[
+				"build/_deps/gsllite-src/include/gsl/gsl-lite.hpp"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "include/gsl-lite",
+			"paths" : 
+			[
+				"build/_deps/gsllite-src/include/gsl-lite/gsl-lite.hpp"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/gsllite-build",
+		"source" : "build/_deps/gsllite-src"
+	}
+}

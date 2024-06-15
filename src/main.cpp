@@ -29,8 +29,10 @@ static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
 
 // This is the main rendering function. You are free to change this function in any way (including the function signature).
-static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, const ShadingData &data, std::default_random_engine rng, Screen& screen) {
+static void renderRayTracing(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, const ShadingData &data, std::default_random_engine rng, Screen& screen, TransportMatrix &transportMatrix) {
     std::atomic_size_t render_progress = 0;
+    // size_t numMeshes = scene.meshes.size();
+    // TransportMatrix transportMatrix = TransportMatrix(numMeshes);
 #ifdef USE_OPENMP
 #pragma omp parallel for
 #endif
@@ -42,7 +44,9 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
                 float(y) / HEIGHT * 2.0F - 1.0F
             };
             Ray cameraRay = camera.generateRay(normalizedPixelPos);
-            glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay);
+            // Initialize transport matrix
+            
+            glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay, transportMatrix);
             screen.setPixel(x, y, color);
 
             size_t i = ++render_progress;
@@ -52,8 +56,45 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
             }
         }
     }
+    
     std::cout << std::endl;
 }
+
+// static void computeTransport(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, const ShadingData &data, std::default_random_engine rng, Screen& screen, TransportMatrix &transportMatrix) {
+//     std::atomic_size_t render_progress = 0;
+// #ifdef USE_OPENMP
+// #pragma omp parallel for
+// #endif
+//     for (int y = 0; y < HEIGHT; y++) {
+//         for (int x = 0; x < WIDTH; x++) {
+//             // NOTE: (-1, -1) at the bottom left of the screen, (+1, +1) at the top right of the screen.
+//             glm::vec2 normalizedPixelPos{
+//                 float(x) / WIDTH * 2.0F - 1.0F,
+//                 float(y) / HEIGHT * 2.0F - 1.0F
+//             };
+//             Ray cameraRay = camera.generateRay(normalizedPixelPos);
+//             // Initialize transport matrix
+            
+//             glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay, transportMatrix);
+//             screen.setPixel(x, y, color);
+
+//             size_t i = ++render_progress;
+//             if (i % 64 == 0) {
+//                 float f = 100.0F * i / (WIDTH * HEIGHT);
+//                 std::cout << "\r\033[2KProgress: " << f << "%" << std::flush;
+//             }
+//         }
+//     }
+//     for (size_t i = 0; i < numMeshes; ++i) {
+//         for (size_t j = 0; j < numMeshes; ++j) {
+//             std::cout << "Transport [" << i << "][" << j << "]: (" 
+//                       << transportMatrix.matrix[i][j].x << ", "
+//                       << transportMatrix.matrix[i][j].y << ", "
+//                       << transportMatrix.matrix[i][j].z << ")" << std::endl;
+//         }
+//     }
+//     std::cout << std::endl;
+// }
 
 int main(int argc, char *argv[]) {
     (void) argc;
@@ -84,6 +125,7 @@ int main(int argc, char *argv[]) {
     std::optional<Ray> optDebugRay;
     int bvhDebugLevel = 0;
     bool debugBVH{ false };
+    bool showT {false};
     int selectedLight = 0;
     bool showSelectedMesh = false;
     bool showSelectedMeshE = false; // for showing meshes selected for edit
@@ -94,6 +136,8 @@ int main(int argc, char *argv[]) {
     size_t meshCount = scene.meshes.size();
     std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
     ShadingData data = ShadingData{false, 3, 32, &transforms};
+
+    TransportMatrix transportMatrix = TransportMatrix(meshCount);
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -131,10 +175,20 @@ int main(int argc, char *argv[]) {
         }
         ImGui::Spacing();
         ImGui::Separator();
+        // if (ImGui::Button("Precompute Transport (Freeze View-point)")) {
+        //     {
+        //         const std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
+        //         computeTransport(scene, camera, bvh, data, rng, screen, transportMatrix);
+        //         const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
+        //         std::cout << "Time to compute transport: " << std::chrono::duration<float, std::milli>(end - start).count() / 1000.0F << " second(s)" << std::endl;
+        //     }
+        // }
+        ImGui::Spacing();
+        ImGui::Separator();
         if (ImGui::Button("Render to file")) {
             {
                 const std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
-                renderRayTracing(scene, camera, bvh, data, rng, screen);
+                renderRayTracing(scene, camera, bvh, data, rng, screen, transportMatrix);
                 const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
                 std::cout << "Time to render image: " << std::chrono::duration<float, std::milli>(end - start).count() / 1000.0F << " second(s)" << std::endl;
             }
@@ -221,6 +275,52 @@ int main(int argc, char *argv[]) {
             }
             ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);
         }
+        ImGui::End();
+        // Additional ImGui window for transport matrix visualization
+        ImGui::Begin("Transport Matrix Visualization");
+        // TransportMatrix transportMatrix;
+        ImGui::Checkbox("Show T Matrix", &showT);
+        if (showT) {
+            if (!scene.meshes.empty() && selectedMeshA < scene.meshes.size() && selectedMeshB < scene.meshes.size()) {
+                ImGui::Text("Transport Matrix:");
+                const int n = meshCount;
+                float temp_max = 1.0f;
+                for (int i = 0; i < n; ++i) {
+                    for (int j = 0; j < n; ++j) {
+                        float current = transportMatrix.matrix[i][j].x;
+                        if (current >= temp_max) {
+                            temp_max = current;
+                        }
+                    }
+                }
+                ImGui::BeginChild("Matrix", ImVec2(300, 300), true);
+                for (int i = 0; i < n; ++i) {
+                    for (int j = 0; j < n; ++j) {
+                        const glm::vec3 color = glm::vec3(transportMatrix.matrix[i][j].x / temp_max);
+                        // glm::vec3 normalizedColor = glm::clamp(color, 0.0f, 1.0f);
+                        glm::vec3 normalizedColor = color;
+                        auto &[scalar, offset] = (*data.transforms)[selectedMeshA][selectedMeshB];
+                        if (i == selectedMeshA && j == selectedMeshB) {
+                            normalizedColor = normalizedColor * scalar + offset;
+                        }
+                        ImVec4 imguiColor(normalizedColor.r, normalizedColor.g, normalizedColor.b, 1.0f);  // Convert glm::vec3 to ImVec4
+                        ImGui::ColorButton("##color", imguiColor, ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop | ImGuiColorEditFlags_NoAlpha, ImVec2(20, 20));
+
+                        if (j < n - 1) ImGui::SameLine();
+                    }
+                }
+                ImGui::EndChild();
+            }
+            // for (size_t i = 0; i < meshCount; ++i) {
+            //     for (size_t j = 0; j < meshCount; ++j) {
+            //         std::cout << "Transport [" << i << "][" << j << "]: (" 
+            //                 << transportMatrix.matrix[i][j].x << ", "
+            //                 << transportMatrix.matrix[i][j].y << ", "
+            //                 << transportMatrix.matrix[i][j].z << ")" << std::endl;
+            //     }
+            // }
+        }
+        ImGui::End();
 
         // Clear screen.
         glClearDepth(1.0F);
@@ -234,7 +334,9 @@ int main(int argc, char *argv[]) {
             // We do not reuse the original rng to make the debug output consistent
             std::default_random_engine rand;
             rand.seed(seed);
-            (void) get_color(camera.position(), scene, bvh, data, rand, *optDebugRay);
+            size_t numMeshes = scene.meshes.size();
+            TransportMatrix transportMatrix = TransportMatrix(numMeshes);
+            (void) get_color(camera.position(), scene, bvh, data, rand, *optDebugRay, transportMatrix);
             data.debug = false;
         }
         glPopAttrib();
@@ -276,7 +378,7 @@ int main(int argc, char *argv[]) {
             glPopAttrib();
         }
 
-        ImGui::End();
+        // ImGui::End();
 
         window.swapBuffers();
     }

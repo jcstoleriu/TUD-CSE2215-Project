@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/imgui-populate"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/670af4329b3547d9d54858447da6c2b2/imgui-populate.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/d78acdf19f9b92ce6499622264934112/imgui-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-build.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-download.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-install.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-test.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/imgui-subbuild/CMakeFiles/a758ad858166fa1c4e7a5020603c58da/imgui-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"imgui-populate"
+		],
+		"name" : "imgui-populate"
+	}
+}

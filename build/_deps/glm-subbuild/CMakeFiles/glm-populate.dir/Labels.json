@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/glm-populate"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/3f233d0c3731a2b187d8ce0d06fd2f26/glm-populate.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/9b75767991d1d6332287a772d1e66679/glm-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-build.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-download.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-install.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-test.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/glm-subbuild/CMakeFiles/0451e7406155de1774e1eebbc9b69007/glm-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glm-populate"
+		],
+		"name" : "glm-populate"
+	}
+}

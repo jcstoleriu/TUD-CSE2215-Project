@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/catch2-populate"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/a17dd27640e5638122f65c5785943446/catch2-populate.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/a853fd9a9e856e9746875f793d967eb1/catch2-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-build.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-download.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-install.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-test.rule"
+		},
+		{
+			"file" : "D:/Jasmine/Master year1/q3 3d Computer Graphics and Animation/TUD-CSE2215-Project/build/_deps/catch2-subbuild/CMakeFiles/85392c18d7174159fd5fdecfeab42ca0/catch2-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"catch2-populate"
+		],
+		"name" : "catch2-populate"
+	}
+}
