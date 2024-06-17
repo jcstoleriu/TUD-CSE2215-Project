@@ -105,6 +105,76 @@ static glm::vec3 random_hemisphere_vector(std::default_random_engine &rng, const
 	return glm::vec3(x, y, z);
 }
 
+static inline float surface_triangle(const Mesh& mesh, const Triangle& triangle) {
+	glm::vec3 v0 = mesh.vertices[triangle.x].position;
+	glm::vec3 v1 = mesh.vertices[triangle.y].position;
+	glm::vec3 v2 = mesh.vertices[triangle.z].position;
+
+	glm::vec3 v01 = v1 - v0;
+	glm::vec3 v02 = v2 - v0;
+
+	return glm::length(glm::cross(v01, v02)) / 2.0F;
+}
+
+
+static inline glm::vec3 point_in_triangle(const Mesh& mesh, const Triangle& triangle, const float u1, const float u2) {
+	glm::vec3 v0 = mesh.vertices[triangle.x].position;
+	glm::vec3 v1 = mesh.vertices[triangle.y].position;
+	glm::vec3 v2 = mesh.vertices[triangle.z].position;
+
+	float t1 = u1;
+	float t2 = u2;
+
+	if (t1 + t2 > 1.0F) {
+		t1 = 1.0F - t1;
+		t2 = 1.0F - t2;
+	}
+
+	float t3 = 1.0F - t1 - t2;
+	return t1 * v0 + t2 * v1 + t3 * v2;
+}
+
+std::vector<glm::vec3> generate_gathers(const Scene& scene, const size_t count, const unsigned int seed) {
+	// Surface calculation
+	float surface = 0.0F;
+	std::vector<std::tuple<float, size_t, size_t>> triangles;
+	for (size_t i = 0; i < scene.meshes.size(); i++) {
+		const Mesh& mesh = scene.meshes[i];
+		for (size_t j = 0; j < mesh.triangles.size(); j++) {
+			const Triangle& triangle = mesh.triangles[j];
+			float area = surface_triangle(mesh, triangle);
+			triangles.push_back({ area, i, j });
+			surface += area;
+		}
+	}
+
+	// RNG
+	std::default_random_engine generator;
+	generator.seed(seed);
+	std::uniform_real_distribution<float> d1(0.0F, surface);
+	std::uniform_real_distribution<float> d2(0.0F, 1.0F);
+
+	// Sample generation
+	std::vector<glm::vec3> samples;
+	for (size_t i = 0; i < count; i++) {
+		float rand = d1(generator);
+		float cursor = 0.0F;
+		for (const auto& [area, mi, ti] : triangles) {
+			cursor += area;
+			if (cursor >= rand) {
+				const Mesh& mesh = scene.meshes[mi];
+				const Triangle& triangle = mesh.triangles[ti];
+				float u1 = d2(generator);
+				float u2 = d2(generator);
+				samples.push_back(point_in_triangle(mesh, triangle, u1, u2));
+				break;
+			}
+		}
+	}
+
+	return samples;
+}
+
 static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray, TransportMatrix &transportMatrix, HitInfo &hitInfo, const size_t depth) {
 	// Ray miss
 	if (depth >= data.max_traces || !bvh.intersect(ray, hitInfo)) {

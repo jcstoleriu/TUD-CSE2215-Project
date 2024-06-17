@@ -20,10 +20,11 @@ DISABLE_WARNINGS_POP()
 #endif
 
 // This is the main application. The code in here does not need to be modified.
-static constexpr const size_t WIDTH = 800;
-static constexpr const size_t HEIGHT = 800;
+static constexpr const size_t WIDTH = 2000;
+static constexpr const size_t HEIGHT = 1400;
 static const std::filesystem::path dataPath{ DATA_DIR };
 static const std::filesystem::path outputPath{ OUTPUT_DIR };
+static constexpr size_t POINT_GATHER_COUNT = 64;
 
 static void setOpenGLMatrices(const Trackball &camera);
 static void renderOpenGL(const Scene &scene, const Trackball &camera, int selectedLight);
@@ -96,6 +97,12 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
 //     std::cout << std::endl;
 // }
 
+static std::vector<glm::vec3> sampleGatherpoints(const Scene& scene, size_t nrGathers) {
+    unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::vector<glm::vec3> samples = generate_gathers(scene, nrGathers, seed);
+    return samples;
+}
+
 int main(int argc, char *argv[]) {
     (void) argc;
     (void) argv;
@@ -117,6 +124,9 @@ int main(int argc, char *argv[]) {
     std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
     std::cout << "Time to compute bounding volume hierarchy: " << std::chrono::duration<float, std::milli>(end - start).count() << " millisecond(s)" << std::endl;
 
+    // gather points
+    std::vector<glm::vec3> gathers = sampleGatherpoints(scene, POINT_GATHER_COUNT);
+
     unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine rng;
     rng.seed(seed);
@@ -132,12 +142,14 @@ int main(int argc, char *argv[]) {
     int selectedMesh = 0;
     int selectedMeshA = 0;
     int selectedMeshB = 0;
+    bool showSamples = false;
 
     size_t meshCount = scene.meshes.size();
     std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
     ShadingData data = ShadingData{false, 3, 32, &transforms};
 
-    TransportMatrix transportMatrix = TransportMatrix(meshCount);
+    TransportMatrix transportMatrix = TransportMatrix(POINT_GATHER_COUNT, data.samples);
+    std::cout << transportMatrix.matrix.size() << " " << transportMatrix.matrix[0].size() << std::endl;
 
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
@@ -167,7 +179,11 @@ int main(int argc, char *argv[]) {
         // === Setup the UI ===
         ImGui::Begin("Menu");
         ImGui::SliderInt("Depth", &data.max_traces, 1, 8);
-        ImGui::SliderInt("Samples", &data.samples, 0, 128);
+        {
+            if (ImGui::SliderInt("Samples", &data.samples, 0, 128)) {
+                transportMatrix = TransportMatrix(POINT_GATHER_COUNT, data.samples);
+            }
+        }
         {
             if (ImGui::InputScalar("Seed", ImGuiDataType_::ImGuiDataType_U32, (void *) &seed, NULL, NULL, "%u", 0)) {
                 rng.seed(seed);
@@ -201,6 +217,7 @@ int main(int argc, char *argv[]) {
         if (debugBVH) {
             ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
         }
+        ImGui::Checkbox("Show gather points", &showSamples);
         ImGui::Spacing();
         ImGui::Separator();
         ImGui::Text("Lights");
@@ -283,19 +300,21 @@ int main(int argc, char *argv[]) {
         if (showT) {
             if (!scene.meshes.empty() && selectedMeshA < scene.meshes.size() && selectedMeshB < scene.meshes.size()) {
                 ImGui::Text("Transport Matrix:");
-                const int n = meshCount;
+                ImGui::Text("%d x %d", transportMatrix.matrix.size(), transportMatrix.matrix[0].size());
+                const int x = transportMatrix.matrix.size();
+                const int y = transportMatrix.matrix[0].size();
                 float temp_max = 1.0f;
-                for (int i = 0; i < n; ++i) {
-                    for (int j = 0; j < n; ++j) {
+                for (int i = 0; i < x; ++i) {
+                    for (int j = 0; j < y; ++j) {
                         float current = transportMatrix.matrix[i][j].x;
                         if (current >= temp_max) {
                             temp_max = current;
                         }
                     }
                 }
-                ImGui::BeginChild("Matrix", ImVec2(300, 300), true);
-                for (int i = 0; i < n; ++i) {
-                    for (int j = 0; j < n; ++j) {
+                ImGui::BeginChild("Matrix", ImVec2(600, 800), true, ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
+                for (int i = 0; i < x; ++i) {
+                    for (int j = 0; j < y; ++j) {
                         const glm::vec3 color = glm::vec3(transportMatrix.matrix[i][j].x / temp_max);
                         // glm::vec3 normalizedColor = glm::clamp(color, 0.0f, 1.0f);
                         glm::vec3 normalizedColor = color;
@@ -306,7 +325,7 @@ int main(int argc, char *argv[]) {
                         ImVec4 imguiColor(normalizedColor.r, normalizedColor.g, normalizedColor.b, 1.0f);  // Convert glm::vec3 to ImVec4
                         ImGui::ColorButton("##color", imguiColor, ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop | ImGuiColorEditFlags_NoAlpha, ImVec2(20, 20));
 
-                        if (j < n - 1) ImGui::SameLine();
+                        if (j < y - 1) ImGui::SameLine();
                     }
                 }
                 ImGui::EndChild();
@@ -352,6 +371,19 @@ int main(int argc, char *argv[]) {
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             bvh.debugDraw(bvhDebugLevel);
+            glPopAttrib();
+        }
+
+        if (showSamples) {
+            glPushAttrib(GL_ALL_ATTRIB_BITS);
+            setOpenGLMatrices(camera);
+            glDisable(GL_LIGHTING);
+            glEnable(GL_DEPTH_TEST);
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            for (const glm::vec3& sample : gathers) {
+                drawSphere(sample, 0.005F, glm::vec3(1.0F, 0.0F, 1.0F));
+            }
             glPopAttrib();
         }
 

@@ -16,6 +16,8 @@ struct TransportMatrix {
 
     // Initialize the transport matrix with zeros
     TransportMatrix(size_t size) : matrix(size, std::vector<glm::vec3>(size, glm::vec3(0.0F, 0.0F, 0.0F))) {}
+
+	TransportMatrix(size_t x, size_t y) : matrix(x, std::vector<glm::vec3>(y, glm::vec3(0.0F, 0.0F, 0.0F))) {}
 };
 
 struct ShadingData {
@@ -24,6 +26,8 @@ struct ShadingData {
 	int samples;
 	std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> *transforms;
 };
+
+std::vector<glm::vec3> generate_gathers(const Scene& scene, const size_t count, const unsigned int seed);
 
 bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal, const bool debug);
 
