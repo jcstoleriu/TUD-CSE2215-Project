@@ -2,6 +2,7 @@
 
 #include "ray.h"
 #include "scene.h"
+#include "illumination.h"
 
 enum class DrawMode {
     FILLED,
@@ -19,3 +20,4 @@ void drawAABB(const AxisAlignedBox &box, const DrawMode drawMode, const glm::vec
 void drawScene(const Scene &scene);
 
 void drawRay(const Ray &ray, const glm::vec3 &color);
+

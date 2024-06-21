@@ -19,6 +19,7 @@ DISABLE_WARNINGS_PUSH()
 DISABLE_WARNINGS_POP()
 #include "draw.h"
 #include "ray.h"
+#include "illumination.h"
 
 static void setMaterial(const Material &material) {
     // Set the material color of the shape.

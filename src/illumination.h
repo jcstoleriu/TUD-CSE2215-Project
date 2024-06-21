@@ -3,6 +3,7 @@
 #include "disable_all_warnings.h"
 DISABLE_WARNINGS_PUSH()
 #include <glm/vec3.hpp>
+#include <random>
 DISABLE_WARNINGS_POP()
 #include "bounding_volume_hierarchy.h"
 #include "mesh.h"
@@ -26,8 +27,6 @@ struct ShadingData {
 	int samples;
 	std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> *transforms;
 };
-
-std::vector<glm::vec3> generate_gathers(const Scene& scene, const size_t count, const unsigned int seed);
 
 bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal, const bool debug);
 
