@@ -192,28 +192,26 @@ glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingV
 
 // based on https://www.eecis.udel.edu/~amer/CISC651/wavelets_for_computer_graphics_Stollnitz.pdf
 // projects input vector into wavelet space and returns result
-std::vector<glm::vec3> haarTransformRow(std::vector<glm::vec3> row) {
+std::vector<glm::vec3> haarTransformRow(const std::vector<glm::vec3> &row) {
 	// final result
 	std::vector<glm::vec3> coeffs;
-	std::vector<glm::vec3> vals;
+	std::vector<glm::vec3> vals = row;
 
 	// can only do pairwise averaging log2(size) times
 	int levels = std::log2(row.size());
-	if (std::pow(2, levels) != std::log2(row.size())) {
+
+	if (std::pow(2, levels) != row.size()) {
 		throw std::invalid_argument("Array size is not a power of 2, which is needed for the Haar transform!");
 	}
-
-	// this and any attempts to access row fails and i have no idea why
-	std::cout << row[0].x << std::endl;
 
 	for (int i = 0; i < levels; i++) {
 		std::vector<glm::vec3> tempCoeffs;
 		// new intermediary values
 		std::vector<glm::vec3> temp;
 		// pairwise averaging
-		for (int j = 0; j < temp.size(); j += 2) {
-			glm::vec3 avg = (temp[j] + temp[j + 1]) / glm::vec3(2.0);
-			glm::vec3 coeff = temp[j] - avg;
+		for (int j = 0; j < vals.size(); j += 2) {
+			glm::vec3 avg = (vals[j] + vals[j + 1]) / glm::vec3(2.0);
+			glm::vec3 coeff = vals[j] - avg;
 			tempCoeffs.push_back(coeff);
 			temp.push_back(avg);
 		}
