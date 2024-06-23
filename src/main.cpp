@@ -140,6 +140,15 @@ int main(int argc, char *argv[]) {
     TransportMatrix transportMatrix = TransportMatrix(meshCount, meshCount);
     std::cout << transportMatrix.matrix.size() << " " << transportMatrix.matrix[0].size() << std::endl;
 
+    std::vector<glm::vec3> example;
+    example.push_back(glm::vec3(8.0));
+    example.push_back(glm::vec3(4.0));
+    example.push_back(glm::vec3(1.0));
+    example.push_back(glm::vec3(3.0));
+    std::vector<glm::vec3> compressed = haarTransformRow(example);
+    for (int i = 0; i < compressed.size(); i++)
+        std::cout << compressed[i].x << " " << compressed[i].y << " " << compressed[i].z << std::endl;
+
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
             (void) mods;
