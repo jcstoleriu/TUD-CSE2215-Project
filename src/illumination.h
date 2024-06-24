@@ -8,6 +8,7 @@ DISABLE_WARNINGS_POP()
 #include "bounding_volume_hierarchy.h"
 #include "mesh.h"
 #include "scene.h"
+#include "sparseMatrix.h"
 
 // Define a structure to store transport matrix
 struct TransportMatrix {
@@ -25,7 +26,8 @@ struct ShadingData {
 	bool debug;
 	int max_traces;
 	int samples;
-	std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> *transforms;
+	//std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> *transforms;
+	SparseMatrix *transforms;
 };
 
 bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const glm::vec3 &light, const glm::vec3 &normal, const bool debug);

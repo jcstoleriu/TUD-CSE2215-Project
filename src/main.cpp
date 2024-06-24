@@ -15,6 +15,7 @@ DISABLE_WARNINGS_POP()
 #include "screen.h"
 #include "trackball.h"
 #include "window.h"
+#include "sparseMatrix.h"
 #ifdef USE_OPENMP
 #include <omp.h>
 #endif
@@ -134,7 +135,8 @@ int main(int argc, char *argv[]) {
     int selectedMeshB = 0;
 
     size_t meshCount = scene.meshes.size();
-    std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
+    //std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
+    SparseMatrix transforms = SparseMatrix(meshCount, meshCount);
     ShadingData data = ShadingData{false, 3, 32, &transforms};
 
     TransportMatrix transportMatrix = TransportMatrix(meshCount, meshCount);
@@ -270,9 +272,10 @@ int main(int argc, char *argv[]) {
                 ImGui::Combo("Mesh B", &selectedMeshB, optionsPointersB.data(), static_cast<int>(optionsPointersB.size()));
             }
             {
-                auto &[scalar, offset] = (*data.transforms)[selectedMeshA][selectedMeshB];
-                ImGui::InputFloat3("Scalar", glm::value_ptr(scalar));
-                ImGui::InputFloat3("Offset", glm::value_ptr(offset));
+                auto [scalar, offset] = (*data.transforms).get(selectedMeshA, selectedMeshB);
+                if (ImGui::InputFloat3("Scalar", glm::value_ptr(scalar)) || ImGui::InputFloat3("Offset", glm::value_ptr(offset))) {
+                    (*data.transforms).set(selectedMeshA, selectedMeshB, std::tuple(scalar, offset));
+                }
             }
             ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);
         }
@@ -304,14 +307,16 @@ int main(int argc, char *argv[]) {
                         ImGui::BeginGroup();
                         const glm::vec3 color = glm::vec3(transportMatrix.matrix[i][j].x / temp_max);
                         glm::vec3 normalizedColor = color;
-                        auto& [scalar, offset] = (*data.transforms)[selectedMeshA][selectedMeshB];
+                        auto [scalar, offset] = (*data.transforms).get(i, j);
 
-                        if (i == selectedMeshA && j == selectedMeshB) {
-                            normalizedColor = normalizedColor * scalar + offset;
-                        }
+                        //if (i == selectedMeshA && j == selectedMeshB) {
+                        normalizedColor = normalizedColor * scalar + offset;
+                        //}
 
                         //std::cout << normalizedColor.x << " " << normalizedColor.y << " " << normalizedColor.z << std::endl;
-                        ImGui::Text("%.2f\n%.2f\n%.2f", normalizedColor.x, normalizedColor.y, normalizedColor.z);
+                        ImGui::Text("%.2f\n%.2f\n%.2f", scalar.x, scalar.y, scalar.z);
+                        ImGui::SameLine();
+                        ImGui::Text("%.2f\n%.2f\n%.2f", offset.x, offset.y, offset.z);
                         ImGui::SameLine();
                         ImVec4 imguiColor(normalizedColor.r, normalizedColor.g, normalizedColor.b, 1.0f);  // Convert glm::vec3 to ImVec4
                         ImGui::ColorButton("##color", imguiColor, ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop | ImGuiColorEditFlags_NoAlpha, ImVec2(20, 20));

@@ -165,13 +165,10 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 			// Note that the resulting color is not clamped to [0, 1] on purpose
 			if (sample_hitInfo.meshIdx != INVALID_INDEX) {
 				//transportMatrix.matrix[hitInfo.meshIdx][sample_hitInfo.meshIdx] += (factor / data.samples) * color;
-				const auto &[scalar, offset] = (*data.transforms)[sample_hitInfo.meshIdx][hitInfo.meshIdx];
+				const auto &[scalar, offset] = (*data.transforms).get(sample_hitInfo.meshIdx, hitInfo.meshIdx);
 				color = scalar * color + offset;
 			}
 
-			//if (sampleRay.t < std::numeric_limits<float>::max()) {
-			//	factor /= sampleRay.t * sampleRay.t;
-			//}
 			indirect += factor * color;
 		}
 	}
