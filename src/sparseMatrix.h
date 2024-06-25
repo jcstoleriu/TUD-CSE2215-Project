@@ -18,6 +18,8 @@ public:
 	SparseMatrix(uint16_t n, uint16_t m);
 	SparseMatrix(uint16_t n);
 
+	std::map<std::tuple<uint16_t, uint16_t>, std::tuple<glm::vec3, glm::vec3>>& getMatrix();
+	int getSize();
 	std::tuple<glm::vec3, glm::vec3> get(uint16_t i, uint16_t j);
 	std::vector<std::tuple<glm::vec3, glm::vec3>> getRow(uint16_t i);
 

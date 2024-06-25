@@ -45,7 +45,6 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
                 float(y) / HEIGHT * 2.0F - 1.0F
             };
             Ray cameraRay = camera.generateRay(normalizedPixelPos);
-            // Initialize transport matrix
             
             glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay, transportMatrix);
             screen.setPixel(x, y, color);
@@ -197,34 +196,34 @@ int main(int argc, char *argv[]) {
             }
             screen.writeBitmapToFile(outputPath / "render.bmp");
         }
-        ImGui::Spacing();
-        ImGui::Separator();
-        ImGui::Text("Debugging");
-        ImGui::Checkbox("Draw BVH", &debugBVH);
-        if (debugBVH) {
-            ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
-        }
-        ImGui::Spacing();
-        ImGui::Separator();
-        ImGui::Text("Lights");
-        if (!scene.pointLights.empty()) {
-            {
-                std::vector<std::string> options;
-                for (size_t i = 0; i < scene.pointLights.size(); i++) {
-                    options.push_back("Point Light " + std::to_string(i + 1));
-                }
+        //ImGui::Spacing();
+        //ImGui::Separator();
+        //ImGui::Text("Debugging");
+        //ImGui::Checkbox("Draw BVH", &debugBVH);
+        //if (debugBVH) {
+        //    ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
+        //}
+        //ImGui::Spacing();
+        //ImGui::Separator();
+        //ImGui::Text("Lights");
+        //if (!scene.pointLights.empty()) {
+        //    {
+        //        std::vector<std::string> options;
+        //        for (size_t i = 0; i < scene.pointLights.size(); i++) {
+        //            options.push_back("Point Light " + std::to_string(i + 1));
+        //        }
 
-                std::vector<const char*> optionsPointers;
-                std::transform(std::begin(options), std::end(options), std::back_inserter(optionsPointers), [](const auto& str) { return str.c_str(); });
-                ImGui::Combo("Selected light", &selectedLight, optionsPointers.data(), static_cast<int>(optionsPointers.size()));
-            }
-            {
-                ImGui::DragFloat3("Light position", glm::value_ptr(scene.pointLights[selectedLight].position), 0.01F, -3.0F, 3.0F);
-                ImGui::ColorEdit3("Light color", glm::value_ptr(scene.pointLights[selectedLight].color));
-            }
-        }
-        ImGui::Spacing();
-        ImGui::Separator();
+        //        std::vector<const char*> optionsPointers;
+        //        std::transform(std::begin(options), std::end(options), std::back_inserter(optionsPointers), [](const auto& str) { return str.c_str(); });
+        //        ImGui::Combo("Selected light", &selectedLight, optionsPointers.data(), static_cast<int>(optionsPointers.size()));
+        //    }
+        //    {
+        //        ImGui::DragFloat3("Light position", glm::value_ptr(scene.pointLights[selectedLight].position), 0.01F, -3.0F, 3.0F);
+        //        ImGui::ColorEdit3("Light color", glm::value_ptr(scene.pointLights[selectedLight].color));
+        //    }
+        //}
+        //ImGui::Spacing();
+        //ImGui::Separator();
         ImGui::Text("Meshes");
         if (!scene.meshes.empty()) {
             {
@@ -302,18 +301,15 @@ int main(int argc, char *argv[]) {
                 //ImGui::BeginChild("Matrix", ImVec2(500, 200), true, ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
                 ImDrawList* drawList = ImGui::GetWindowDrawList();
 
+                ImGui::Text("Logical representation: ");
                 for (int i = 0; i < x; ++i) {
                     for (int j = 0; j < y; ++j) {  
                         ImGui::BeginGroup();
                         const glm::vec3 color = glm::vec3(transportMatrix.matrix[i][j].x / temp_max);
                         glm::vec3 normalizedColor = color;
                         auto [scalar, offset] = (*data.transforms).get(i, j);
-
-                        //if (i == selectedMeshA && j == selectedMeshB) {
                         normalizedColor = normalizedColor * scalar + offset;
-                        //}
 
-                        //std::cout << normalizedColor.x << " " << normalizedColor.y << " " << normalizedColor.z << std::endl;
                         ImGui::Text("%.2f\n%.2f\n%.2f", scalar.x, scalar.y, scalar.z);
                         ImGui::SameLine();
                         ImGui::Text("%.2f\n%.2f\n%.2f", offset.x, offset.y, offset.z);
@@ -329,16 +325,23 @@ int main(int argc, char *argv[]) {
                         }
                     }
                 }
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Text("Representation in memory: ");
+                if ((*data.transforms).getSize() == 0)
+                    ImGui::Text("No non-default elements defined.");
+                else {
+                    for (const auto& [key, val] : (*data.transforms).getMatrix()) {
+                        auto &[scalar, offset] = val;
+                        ImGui::Text("(%d, %d) -> ((%.2f, %.2f, %.2f), (%.2f, %.2f, %.2f))", std::get<0>(key), std::get<1>(key),
+                            scalar.x, scalar.y, scalar.z, offset.x, offset.y, offset.z);
+                    }
+                }
+                
+                //TODO haar wavelet visualization?
+                //TODO maybe only for selected row
                 //ImGui::EndChild();
             }
-            // for (size_t i = 0; i < meshCount; ++i) {
-            //     for (size_t j = 0; j < meshCount; ++j) {
-            //         std::cout << "Transport [" << i << "][" << j << "]: (" 
-            //                 << transportMatrix.matrix[i][j].x << ", "
-            //                 << transportMatrix.matrix[i][j].y << ", "
-            //                 << transportMatrix.matrix[i][j].z << ")" << std::endl;
-            //     }
-            // }
         }
         ImGui::End();
 

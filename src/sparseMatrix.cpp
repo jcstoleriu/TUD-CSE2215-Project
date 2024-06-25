@@ -12,6 +12,14 @@ SparseMatrix::SparseMatrix(uint16_t n) {
 	SparseMatrix(n, n);
 }
 
+std::map<std::tuple<uint16_t, uint16_t>, std::tuple<glm::vec3, glm::vec3>>& SparseMatrix::getMatrix() {
+	return matrix;
+}
+
+int SparseMatrix::getSize() {
+	return matrix.size();
+}
+
 std::tuple<glm::vec3, glm::vec3> SparseMatrix::get(uint16_t i, uint16_t j) {
 	std::tuple<uint16_t, uint16_t> key = std::tuple(i, j);
 	// key exists
