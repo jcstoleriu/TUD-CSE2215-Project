@@ -165,13 +165,10 @@ static glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const Bo
 			// Note that the resulting color is not clamped to [0, 1] on purpose
 			if (sample_hitInfo.meshIdx != INVALID_INDEX) {
 				//transportMatrix.matrix[hitInfo.meshIdx][sample_hitInfo.meshIdx] += (factor / data.samples) * color;
-				const auto &[scalar, offset] = (*data.transforms)[sample_hitInfo.meshIdx][hitInfo.meshIdx];
+				const auto &[scalar, offset] = (*data.transforms).get(sample_hitInfo.meshIdx, hitInfo.meshIdx);
 				color = scalar * color + offset;
 			}
 
-			//if (sampleRay.t < std::numeric_limits<float>::max()) {
-			//	factor /= sampleRay.t * sampleRay.t;
-			//}
 			indirect += factor * color;
 		}
 	}
@@ -190,12 +187,12 @@ glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingV
 	return get_color(camera, scene, bvh, data, rng, ray, transportMatrix, hitInfo, 0);
 }
 
-// based on https://www.eecis.udel.edu/~amer/CISC651/wavelets_for_computer_graphics_Stollnitz.pdf
-// projects input vector into wavelet space and returns result
-std::vector<glm::vec3> haarTransformRow(const std::vector<glm::vec3> &row) {
+// Based on https://www.eecis.udel.edu/~amer/CISC651/wavelets_for_computer_graphics_Stollnitz.pdf
+// Projects input vector into wavelet space and returns result
+std::vector<std::tuple<glm::vec3, glm::vec3>> haarTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &row) {
 	// final result
-	std::vector<glm::vec3> coeffs;
-	std::vector<glm::vec3> vals = row;
+	std::vector<std::tuple<glm::vec3, glm::vec3>> coeffs;
+	std::vector<std::tuple<glm::vec3, glm::vec3>> vals = row;
 
 	// can only do pairwise averaging log2(size) times
 	int levels = std::log2(row.size());
@@ -205,13 +202,18 @@ std::vector<glm::vec3> haarTransformRow(const std::vector<glm::vec3> &row) {
 	}
 
 	for (int i = 0; i < levels; i++) {
-		std::vector<glm::vec3> tempCoeffs;
+		std::vector<std::tuple<glm::vec3, glm::vec3>> tempCoeffs;
 		// new intermediary values
-		std::vector<glm::vec3> temp;
-		// pairwise averaging
+		std::vector<std::tuple<glm::vec3, glm::vec3>> temp;
+		// pairwise averaging for both scale and offset
 		for (int j = 0; j < vals.size(); j += 2) {
-			glm::vec3 avg = (vals[j] + vals[j + 1]) / glm::vec3(2.0);
-			glm::vec3 coeff = vals[j] - avg;
+			glm::vec3 avg_scalar = (std::get<0>(vals[j]) + std::get<0>(vals[j + 1])) / glm::vec3(2.0);
+			glm::vec3 avg_offset = (std::get<1>(vals[j]) + std::get<1>(vals[j + 1])) / glm::vec3(2.0);
+			std::tuple<glm::vec3, glm::vec3> avg = std::tuple(avg_scalar, avg_offset);
+
+			glm::vec3 coeff_scalar = std::get<0>(vals[j]) - std::get<0>(avg);
+			glm::vec3 coeff_offset = std::get<1>(vals[j]) - std::get<1>(avg);
+			std::tuple<glm::vec3, glm::vec3> coeff = std::tuple(coeff_scalar, coeff_offset);
 			tempCoeffs.push_back(coeff);
 			temp.push_back(avg);
 		}
@@ -225,17 +227,27 @@ std::vector<glm::vec3> haarTransformRow(const std::vector<glm::vec3> &row) {
 	return coeffs;
 }
 
-std::vector<glm::vec3> haarInvTransformRow(const std::vector<glm::vec3> &projected) {
+/*
+Reconstruct original vector from its Haar-projected vector
+*/
+std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &projected) {
 	int nrVals = 1;
 
-	std::vector<glm::vec3> reconstructed = { projected[0] };
+	std::vector<std::tuple<glm::vec3, glm::vec3>> reconstructed = { projected[0] };
 
 	// iteratively reconstruct original array. could also do this recursively
 	while (nrVals <= std::log2(projected.size())) {
-		std::vector<glm::vec3> temp;
+		std::vector<std::tuple<glm::vec3, glm::vec3>> temp;
 		for (int j = 0; j < nrVals; j++) {
-			temp.push_back(reconstructed[j] + projected[nrVals + j]);
-			temp.push_back(reconstructed[j] - projected[nrVals + j]);
+			glm::vec3 first_scalar = std::get<0>(reconstructed[j]) + std::get<0>(projected[nrVals + j]);
+			glm::vec3 first_offset = std::get<1>(reconstructed[j]) + std::get<1>(projected[nrVals + j]);
+			std::tuple<glm::vec3, glm::vec3> first = std::tuple(first_scalar, first_offset);
+
+			glm::vec3 second_scalar = std::get<0>(reconstructed[j]) - std::get<0>(projected[nrVals + j]);
+			glm::vec3 second_offset = std::get<1>(reconstructed[j]) - std::get<1>(projected[nrVals + j]);
+			std::tuple<glm::vec3, glm::vec3> second = std::tuple(second_scalar, second_offset);
+			temp.push_back(first);
+			temp.push_back(second);
 		}
 		reconstructed = temp;
 		nrVals *= 2;

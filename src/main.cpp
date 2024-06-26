@@ -15,6 +15,7 @@ DISABLE_WARNINGS_POP()
 #include "screen.h"
 #include "trackball.h"
 #include "window.h"
+#include "sparseMatrix.h"
 #ifdef USE_OPENMP
 #include <omp.h>
 #endif
@@ -44,7 +45,6 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
                 float(y) / HEIGHT * 2.0F - 1.0F
             };
             Ray cameraRay = camera.generateRay(normalizedPixelPos);
-            // Initialize transport matrix
             
             glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay, transportMatrix);
             screen.setPixel(x, y, color);
@@ -134,7 +134,8 @@ int main(int argc, char *argv[]) {
     int selectedMeshB = 0;
 
     size_t meshCount = scene.meshes.size();
-    std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
+    //std::vector<std::vector<std::tuple<glm::vec3, glm::vec3>>> transforms(meshCount, std::vector<std::tuple<glm::vec3, glm::vec3>>(meshCount, std::tuple(glm::vec3(1.0F), glm::vec3(0.0F))));
+    SparseMatrix transforms = SparseMatrix(meshCount, meshCount);
     ShadingData data = ShadingData{false, 3, 32, &transforms};
 
     TransportMatrix transportMatrix = TransportMatrix(meshCount, meshCount);
@@ -195,34 +196,34 @@ int main(int argc, char *argv[]) {
             }
             screen.writeBitmapToFile(outputPath / "render.bmp");
         }
-        ImGui::Spacing();
-        ImGui::Separator();
-        ImGui::Text("Debugging");
-        ImGui::Checkbox("Draw BVH", &debugBVH);
-        if (debugBVH) {
-            ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
-        }
-        ImGui::Spacing();
-        ImGui::Separator();
-        ImGui::Text("Lights");
-        if (!scene.pointLights.empty()) {
-            {
-                std::vector<std::string> options;
-                for (size_t i = 0; i < scene.pointLights.size(); i++) {
-                    options.push_back("Point Light " + std::to_string(i + 1));
-                }
+        //ImGui::Spacing();
+        //ImGui::Separator();
+        //ImGui::Text("Debugging");
+        //ImGui::Checkbox("Draw BVH", &debugBVH);
+        //if (debugBVH) {
+        //    ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
+        //}
+        //ImGui::Spacing();
+        //ImGui::Separator();
+        //ImGui::Text("Lights");
+        //if (!scene.pointLights.empty()) {
+        //    {
+        //        std::vector<std::string> options;
+        //        for (size_t i = 0; i < scene.pointLights.size(); i++) {
+        //            options.push_back("Point Light " + std::to_string(i + 1));
+        //        }
 
-                std::vector<const char*> optionsPointers;
-                std::transform(std::begin(options), std::end(options), std::back_inserter(optionsPointers), [](const auto& str) { return str.c_str(); });
-                ImGui::Combo("Selected light", &selectedLight, optionsPointers.data(), static_cast<int>(optionsPointers.size()));
-            }
-            {
-                ImGui::DragFloat3("Light position", glm::value_ptr(scene.pointLights[selectedLight].position), 0.01F, -3.0F, 3.0F);
-                ImGui::ColorEdit3("Light color", glm::value_ptr(scene.pointLights[selectedLight].color));
-            }
-        }
-        ImGui::Spacing();
-        ImGui::Separator();
+        //        std::vector<const char*> optionsPointers;
+        //        std::transform(std::begin(options), std::end(options), std::back_inserter(optionsPointers), [](const auto& str) { return str.c_str(); });
+        //        ImGui::Combo("Selected light", &selectedLight, optionsPointers.data(), static_cast<int>(optionsPointers.size()));
+        //    }
+        //    {
+        //        ImGui::DragFloat3("Light position", glm::value_ptr(scene.pointLights[selectedLight].position), 0.01F, -3.0F, 3.0F);
+        //        ImGui::ColorEdit3("Light color", glm::value_ptr(scene.pointLights[selectedLight].color));
+        //    }
+        //}
+        //ImGui::Spacing();
+        //ImGui::Separator();
         ImGui::Text("Meshes");
         if (!scene.meshes.empty()) {
             {
@@ -270,9 +271,10 @@ int main(int argc, char *argv[]) {
                 ImGui::Combo("Mesh B", &selectedMeshB, optionsPointersB.data(), static_cast<int>(optionsPointersB.size()));
             }
             {
-                auto &[scalar, offset] = (*data.transforms)[selectedMeshA][selectedMeshB];
-                ImGui::InputFloat3("Scalar", glm::value_ptr(scalar));
-                ImGui::InputFloat3("Offset", glm::value_ptr(offset));
+                auto [scalar, offset] = (*data.transforms).get(selectedMeshA, selectedMeshB);
+                if (ImGui::InputFloat3("Scalar", glm::value_ptr(scalar)) || ImGui::InputFloat3("Offset", glm::value_ptr(offset))) {
+                    (*data.transforms).set(selectedMeshA, selectedMeshB, std::tuple(scalar, offset));
+                }
             }
             ImGui::Checkbox("Highlight selected meshes (red for A and green for B)", &showSelectedMeshE);
         }
@@ -299,19 +301,18 @@ int main(int argc, char *argv[]) {
                 //ImGui::BeginChild("Matrix", ImVec2(500, 200), true, ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
                 ImDrawList* drawList = ImGui::GetWindowDrawList();
 
+                ImGui::Text("Logical representation: ");
                 for (int i = 0; i < x; ++i) {
                     for (int j = 0; j < y; ++j) {  
                         ImGui::BeginGroup();
                         const glm::vec3 color = glm::vec3(transportMatrix.matrix[i][j].x / temp_max);
                         glm::vec3 normalizedColor = color;
-                        auto& [scalar, offset] = (*data.transforms)[selectedMeshA][selectedMeshB];
+                        auto [scalar, offset] = (*data.transforms).get(i, j);
+                        normalizedColor = normalizedColor * scalar + offset;
 
-                        if (i == selectedMeshA && j == selectedMeshB) {
-                            normalizedColor = normalizedColor * scalar + offset;
-                        }
-
-                        //std::cout << normalizedColor.x << " " << normalizedColor.y << " " << normalizedColor.z << std::endl;
-                        ImGui::Text("%.2f\n%.2f\n%.2f", normalizedColor.x, normalizedColor.y, normalizedColor.z);
+                        ImGui::Text("%.2f\n%.2f\n%.2f", scalar.x, scalar.y, scalar.z);
+                        ImGui::SameLine();
+                        ImGui::Text("%.2f\n%.2f\n%.2f", offset.x, offset.y, offset.z);
                         ImGui::SameLine();
                         ImVec4 imguiColor(normalizedColor.r, normalizedColor.g, normalizedColor.b, 1.0f);  // Convert glm::vec3 to ImVec4
                         ImGui::ColorButton("##color", imguiColor, ImGuiColorEditFlags_NoTooltip | ImGuiColorEditFlags_NoDragDrop | ImGuiColorEditFlags_NoAlpha, ImVec2(20, 20));
@@ -324,16 +325,24 @@ int main(int argc, char *argv[]) {
                         }
                     }
                 }
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Text("Representation in memory: ");
+                if ((*data.transforms).getSize() == 0)
+                    ImGui::Text("No non-default elements defined.");
+                else {
+                    for (const auto& [key, val] : (*data.transforms).getMatrix()) {
+                        auto &[scalar, offset] = val;
+                        ImGui::Text("(%d, %d) -> ((%.2f, %.2f, %.2f), (%.2f, %.2f, %.2f))", std::get<0>(key), std::get<1>(key),
+                            scalar.x, scalar.y, scalar.z, offset.x, offset.y, offset.z);
+                    }
+                }
+                
+                ImGui::Spacing();
+                ImGui::Separator();
+
                 //ImGui::EndChild();
             }
-            // for (size_t i = 0; i < meshCount; ++i) {
-            //     for (size_t j = 0; j < meshCount; ++j) {
-            //         std::cout << "Transport [" << i << "][" << j << "]: (" 
-            //                 << transportMatrix.matrix[i][j].x << ", "
-            //                 << transportMatrix.matrix[i][j].y << ", "
-            //                 << transportMatrix.matrix[i][j].z << ")" << std::endl;
-            //     }
-            // }
         }
         ImGui::End();
 
