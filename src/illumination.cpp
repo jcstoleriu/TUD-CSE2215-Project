@@ -189,19 +189,21 @@ glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingV
 
 // Based on https://www.eecis.udel.edu/~amer/CISC651/wavelets_for_computer_graphics_Stollnitz.pdf
 // Projects input vector into wavelet space and returns result
-std::vector<std::tuple<glm::vec3, glm::vec3>> haarTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &row) {
+// Level controls how many times the pairwise averaging is applied for visualization purposes
+std::vector<std::tuple<glm::vec3, glm::vec3>> haarTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &row, int level) {
 	// final result
 	std::vector<std::tuple<glm::vec3, glm::vec3>> coeffs;
 	std::vector<std::tuple<glm::vec3, glm::vec3>> vals = row;
 
 	// can only do pairwise averaging log2(size) times
-	int levels = std::log2(row.size());
+	if (level > std::log2(row.size()))
+		level = std::log2(row.size());
 
-	if (std::pow(2, levels) != row.size()) {
-		throw std::invalid_argument("Array size is not a power of 2, which is needed for the Haar transform!");
-	}
+	//if (std::pow(2, level) != row.size()) {
+	//	throw std::invalid_argument("Array size is not a power of 2, which is needed for the Haar transform!");
+	//}
 
-	for (int i = 0; i < levels; i++) {
+	for (int i = 0; i < level; i++) {
 		std::vector<std::tuple<glm::vec3, glm::vec3>> tempCoeffs;
 		// new intermediary values
 		std::vector<std::tuple<glm::vec3, glm::vec3>> temp;
@@ -230,13 +232,14 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarTransformRow(const std::vector
 /*
 Reconstruct original vector from its Haar-projected vector
 */
-std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &projected) {
-	int nrVals = 1;
-
+std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &projected, int level) {
 	std::vector<std::tuple<glm::vec3, glm::vec3>> reconstructed = { projected[0] };
 
-	// iteratively reconstruct original array. could also do this recursively
-	while (nrVals <= std::log2(projected.size())) {
+	if (level > std::log2(projected.size()))
+		level = std::log2(projected.size());
+
+	// iteratively reconstruct origina l array. could also do this recursively
+	for (int nrVals = 1; nrVals <= pow(2, (level-1)); nrVals *=2) {
 		std::vector<std::tuple<glm::vec3, glm::vec3>> temp;
 		for (int j = 0; j < nrVals; j++) {
 			glm::vec3 first_scalar = std::get<0>(reconstructed[j]) + std::get<0>(projected[nrVals + j]);
@@ -250,7 +253,6 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vec
 			temp.push_back(second);
 		}
 		reconstructed = temp;
-		nrVals *= 2;
 	}
 
 	return reconstructed;

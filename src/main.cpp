@@ -96,6 +96,26 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
 //     std::cout << std::endl;
 // }
 
+static void showArray(std::vector< std::tuple<glm::vec3, glm::vec3>> arr, ImDrawList* drawList) {
+    for (const auto& [scalar, offset] : arr) {
+        ImGui::BeginGroup();
+
+        ImGui::Text("%.2f\n%.2f\n%.2f", scalar.x, scalar.y, scalar.z);
+        ImGui::SameLine();
+        ImGui::Text("%.2f\n%.2f\n%.2f", offset.x, offset.y, offset.z);
+
+        ImGui::EndGroup();
+        ImGui::SameLine();
+
+        ImU32 white = ImGui::ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 1.0, 1.0));
+        // for some reason operators are not overloaded for ImVec
+        ImVec2 start = ImVec2(ImGui::GetItemRectMin().x-5.0, ImGui::GetItemRectMin().y-5.0);
+        ImVec2 end = ImVec2(ImGui::GetItemRectMax().x+5.0, ImGui::GetItemRectMax().y+5.0);
+        drawList->AddRect(start, end, white);
+    }
+    ImGui::Dummy(ImVec2(0.0f, 20.0f));
+}
+
 int main(int argc, char *argv[]) {
     (void) argc;
     (void) argv;
@@ -303,6 +323,7 @@ int main(int argc, char *argv[]) {
 
                 ImGui::Text("Logical representation: ");
                 for (int i = 0; i < x; ++i) {
+                    ImGui::BeginGroup();
                     for (int j = 0; j < y; ++j) {  
                         ImGui::BeginGroup();
                         const glm::vec3 color = glm::vec3(transportMatrix.matrix[i][j].x / temp_max);
@@ -319,10 +340,17 @@ int main(int argc, char *argv[]) {
                         ImGui::EndGroup();
 
                         if (j < y - 1) ImGui::SameLine();
+                        // highlight selected element
                         if (i == selectedMeshA && j == selectedMeshB) {
                             ImU32 yellow = ImGui::ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 0.0, 1.0));
                             drawList->AddRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), yellow);
                         }
+                    }
+                    ImGui::EndGroup();
+                    // highlight selected row
+                    if (i == selectedMeshA) {
+                        ImU32 yellow = ImGui::ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 0.0, 1.0));
+                        drawList->AddRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), yellow);
                     }
                 }
                 ImGui::Spacing();
@@ -340,8 +368,38 @@ int main(int argc, char *argv[]) {
                 
                 ImGui::Spacing();
                 ImGui::Separator();
+                ImGui::Text("Haar transform example: ");
 
-                //ImGui::EndChild();
+                // to do the haar transform you need a vector with 2^k elements, which would take a bit to set up
+                // so i think using pre-defined vectors is fine for example purposes
+                std::tuple<glm::vec3, glm::vec3> a1 = std::tuple(glm::vec3(8.0), glm::vec3(8.0));
+                std::tuple<glm::vec3, glm::vec3> a2 = std::tuple(glm::vec3(4.0), glm::vec3(4.0));
+                std::tuple<glm::vec3, glm::vec3> a3 = std::tuple(glm::vec3(1.0), glm::vec3(1.0));
+                std::tuple<glm::vec3, glm::vec3> a4 = std::tuple(glm::vec3(3.0), glm::vec3(3.0));
+                std::tuple<glm::vec3, glm::vec3> a5 = std::tuple(glm::vec3(5.0), glm::vec3(5.0));
+                std::tuple<glm::vec3, glm::vec3> a6 = std::tuple(glm::vec3(2.0), glm::vec3(2.0));
+                std::tuple<glm::vec3, glm::vec3> a7 = std::tuple(glm::vec3(2.0), glm::vec3(2.0));
+                std::tuple<glm::vec3, glm::vec3> a8 = std::tuple(glm::vec3(1.0), glm::vec3(1.0));
+                std::vector< std::tuple<glm::vec3, glm::vec3>> arr;
+                arr.push_back(a1);
+                arr.push_back(a2);
+                arr.push_back(a3);
+                arr.push_back(a4);
+                arr.push_back(a5);
+                arr.push_back(a6);
+                arr.push_back(a7);
+                arr.push_back(a8);
+
+                static int level = std::log2(arr.size());
+                ImGui::SliderInt("Transform level", &level, 1, std::log2(arr.size()));
+                ImGui::Dummy(ImVec2(10.0f, 20.0f));
+
+                showArray(arr, drawList);
+
+                // apply Haar transform and show projected array
+                ImGui::Dummy(ImVec2(10.0f, 20.0f));
+                std::vector< std::tuple<glm::vec3, glm::vec3>> transf = haarTransformRow(arr, level);
+                showArray(transf, drawList);
             }
         }
         ImGui::End();
