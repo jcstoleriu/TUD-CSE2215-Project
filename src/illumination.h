@@ -35,6 +35,6 @@ bool is_shadow(const BoundingVolumeHierarchy &bvh, const glm::vec3 &point, const
 // TODO: pass T into get color for updates
 glm::vec3 get_color(const glm::vec3 &camera, const Scene &scene, const BoundingVolumeHierarchy &bvh, const ShadingData &data, std::default_random_engine &rng, Ray &ray, TransportMatrix &transportMatrix);
 
-std::vector<glm::vec3> haarTransformRow(const std::vector<glm::vec3> &row);
-std::vector<glm::vec3> haarInvTransformRow(const std::vector<glm::vec3> &projected);
+std::vector<std::tuple<glm::vec3, glm::vec3>> haarTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &row);
+std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &projected);
 // void computeAndVisualizeTransportMatrix(const Scene &scene, const BoundingVolumeHierarchy &bvh, TransportMatrix &transportMatrix, const Trackball &camera);

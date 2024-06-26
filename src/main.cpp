@@ -338,8 +338,9 @@ int main(int argc, char *argv[]) {
                     }
                 }
                 
-                //TODO haar wavelet visualization?
-                //TODO maybe only for selected row
+                ImGui::Spacing();
+                ImGui::Separator();
+
                 //ImGui::EndChild();
             }
         }

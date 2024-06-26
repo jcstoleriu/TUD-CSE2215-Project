@@ -24,5 +24,5 @@ public:
 	std::vector<std::tuple<glm::vec3, glm::vec3>> getRow(uint16_t i);
 
 	void set(uint16_t i, uint16_t j, std::tuple<glm::vec3, glm::vec3> val);
-	//void setRow(uint16_t i, std::vector<glm::vec3> val);
+	void setRow(uint16_t i, std::vector<std::tuple<glm::vec3, glm::vec3>> row);
 };
