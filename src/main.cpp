@@ -161,6 +161,31 @@ int main(int argc, char *argv[]) {
     TransportMatrix transportMatrix = TransportMatrix(meshCount, meshCount);
     std::cout << transportMatrix.matrix.size() << " " << transportMatrix.matrix[0].size() << std::endl;
 
+    // to do the haar transform you need a vector with 2^k elements, which would take a bit to set up
+    // so i think using pre-defined vectors is fine for example purposes
+    std::tuple<glm::vec3, glm::vec3> a1 = std::tuple(glm::vec3(8.0), glm::vec3(8.0));
+    std::tuple<glm::vec3, glm::vec3> a2 = std::tuple(glm::vec3(4.0), glm::vec3(4.0));
+    std::tuple<glm::vec3, glm::vec3> a3 = std::tuple(glm::vec3(1.0), glm::vec3(1.0));
+    std::tuple<glm::vec3, glm::vec3> a4 = std::tuple(glm::vec3(3.0), glm::vec3(3.0));
+    std::tuple<glm::vec3, glm::vec3> a5 = std::tuple(glm::vec3(5.0), glm::vec3(5.0));
+    std::tuple<glm::vec3, glm::vec3> a6 = std::tuple(glm::vec3(2.0), glm::vec3(2.0));
+    std::tuple<glm::vec3, glm::vec3> a7 = std::tuple(glm::vec3(2.0), glm::vec3(2.0));
+    std::tuple<glm::vec3, glm::vec3> a8 = std::tuple(glm::vec3(1.0), glm::vec3(1.0));
+    std::vector< std::tuple<glm::vec3, glm::vec3>> arr;
+    arr.push_back(a1);
+    arr.push_back(a2);
+    arr.push_back(a3);
+    arr.push_back(a4);
+    arr.push_back(a5);
+    arr.push_back(a6);
+    arr.push_back(a7);
+    arr.push_back(a8);
+
+    static int level = std::log2(arr.size());
+    std::vector< std::tuple<glm::vec3, glm::vec3>> transf = haarTransformRow(arr, level);
+
+    std::vector< std::tuple<glm::vec3, glm::vec3>> reconstr = haarInvTransformRow(transf, level);
+
     window.registerKeyCallback([&](int key, int scancode, int action, int mods) {
             (void) scancode;
             (void) mods;
@@ -370,36 +395,35 @@ int main(int argc, char *argv[]) {
                 ImGui::Separator();
                 ImGui::Text("Haar transform example: ");
 
-                // to do the haar transform you need a vector with 2^k elements, which would take a bit to set up
-                // so i think using pre-defined vectors is fine for example purposes
-                std::tuple<glm::vec3, glm::vec3> a1 = std::tuple(glm::vec3(8.0), glm::vec3(8.0));
-                std::tuple<glm::vec3, glm::vec3> a2 = std::tuple(glm::vec3(4.0), glm::vec3(4.0));
-                std::tuple<glm::vec3, glm::vec3> a3 = std::tuple(glm::vec3(1.0), glm::vec3(1.0));
-                std::tuple<glm::vec3, glm::vec3> a4 = std::tuple(glm::vec3(3.0), glm::vec3(3.0));
-                std::tuple<glm::vec3, glm::vec3> a5 = std::tuple(glm::vec3(5.0), glm::vec3(5.0));
-                std::tuple<glm::vec3, glm::vec3> a6 = std::tuple(glm::vec3(2.0), glm::vec3(2.0));
-                std::tuple<glm::vec3, glm::vec3> a7 = std::tuple(glm::vec3(2.0), glm::vec3(2.0));
-                std::tuple<glm::vec3, glm::vec3> a8 = std::tuple(glm::vec3(1.0), glm::vec3(1.0));
-                std::vector< std::tuple<glm::vec3, glm::vec3>> arr;
-                arr.push_back(a1);
-                arr.push_back(a2);
-                arr.push_back(a3);
-                arr.push_back(a4);
-                arr.push_back(a5);
-                arr.push_back(a6);
-                arr.push_back(a7);
-                arr.push_back(a8);
-
                 static int level = std::log2(arr.size());
-                ImGui::SliderInt("Transform level", &level, 1, std::log2(arr.size()));
+                if (ImGui::SliderInt("Transform level", &level, 1, std::log2(arr.size()))) {
+                    transf = haarTransformRow(arr, level);
+                    reconstr = haarInvTransformRow(transf, level);
+                }
                 ImGui::Dummy(ImVec2(10.0f, 20.0f));
 
+                ImGui::Text("Original array: ");
                 showArray(arr, drawList);
 
                 // apply Haar transform and show projected array
                 ImGui::Dummy(ImVec2(10.0f, 20.0f));
-                std::vector< std::tuple<glm::vec3, glm::vec3>> transf = haarTransformRow(arr, level);
+                ImGui::Text("Haar wavelet projection: ");
                 showArray(transf, drawList);
+
+                if (ImGui::Button("Cull small coefficients")) {
+                    for (auto& [scalar, offset] : transf) {
+                        // cull if between -1 and 1
+                        // in our case all elements are the same, but that is obviously not always the case
+                        if (scalar.x > -1.0 && scalar.x < 1.0) {
+                            scalar = glm::vec3(0.0);
+                            offset = glm::vec3(0.0);
+                        }
+                    }
+                }
+
+                ImGui::Dummy(ImVec2(10.0f, 20.0f));
+                ImGui::Text("Reconstructed: ");
+                showArray(reconstr, drawList);
             }
         }
         ImGui::End();

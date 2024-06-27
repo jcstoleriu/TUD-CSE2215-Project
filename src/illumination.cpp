@@ -233,13 +233,15 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarTransformRow(const std::vector
 Reconstruct original vector from its Haar-projected vector
 */
 std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vector<std::tuple<glm::vec3, glm::vec3>> &projected, int level) {
-	std::vector<std::tuple<glm::vec3, glm::vec3>> reconstructed = { projected[0] };
 
 	if (level > std::log2(projected.size()))
 		level = std::log2(projected.size());
 
-	// iteratively reconstruct origina l array. could also do this recursively
-	for (int nrVals = 1; nrVals <= pow(2, (level-1)); nrVals *=2) {
+	int nrVals = projected.size() / pow(2, level);
+	std::vector<std::tuple<glm::vec3, glm::vec3>> reconstructed = { projected.begin(), projected.begin() + nrVals };
+
+	// iteratively reconstruct original array. could also do this recursively
+	while (nrVals < projected.size()) {
 		std::vector<std::tuple<glm::vec3, glm::vec3>> temp;
 		for (int j = 0; j < nrVals; j++) {
 			glm::vec3 first_scalar = std::get<0>(reconstructed[j]) + std::get<0>(projected[nrVals + j]);
@@ -251,7 +253,11 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vec
 			std::tuple<glm::vec3, glm::vec3> second = std::tuple(second_scalar, second_offset);
 			temp.push_back(first);
 			temp.push_back(second);
+			//temp.push_back(std::tuple<glm::vec3, glm::vec3>(glm::vec3(0.0), glm::vec3(0.0)));
+			//temp.push_back(std::tuple<glm::vec3, glm::vec3>(glm::vec3(1.0), glm::vec3(1.0)));
 		}
+		nrVals *= 2;
+		std::cout << nrVals << std::endl;
 		reconstructed = temp;
 	}
 
