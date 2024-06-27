@@ -181,7 +181,7 @@ int main(int argc, char *argv[]) {
     arr.push_back(a7);
     arr.push_back(a8);
 
-    static int level = std::log2(arr.size());
+    static int level = 1;
     std::vector< std::tuple<glm::vec3, glm::vec3>> transf = haarTransformRow(arr, level);
 
     std::vector< std::tuple<glm::vec3, glm::vec3>> reconstr = haarInvTransformRow(transf, level);
@@ -222,14 +222,6 @@ int main(int argc, char *argv[]) {
         }
         ImGui::Spacing();
         ImGui::Separator();
-        // if (ImGui::Button("Precompute Transport (Freeze View-point)")) {
-        //     {
-        //         const std::chrono::steady_clock::time_point start = std::chrono::high_resolution_clock::now();
-        //         computeTransport(scene, camera, bvh, data, rng, screen, transportMatrix);
-        //         const std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
-        //         std::cout << "Time to compute transport: " << std::chrono::duration<float, std::milli>(end - start).count() / 1000.0F << " second(s)" << std::endl;
-        //     }
-        // }
         ImGui::Spacing();
         ImGui::Separator();
         if (ImGui::Button("Render to file")) {
@@ -241,34 +233,6 @@ int main(int argc, char *argv[]) {
             }
             screen.writeBitmapToFile(outputPath / "render.bmp");
         }
-        //ImGui::Spacing();
-        //ImGui::Separator();
-        //ImGui::Text("Debugging");
-        //ImGui::Checkbox("Draw BVH", &debugBVH);
-        //if (debugBVH) {
-        //    ImGui::SliderInt("BVH Level", &bvhDebugLevel, 0, bvh.numLevels() - 1);
-        //}
-        //ImGui::Spacing();
-        //ImGui::Separator();
-        //ImGui::Text("Lights");
-        //if (!scene.pointLights.empty()) {
-        //    {
-        //        std::vector<std::string> options;
-        //        for (size_t i = 0; i < scene.pointLights.size(); i++) {
-        //            options.push_back("Point Light " + std::to_string(i + 1));
-        //        }
-
-        //        std::vector<const char*> optionsPointers;
-        //        std::transform(std::begin(options), std::end(options), std::back_inserter(optionsPointers), [](const auto& str) { return str.c_str(); });
-        //        ImGui::Combo("Selected light", &selectedLight, optionsPointers.data(), static_cast<int>(optionsPointers.size()));
-        //    }
-        //    {
-        //        ImGui::DragFloat3("Light position", glm::value_ptr(scene.pointLights[selectedLight].position), 0.01F, -3.0F, 3.0F);
-        //        ImGui::ColorEdit3("Light color", glm::value_ptr(scene.pointLights[selectedLight].color));
-        //    }
-        //}
-        //ImGui::Spacing();
-        //ImGui::Separator();
         ImGui::Text("Meshes");
         if (!scene.meshes.empty()) {
             {

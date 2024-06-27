@@ -242,6 +242,7 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vec
 	std::vector<std::tuple<glm::vec3, glm::vec3>> reconstructed = { projected.begin(), projected.begin() + nrVals };
 
 	// iteratively reconstruct original array. could also do this recursively
+	// go until we have the original number of elements in the reconstructed array
 	while (nrVals < projected.size()) {
 		std::vector<std::tuple<glm::vec3, glm::vec3>> temp;
 		for (int j = 0; j < nrVals; j++) {
@@ -256,7 +257,6 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vec
 			temp.push_back(second);
 		}
 		nrVals *= 2;
-		std::cout << nrVals << std::endl;
 		reconstructed = temp;
 	}
 
