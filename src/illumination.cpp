@@ -237,6 +237,7 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vec
 	if (level > std::log2(projected.size()))
 		level = std::log2(projected.size());
 
+	// number of values that are not coefficients in projected array (depends of level of projection)
 	int nrVals = projected.size() / pow(2, level);
 	std::vector<std::tuple<glm::vec3, glm::vec3>> reconstructed = { projected.begin(), projected.begin() + nrVals };
 
@@ -253,8 +254,6 @@ std::vector<std::tuple<glm::vec3, glm::vec3>> haarInvTransformRow(const std::vec
 			std::tuple<glm::vec3, glm::vec3> second = std::tuple(second_scalar, second_offset);
 			temp.push_back(first);
 			temp.push_back(second);
-			//temp.push_back(std::tuple<glm::vec3, glm::vec3>(glm::vec3(0.0), glm::vec3(0.0)));
-			//temp.push_back(std::tuple<glm::vec3, glm::vec3>(glm::vec3(1.0), glm::vec3(1.0)));
 		}
 		nrVals *= 2;
 		std::cout << nrVals << std::endl;

@@ -412,11 +412,12 @@ int main(int argc, char *argv[]) {
 
                 if (ImGui::Button("Cull small coefficients")) {
                     for (auto& [scalar, offset] : transf) {
-                        // cull if between -1 and 1
+                        // cull if between -1 and 1 and reconstruct original array again to show error
                         // in our case all elements are the same, but that is obviously not always the case
                         if (scalar.x > -1.0 && scalar.x < 1.0) {
                             scalar = glm::vec3(0.0);
                             offset = glm::vec3(0.0);
+                            reconstr = haarInvTransformRow(transf, level);
                         }
                     }
                 }
