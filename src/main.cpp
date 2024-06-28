@@ -60,42 +60,6 @@ static void renderRayTracing(const Scene& scene, const Trackball& camera, const 
     std::cout << std::endl;
 }
 
-// static void computeTransport(const Scene& scene, const Trackball& camera, const BoundingVolumeHierarchy& bvh, const ShadingData &data, std::default_random_engine rng, Screen& screen, TransportMatrix &transportMatrix) {
-//     std::atomic_size_t render_progress = 0;
-// #ifdef USE_OPENMP
-// #pragma omp parallel for
-// #endif
-//     for (int y = 0; y < HEIGHT; y++) {
-//         for (int x = 0; x < WIDTH; x++) {
-//             // NOTE: (-1, -1) at the bottom left of the screen, (+1, +1) at the top right of the screen.
-//             glm::vec2 normalizedPixelPos{
-//                 float(x) / WIDTH * 2.0F - 1.0F,
-//                 float(y) / HEIGHT * 2.0F - 1.0F
-//             };
-//             Ray cameraRay = camera.generateRay(normalizedPixelPos);
-//             // Initialize transport matrix
-            
-//             glm::vec3 color = get_color(camera.position(), scene, bvh, data, rng, cameraRay, transportMatrix);
-//             screen.setPixel(x, y, color);
-
-//             size_t i = ++render_progress;
-//             if (i % 64 == 0) {
-//                 float f = 100.0F * i / (WIDTH * HEIGHT);
-//                 std::cout << "\r\033[2KProgress: " << f << "%" << std::flush;
-//             }
-//         }
-//     }
-//     for (size_t i = 0; i < numMeshes; ++i) {
-//         for (size_t j = 0; j < numMeshes; ++j) {
-//             std::cout << "Transport [" << i << "][" << j << "]: (" 
-//                       << transportMatrix.matrix[i][j].x << ", "
-//                       << transportMatrix.matrix[i][j].y << ", "
-//                       << transportMatrix.matrix[i][j].z << ")" << std::endl;
-//         }
-//     }
-//     std::cout << std::endl;
-// }
-
 static void showArray(std::vector< std::tuple<glm::vec3, glm::vec3>> arr, ImDrawList* drawList) {
     for (const auto& [scalar, offset] : arr) {
         ImGui::BeginGroup();
@@ -289,6 +253,8 @@ int main(int argc, char *argv[]) {
         }
         ImGui::End();
         // Additional ImGui window for transport matrix visualization
+        ImGui::SetNextWindowPos(ImVec2(80.0, 10.0) , ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowSize(ImVec2(800.0, 900.0), ImGuiCond_FirstUseEver);
         ImGui::Begin("Transport Matrix Visualization");
         // TransportMatrix transportMatrix;
         ImGui::Checkbox("Show T Matrix", &showT);
